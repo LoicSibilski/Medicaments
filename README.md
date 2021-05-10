@@ -38,9 +38,9 @@
     <br />
     <a href="https://github.com/LoicSibilski/Medicaments">Voir une démo</a>
     ·
-    <a href="https://github.com/LoicSibilski/Medicaments/issues">Rapporter un bug</a>
+    <a href="https://github.com/LoicSibilski/Medicaments/issues">Signaler un bug</a>
     ·
-    <a href="https://github.com/LoicSibilski/Medicaments/issues">Demander une fonctionnalité</a>
+    <a href="https://github.com/LoicSibilski/Medicaments/issues">Suggérer une fonctionnalité</a>
   </p>
 </p>
 
@@ -53,13 +53,13 @@
     <li>
       <a href="#about-the-project">À propos</a>
       <ul>
-        <li><a href="#built-with">Contruit avec</a></li>
+        <li><a href="#built-with">Technologies utilisées</a></li>
       </ul>
     </li>
     <li>
-      <a href="#getting-started">Commencement</a>
+      <a href="#getting-started">Comment commencer</a>
       <ul>
-        <li><a href="#prerequisites">Conditions préalables</a></li>
+        <li><a href="#prerequisites">prérequis</a></li>
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
@@ -67,7 +67,7 @@
     <li><a href="#contributing">Contribution</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgements">Credits</a></li>
+    <li><a href="#acknowledgements">Crédits</a></li>
   </ol>
 </details>
 
@@ -78,14 +78,14 @@
 
 ** On ne sait quoi mettre dans cette section du README.md **
 
-**To avoid retyping too much info. Do a search and replace with your text editor for the following:**
+<!-- **To avoid retyping too much info. Do a search and replace with your text editor for the following:**
 `github_username`, `repo_name`, `twitter_handle`, `email`, `project_title`, `project_description`
-
+-->
 
 ### Fait avec
 
-* [Angular IONIC](https://ionicframework.com/)
-* [Spring Boot](https://spring.io/)
+* [Angular](https://angular.io/)
+<!-- * [Spring Boot](https://spring.io/) -->
 
 
 
