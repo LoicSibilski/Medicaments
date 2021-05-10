@@ -76,11 +76,13 @@
 <!-- ABOUT THE PROJECT -->
 ## À propos
 
+** On ne sait quoi mettre dans cette section du README.md **
+
 **To avoid retyping too much info. Do a search and replace with your text editor for the following:**
 `github_username`, `repo_name`, `twitter_handle`, `email`, `project_title`, `project_description`
 
 
-### Built With
+### Fait avec
 
 * [Angular IONIC](https://ionicframework.com/)
 * [Spring Boot](https://spring.io/)
@@ -102,11 +104,11 @@ Faites en sorte d'avoir la version la plus récente de npm
 
 ### Installation
 
-1. Clonez le repertoire
+1. Clone le repository
    ```sh
    git clone https://github.com/LoicSibilski/Medicaments.git
    ```
-2. Installez les packets NPM
+2. Installer les packages npm 
    ```sh
    npm i
    ```
