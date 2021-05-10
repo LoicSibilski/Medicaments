@@ -32,7 +32,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/github_username/repo_name">
+  <a href="https://github.com/LoicSibilski/Medicaments">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
@@ -41,14 +41,14 @@
   <p align="center">
     project_description
     <br />
-    <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/LoicSibilski/Medicaments"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/github_username/repo_name">View Demo</a>
+    <a href="https://github.com/LoicSibilski/Medicaments">View Demo</a>
     ·
-    <a href="https://github.com/github_username/repo_name/issues">Report Bug</a>
+    <a href="https://github.com/LoicSibilski/Medicaments">Report Bug</a>
     ·
-    <a href="https://github.com/github_username/repo_name/issues">Request Feature</a>
+    <a href="https://github.com/LoicSibilski/Medicaments">Request Feature</a>
   </p>
 </p>
 
@@ -94,9 +94,8 @@ Here's a blank template to get started:
 
 ### Built With
 
-* []()
-* []()
-* []()
+* [Angular IONIC](https://ionicframework.com/)
+* [Spring Boot](https://spring.io/)
 
 
 
@@ -139,7 +138,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 <!-- LICENSE -->
 ## License
 
-Distribué sous la Licence MIT.
+Distributed under the MIT License. See `LICENSE` for more information.
 
 
 
@@ -147,7 +146,9 @@ Distribué sous la Licence MIT.
 ## Contact
 
 Mercier Samy
+
 Bidault Fabien
+
 Loïc Sibilski 
 
 
@@ -155,9 +156,8 @@ Loïc Sibilski
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
 
-* []()
-* []()
-* []()
+* [Font Awesome](https://fontawesome.com)
+
 
 
 
