@@ -76,11 +76,13 @@
 <!-- ABOUT THE PROJECT -->
 ## À propos
 
+** On ne sait quoi mettre dans cette section du README.md **
+
 **To avoid retyping too much info. Do a search and replace with your text editor for the following:**
 `github_username`, `repo_name`, `twitter_handle`, `email`, `project_title`, `project_description`
 
 
-### Built With
+### Fait avec
 
 * [Angular IONIC](https://ionicframework.com/)
 * [Spring Boot](https://spring.io/)
@@ -94,7 +96,6 @@ To get a local copy up and running follow these simple steps.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
 * npm
   ```sh
   npm install npm@latest -g
@@ -102,11 +103,11 @@ This is an example of how to list things you need to use the software and how to
 
 ### Installation
 
-1. Clone the repo
+1. Clone le repository
    ```sh
-   git clone https://github.com/github_username/repo_name.git
+   git clone https://github.com/LoicSibilski/Medicaments
    ```
-2. Install NPM packages
+2. Installer les packages NPM 
    ```sh
    npm install
    ```
