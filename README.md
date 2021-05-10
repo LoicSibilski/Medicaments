@@ -88,13 +88,13 @@
 
 
 <!-- GETTING STARTED -->
-## Getting Started
+## Comment commencer
 
-To get a local copy up and running follow these simple steps.
+Pour obtenir une copie locale, copiez et suivez ces instructions simples
 
-### Prerequisites
+### Prérequis
 
-This is an example of how to list things you need to use the software and how to install them.
+Faites en sorte d'avoir la version la plus récente de npm
 * npm
   ```sh
   npm install npm@latest -g
@@ -102,15 +102,22 @@ This is an example of how to list things you need to use the software and how to
 
 ### Installation
 
-1. Clone the repo
+1. Clonez le repertoire
    ```sh
-   git clone https://github.com/github_username/repo_name.git
+   git clone https://github.com/LoicSibilski/Medicaments.git
    ```
-2. Install NPM packages
+2. Installez les packets NPM
    ```sh
-   npm install
+   npm i
    ```
-
+3. Lancez le serveur local (port 4200)
+   ```sh
+   ng serve -o
+   ```
+4. Lancez l'API de base de donnée locale json
+   ```sh
+   npm run api
+   ```   
 
 
 <!-- USAGE EXAMPLES -->
