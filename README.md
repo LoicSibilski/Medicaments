@@ -31,16 +31,16 @@
   <h3 align="center">Médicaments</h3>
 
   <p align="center">
-    project_description
+    DESCRIPTION DU PROJET
     <br />
-    <a href="https://github.com/LoicSibilski/Medicaments"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/LoicSibilski/Medicaments"><strong>Voir la documentation</strong></a>
     <br />
     <br />
-    <a href="https://github.com/LoicSibilski/Medicaments">View Demo</a>
+    <a href="https://github.com/LoicSibilski/Medicaments">Voir une démo</a>
     ·
-    <a href="https://github.com/LoicSibilski/Medicaments/issues">Report Bug</a>
+    <a href="https://github.com/LoicSibilski/Medicaments/issues">Rapporter un bug</a>
     ·
-    <a href="https://github.com/LoicSibilski/Medicaments/issues">Request Feature</a>
+    <a href="https://github.com/LoicSibilski/Medicaments/issues">Demander une fonctionnalité</a>
   </p>
 </p>
 
@@ -48,38 +48,34 @@
 
 <!-- TABLE OF CONTENTS -->
 <details open="open">
-  <summary><h2 style="display: inline-block">Table of Contents</h2></summary>
+  <summary><h2 style="display: inline-block">Sommaire</h2></summary>
   <ol>
     <li>
-      <a href="#about-the-project">About The Project</a>
+      <a href="#about-the-project">À propos</a>
       <ul>
-        <li><a href="#built-with">Built With</a></li>
+        <li><a href="#built-with">Contruit avec</a></li>
       </ul>
     </li>
     <li>
-      <a href="#getting-started">Getting Started</a>
+      <a href="#getting-started">Commencement</a>
       <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#prerequisites">Conditions préalables</a></li>
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#usage">Utilisation</a></li>
+    <li><a href="#contributing">Contribution</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgements">Acknowledgements</a></li>
+    <li><a href="#acknowledgements">Credits</a></li>
   </ol>
 </details>
 
 
 
 <!-- ABOUT THE PROJECT -->
-## About The Project
+## À propos
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
-Here's a blank template to get started:
 **To avoid retyping too much info. Do a search and replace with your text editor for the following:**
 `github_username`, `repo_name`, `twitter_handle`, `email`, `project_title`, `project_description`
 
