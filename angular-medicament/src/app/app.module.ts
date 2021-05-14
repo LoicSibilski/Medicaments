@@ -3,14 +3,94 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { RouterModule } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
+import { UsersPagesComponent } from './feature/users/pages/users-pages/users-pages.component';
+import { UsersDetailComponent } from './feature/users/pages/users-detail/users-detail.component';
+import { UsersListComponent } from './feature/users/pages/users-list/users-list.component';
+import { UsersEditFormComponent } from './feature/users/pages/users-edit-form/users-edit-form.component';
+import { UsersNewFormComponent } from './feature/users/pages/users-new-form/users-new-form.component';
+import { UsersFormComponent } from './feature/users/components/users-form/users-form.component';
+import { MedicsPageComponent } from './feature/medics/pages/medics-page/medics-page.component';
+import { MedicsDetailComponent } from './feature/medics/pages/medics-detail/medics-detail.component';
+import { MedicsListComponent } from './feature/medics/pages/medics-list/medics-list.component';
+import { MedicsEditFormComponent } from './feature/medics/pages/medics-edit-form/medics-edit-form.component';
+import { MedicsNewFormComponent } from './feature/medics/pages/medics-new-form/medics-new-form.component';
+import { MedicFormComponent } from './feature/medics/components/medic-form/medic-form.component';
+import { PrescriptionsPageComponent } from './feature/prescription/pages/prescriptions-page/prescriptions-page.component';
+import { PrescriptionsDetailComponent } from './feature/prescription/pages/prescriptions-detail/prescriptions-detail.component';
+import { PrescriptionsListComponent } from './feature/prescription/pages/prescriptions-list/prescriptions-list.component';
+import { PrescriptionsEditFormComponent } from './feature/prescription/pages/prescriptions-edit-form/prescriptions-edit-form.component';
+import { PrescriptionsNewFormComponent } from './feature/prescription/pages/prescriptions-new-form/prescriptions-new-form.component';
+import { PrescriptionsFormComponent } from './feature/prescription/components/prescriptions-form/prescriptions-form.component';
+import { RendezvousFormComponent } from './feature/rendezvous/components/rendezvous-form/rendezvous-form.component';
+import { RendezvousPageComponent } from './feature/rendezvous/pages/rendezvous-page/rendezvous-page.component';
+import { RendezvousDetailComponent } from './feature/rendezvous/pages/rendezvous-detail/rendezvous-detail.component';
+import { RendezvousListComponent } from './feature/rendezvous/pages/rendezvous-list/rendezvous-list.component';
+import { RendezvousEditFormComponent } from './feature/rendezvous/pages/rendezvous-edit-form/rendezvous-edit-form.component';
+import { RendezvousNewFormComponent } from './feature/rendezvous/pages/rendezvous-new-form/rendezvous-new-form.component';
+import { NotificationPageComponent } from './feature/notification/pages/notification-page/notification-page.component';
+import { NotificationDetailComponent } from './feature/notification/pages/notification-detail/notification-detail.component';
+import { NotificationListComponent } from './feature/notification/pages/notification-list/notification-list.component';
+import { NotificationEditFormComponent } from './feature/notification/pages/notification-edit-form/notification-edit-form.component';
+import { NotificationNewFormComponent } from './feature/notification/pages/notification-new-form/notification-new-form.component';
+import { NotificationFormComponent } from './feature/notification/components/notification-form/notification-form.component';
+import { ConnexionPageComponent } from './feature/connexion/pages/connexion-page/connexion-page.component';
+import { ConnexionNewFormComponent } from './feature/connexion/pages/connexion-new-form/connexion-new-form.component';
+import { ConnexionFormComponent } from './feature/connexion/components/connexion-form/connexion-form.component';
+import { InscriptionFormComponent } from './feature/inscription/components/inscription-form/inscription-form.component';
+import { InscriptionPageComponent } from './feature/inscription/pages/inscription-page/inscription-page.component';
+import { InscriptionNewFormComponent } from './feature/inscription/pages/inscription-new-form/inscription-new-form.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    UsersPagesComponent,
+    UsersDetailComponent,
+    UsersListComponent,
+    UsersEditFormComponent,
+    UsersNewFormComponent,
+    UsersFormComponent,
+    MedicsPageComponent,
+    MedicsDetailComponent,
+    MedicsListComponent,
+    MedicsEditFormComponent,
+    MedicsNewFormComponent,
+    MedicFormComponent,
+    PrescriptionsPageComponent,
+    PrescriptionsDetailComponent,
+    PrescriptionsListComponent,
+    PrescriptionsEditFormComponent,
+    PrescriptionsNewFormComponent,
+    PrescriptionsFormComponent,
+    RendezvousFormComponent,
+    RendezvousPageComponent,
+    RendezvousDetailComponent,
+    RendezvousListComponent,
+    RendezvousEditFormComponent,
+    RendezvousNewFormComponent,
+    NotificationPageComponent,
+    NotificationDetailComponent,
+    NotificationListComponent,
+    NotificationEditFormComponent,
+    NotificationNewFormComponent,
+    NotificationFormComponent,
+    ConnexionPageComponent,
+    ConnexionNewFormComponent,
+    ConnexionFormComponent,
+    InscriptionFormComponent,
+    InscriptionPageComponent,
+    InscriptionNewFormComponent,
+
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RouterModule,
+    ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
