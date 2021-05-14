@@ -14,6 +14,12 @@ export class User {
     public notifications : Notification[];
     public rendezVous : Rendezvous[];
 
+    dateNaissance = new Date('01/01/1950');
+    assistant: User = new User(2, 2, "Dubois", "Marc",this.dateNaissance,[],[],[],[],[]);
+    assiste: User = new User(3, 3, "Dubois", "Marco",this.dateNaissance,[],[],[],[],[]);
+    user : User = new User(1, 1, "Dubois", "Monique",this.dateNaissance,[this.assistant],[],[],[],[]);
+
+
     constructor(
         compteId : number,
         utilisateurId : number,

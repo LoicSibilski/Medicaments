@@ -33,6 +33,7 @@ var user : User = {
                                                                     "isMidi" : true,
                                                                     "isSoir" : true
                                                                 }
+                                                            ]
                                         }
                                     ],
                     "notification" : [
