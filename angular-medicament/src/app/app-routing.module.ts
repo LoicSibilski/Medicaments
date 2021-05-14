@@ -1,14 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ConnexionNewFormComponent } from './feature/connexion/pages/connexion-new-form/connexion-new-form.component';
-import { ConnexionPageComponent } from './feature/connexion/pages/connexion-page/connexion-page.component';
-import { InscriptionNewFormComponent } from './feature/inscription/pages/inscription-new-form/inscription-new-form.component';
-import { InscriptionPageComponent } from './feature/inscription/pages/inscription-page/inscription-page.component';
+import { ConnexionComponent } from './feature/auth/connexion/connexion.component';
+import { InscriptionComponent } from './feature/auth/inscription/inscription.component';
+import { MdpOublieComponent } from './feature/auth/mdp-oublie/mdp-oublie.component';
+import { HomePageComponent } from './feature/home/pages/home-page/home-page.component';
 import { MedicsDetailComponent } from './feature/medics/pages/medics-detail/medics-detail.component';
 import { MedicsEditFormComponent } from './feature/medics/pages/medics-edit-form/medics-edit-form.component';
 import { MedicsListComponent } from './feature/medics/pages/medics-list/medics-list.component';
 import { MedicsNewFormComponent } from './feature/medics/pages/medics-new-form/medics-new-form.component';
 import { MedicsPageComponent } from './feature/medics/pages/medics-page/medics-page.component';
+import { NotfoundComponent } from './feature/notfound/notfound.component';
 import { NotificationDetailComponent } from './feature/notification/pages/notification-detail/notification-detail.component';
 import { NotificationEditFormComponent } from './feature/notification/pages/notification-edit-form/notification-edit-form.component';
 import { NotificationListComponent } from './feature/notification/pages/notification-list/notification-list.component';
@@ -43,7 +44,7 @@ const routes: Routes = [
   },
 
   {
-    path: "medics", component: PrescriptionsPageComponent,
+    path: "medics", component: MedicsPageComponent,
     children: [
       { path: "create", component: MedicsNewFormComponent },
       { path: "detail/:id", component: MedicsDetailComponent },
@@ -63,6 +64,7 @@ const routes: Routes = [
       { path: "", component: PrescriptionsListComponent }
     ]
   },
+
   {
     path: "rendezvous", component: RendezvousPageComponent,
     children: [
@@ -73,18 +75,7 @@ const routes: Routes = [
       { path: "", component: RendezvousListComponent }
     ]
   },
-  {
-    path: "connexion", component: ConnexionPageComponent,
-    children: [
-      { path: "", component: ConnexionNewFormComponent }
-    ]
-  },
-  {
-    path: "inscription", component: InscriptionPageComponent,
-    children: [
-      { path: "", component: InscriptionNewFormComponent }
-    ]
-  },
+
   {
     path: "notifications", component: NotificationPageComponent,
     children: [
@@ -92,9 +83,18 @@ const routes: Routes = [
       { path: "detail/:id", component: NotificationDetailComponent },
       { path: "update/:id", component: NotificationEditFormComponent },
       { path: "list", component: NotificationListComponent },
-      { path: "", component: NotificationListComponent}
+      { path: "", component: NotificationListComponent }
     ]
   },
+
+  { path: "inscription", component: InscriptionComponent },
+  { path: "connexion", component: ConnexionComponent },
+  { path: "mdp_oublie", component: MdpOublieComponent },
+  { path: "home", component: HomePageComponent },
+  { path: "", component: HomePageComponent },
+  { path: "404", component: NotfoundComponent },
+  { path: "**", redirectTo: "404" }
+
 ];
 
 @NgModule({

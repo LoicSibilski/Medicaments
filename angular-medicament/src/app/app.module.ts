@@ -37,12 +37,11 @@ import { NotificationListComponent } from './feature/notification/pages/notifica
 import { NotificationEditFormComponent } from './feature/notification/pages/notification-edit-form/notification-edit-form.component';
 import { NotificationNewFormComponent } from './feature/notification/pages/notification-new-form/notification-new-form.component';
 import { NotificationFormComponent } from './feature/notification/components/notification-form/notification-form.component';
-import { ConnexionPageComponent } from './feature/connexion/pages/connexion-page/connexion-page.component';
-import { ConnexionNewFormComponent } from './feature/connexion/pages/connexion-new-form/connexion-new-form.component';
-import { ConnexionFormComponent } from './feature/connexion/components/connexion-form/connexion-form.component';
-import { InscriptionFormComponent } from './feature/inscription/components/inscription-form/inscription-form.component';
-import { InscriptionPageComponent } from './feature/inscription/pages/inscription-page/inscription-page.component';
-import { InscriptionNewFormComponent } from './feature/inscription/pages/inscription-new-form/inscription-new-form.component';
+import { ComptePageComponent } from './feature/compte/pages/compte-page/compte-page.component';
+import { HomePageComponent } from './feature/home/pages/home-page/home-page.component';
+import { NotfoundComponent } from './feature/notfound/notfound.component';
+import { MdpOublieComponent } from './feature/auth/mdp-oublie/mdp-oublie.component';
+
 
 @NgModule({
   declarations: [
@@ -77,12 +76,11 @@ import { InscriptionNewFormComponent } from './feature/inscription/pages/inscrip
     NotificationEditFormComponent,
     NotificationNewFormComponent,
     NotificationFormComponent,
-    ConnexionPageComponent,
-    ConnexionNewFormComponent,
-    ConnexionFormComponent,
-    InscriptionFormComponent,
-    InscriptionPageComponent,
-    InscriptionNewFormComponent,
+    ComptePageComponent,
+    HomePageComponent,
+    NotfoundComponent,
+    MdpOublieComponent,
+
 
   ],
   imports: [
