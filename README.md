@@ -25,22 +25,22 @@
 <br />
 <p align="center">
   <a href="https://github.com/LoicSibilski/Medicaments">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="images/Logo.PNG" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Médicaments</h3>
 
   <p align="center">
-    project_description
+    DESCRIPTION DU PROJET
     <br />
-    <a href="https://github.com/LoicSibilski/Medicaments"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/LoicSibilski/Medicaments"><strong>Voir la documentation</strong></a>
     <br />
     <br />
-    <a href="https://github.com/LoicSibilski/Medicaments">View Demo</a>
+    <a href="https://github.com/LoicSibilski/Medicaments">Voir une démo</a>
     ·
-    <a href="https://github.com/LoicSibilski/Medicaments/issues">Report Bug</a>
+    <a href="https://github.com/LoicSibilski/Medicaments/issues">Signaler un bug</a>
     ·
-    <a href="https://github.com/LoicSibilski/Medicaments/issues">Request Feature</a>
+    <a href="https://github.com/LoicSibilski/Medicaments/issues">Suggérer une fonctionnalité</a>
   </p>
 </p>
 
@@ -48,57 +48,55 @@
 
 <!-- TABLE OF CONTENTS -->
 <details open="open">
-  <summary><h2 style="display: inline-block">Table of Contents</h2></summary>
+  <summary><h2 style="display: inline-block">Sommaire</h2></summary>
   <ol>
     <li>
-      <a href="#about-the-project">About The Project</a>
+      <a href="#about-the-project">À propos</a>
       <ul>
-        <li><a href="#built-with">Built With</a></li>
+        <li><a href="#built-with">Technologies utilisées</a></li>
       </ul>
     </li>
     <li>
-      <a href="#getting-started">Getting Started</a>
+      <a href="#getting-started">Comment commencer</a>
       <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#prerequisites">prérequis</a></li>
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#usage">Utilisation</a></li>
+    <li><a href="#contributing">Contribution</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgements">Acknowledgements</a></li>
+    <li><a href="#acknowledgements">Crédits</a></li>
   </ol>
 </details>
 
 
 
 <!-- ABOUT THE PROJECT -->
-## About The Project
+## À propos
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+** On ne sait quoi mettre dans cette section du README.md **
 
-Here's a blank template to get started:
-**To avoid retyping too much info. Do a search and replace with your text editor for the following:**
+<!-- **To avoid retyping too much info. Do a search and replace with your text editor for the following:**
 `github_username`, `repo_name`, `twitter_handle`, `email`, `project_title`, `project_description`
+-->
 
+### Fait avec
 
-### Built With
-
-* [Angular IONIC](https://ionicframework.com/)
-* [Spring Boot](https://spring.io/)
+* [Angular](https://angular.io/)
+<!-- * [Spring Boot](https://spring.io/) -->
 
 
 
 <!-- GETTING STARTED -->
-## Getting Started
+## Comment commencer
 
-To get a local copy up and running follow these simple steps.
+Pour obtenir une copie locale, copiez et suivez ces instructions simples
 
-### Prerequisites
+### Prérequis
 
-This is an example of how to list things you need to use the software and how to install them.
+Faites en sorte d'avoir la version la plus récente de npm
 * npm
   ```sh
   npm install npm@latest -g
@@ -106,31 +104,38 @@ This is an example of how to list things you need to use the software and how to
 
 ### Installation
 
-1. Clone the repo
+1. Clone le repository
    ```sh
-   git clone https://github.com/github_username/repo_name.git
+   git clone https://github.com/LoicSibilski/Medicaments.git
    ```
-2. Install NPM packages
+2. Installer les packages npm 
    ```sh
-   npm install
+   npm i
    ```
-
+3. Lancez le serveur local (port 4200)
+   ```sh
+   ng serve -o
+   ```
+4. Lancez l'API de base de donnée locale json
+   ```sh
+   npm run api
+   ```   
 
 
 <!-- USAGE EXAMPLES -->
-## Usage
+## Utilisation
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+Le projet actuellement n'a aucune utilisation, passez votre chemin.
 
-_For more examples, please refer to the [Documentation](https://example.com)_
-
-
+<!-- _For more examples, please refer to the [Documentation](https://example.com)_ -->
 
 
-<!-- LICENSE -->
-## License
 
-Distributed under the MIT License. See `LICENSE` for more information.
+
+<!-- LICENCE -->
+## Licence
+
+Protégé sous la licence MIT. Regardez `LICENSE` pour plus d'informations.
 
 
 
@@ -145,7 +150,7 @@ Loïc Sibilski
 
 
 
-<!-- ACKNOWLEDGEMENTS -->
-## Acknowledgements
+<!-- CREDITS -->
+## Crédits
 
 * [Font Awesome](https://fontawesome.com)
