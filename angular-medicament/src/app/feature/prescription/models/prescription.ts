@@ -8,6 +8,7 @@ export class Prescription {
     public isSoir: boolean;
 
     constructor(dateDebut: Date, datefin: Date, nombreUnite: number, isMatin: boolean, isMidi: boolean, isSoir: boolean) {
+        
         this.dateDebut = dateDebut;
         this.dateFin = datefin
         this.nombreUnite = nombreUnite;
