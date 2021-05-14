@@ -8,14 +8,8 @@ import { User } from '../models/user';
 export class UserService {
 
 
-  constructor(private http: HttpClient) { }
 
-  findAll = () : User[] => {
-    let user=[
+  constructor() { }
 
-    ]
-    return user;
-  }
 
-  
 }
