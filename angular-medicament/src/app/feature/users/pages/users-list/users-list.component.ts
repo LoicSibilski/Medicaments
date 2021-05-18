@@ -12,7 +12,9 @@ export class UsersListComponent implements OnInit {
   users : User[];
   assistants : AssistantOuAssiste[];
 
-  constructor() { }
+  constructor() {
+    
+   }
 
   ngOnInit(): void {
   }

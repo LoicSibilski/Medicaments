@@ -1,19 +1,19 @@
 <h1>Medical.</h1>
 
 <div id="affichage">
-    <div id="users-area">
+    <div id="users-area" *ngIf="users">
         <p>Utilisateur(s) du compte</p>
-        <div class="profile" routerLink="/users/details/:id" >
+        <div class="profile" routerLink="/users/details/:id" *ngFor="user of users">
             <div class="profile-picture"></div>
-            <span>qzqzdd</span>
+            <span>{{user.nom}} {{user.prenom}}</span>
         </div>
     </div>
     
-    <div id="assistant-area">
+    <div id="assistant-area" *ngIf="assistants">
         <p>Assistant(s)</p>
-        <div class="profile" routerLink="/users/assistant/:id">
+        <div class="profile" routerLink="/users/assistant/:id" *ngFor="assistant of assistants">
             <div class="profile-picture"></div>
-            <span>Marc DUBOIS</span>
+            <span>{{assistant.nom}} {{assistant.prenom}}</span>
         </div>
     </div>
 </div>
