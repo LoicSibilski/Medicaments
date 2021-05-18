@@ -21,7 +21,16 @@ span{
 .profile{
     display: flex;
     align-items: center;
-    margin-bottom: 20px;
+    padding:10px 20px 10px 10px;
+}
+
+.profile:hover{
+    border: 1px solid white;
+    border-radius: 80px;
+    cursor: pointer;
+    position: relative;
+    right: 20px;
+    background-color: rgba(0,0,0,0.05);
 }
 
 h1{
@@ -39,6 +48,11 @@ button{
     border: none;
     border-radius: 50px;
     font-size: 20px;
+}
+
+button:hover{
+    cursor: pointer;
+    outline : 1px solid white
 }
 
 #button-container{
