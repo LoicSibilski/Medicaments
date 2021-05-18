@@ -97,7 +97,7 @@ export class MedicService {
     return medicTmp;
   }
 
-  findAllPosologiesByMedicId = (id:number) :Posologie[] =>{
+  findAllPosologiesByMedicId = (id: number): Posologie[] => {
     let medic = this.findById(id);
     return medic.posologies;
   }
@@ -109,20 +109,20 @@ export class MedicService {
     console.log("Liste des Medic : " + this.listeMedics);
   }
 
-  update = (Medic: Medic) => {
-    console.log("Liste des Medic : " + this.listeMedics);
-    console.log("MAJ de la Medic : " + Medic);
-    this.delete(Medic.id);
-    this.save(Medic);
-    console.log("Liste des Medic : " + this.listeMedics);
-  }
-
   delete = (id: number) => {
     console.log("Liste des Medic : " + this.listeMedics);
     let medic = this.findById(id);
     console.log("Suppression de la Medic : " + medic);
     let pos = this.listeMedics.indexOf(medic)
     this.listeMedics.splice(pos, 1);
+    console.log("Liste des Medic : " + this.listeMedics);
+  }
+
+  update = (Medic: Medic) => {
+    console.log("Liste des Medic : " + this.listeMedics);
+    console.log("MAJ de la Medic : " + Medic);
+    this.delete(Medic.id);
+    this.save(Medic);
     console.log("Liste des Medic : " + this.listeMedics);
   }
 }

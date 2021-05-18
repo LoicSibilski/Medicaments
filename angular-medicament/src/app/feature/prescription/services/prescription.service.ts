@@ -137,14 +137,6 @@ export class PrescriptionService {
     console.log("Liste des prescription : "+ this.listePrescriptions);
   }
 
-  update = (prescription : Prescription) => {
-    console.log("Liste des prescription : "+ this.listePrescriptions);
-    console.log("MAJ de la prescription : "+ prescription);
-    this.delete(prescription.id);
-    this.save(prescription);
-    console.log("Liste des prescription : "+ this.listePrescriptions);
-  }
-
   delete = (id:number) => {
     console.log("Liste des prescription : "+ this.listePrescriptions);
     let prescr = this.findById(id);
@@ -153,5 +145,12 @@ export class PrescriptionService {
     this.listePrescriptions.splice(pos,1);
     console.log("Liste des prescription : "+ this.listePrescriptions);
   }
-
+  
+  update = (prescription : Prescription) => {
+    console.log("Liste des prescription : "+ this.listePrescriptions);
+    console.log("MAJ de la prescription : "+ prescription);
+    this.delete(prescription.id);
+    this.save(prescription);
+    console.log("Liste des prescription : "+ this.listePrescriptions);
+  }
 }
