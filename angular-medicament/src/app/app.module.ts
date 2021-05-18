@@ -48,6 +48,7 @@ import { PosologiesEditFormComponent } from './feature/posologie/pages/posologie
 import { PosologiesListComponent } from './feature/posologie/pages/posologies-list/posologies-list.component';
 import { PosologiesNewFormComponent } from './feature/posologie/pages/posologies-new-form/posologies-new-form.component';
 import { PosologieFormComponent } from './feature/posologie/components/posologie-form/posologie-form.component';
+import { AssistantDetailComponent } from './feature/users/pages/assistant-detail/assistant-detail.component';
 
 
 
@@ -95,6 +96,7 @@ import { PosologieFormComponent } from './feature/posologie/components/posologie
     PosologiesListComponent,
     PosologiesNewFormComponent,
     PosologieFormComponent,
+    AssistantDetailComponent,
 
 
   ],

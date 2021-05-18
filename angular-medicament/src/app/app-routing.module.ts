@@ -25,6 +25,7 @@ import { RendezvousEditFormComponent } from './feature/rendezvous/pages/rendezvo
 import { RendezvousListComponent } from './feature/rendezvous/pages/rendezvous-list/rendezvous-list.component';
 import { RendezvousNewFormComponent } from './feature/rendezvous/pages/rendezvous-new-form/rendezvous-new-form.component';
 import { RendezvousPageComponent } from './feature/rendezvous/pages/rendezvous-page/rendezvous-page.component';
+import { AssistantDetailComponent } from './feature/users/pages/assistant-detail/assistant-detail.component';
 import { UsersDetailComponent } from './feature/users/pages/users-detail/users-detail.component';
 import { UsersEditFormComponent } from './feature/users/pages/users-edit-form/users-edit-form.component';
 import { UsersListComponent } from './feature/users/pages/users-list/users-list.component';
@@ -36,7 +37,10 @@ const routes: Routes = [
     path: "users", component: UsersPagesComponent,
     children: [
       { path: "create", component: UsersNewFormComponent },
-      { path: "detail/:id", component: UsersDetailComponent },
+      { path: "detail", component: UsersDetailComponent, children: [
+        { path:":id", component: UsersDetailComponent},
+        { path:"assistant/:id", component: AssistantDetailComponent}
+      ] },
       { path: "update/:id", component: UsersEditFormComponent },
       { path: "list", component: UsersListComponent },
       { path: "", component: UsersListComponent }
