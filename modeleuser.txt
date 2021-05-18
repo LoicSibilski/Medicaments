@@ -1,0 +1,97 @@
+var user : User = {
+                    “compteId” : 1,
+                    “utilisateurId” : 1
+                    “nom” : “Dubois”
+                    “prenom” : “Monique”
+                    “dateNaissance” : “01/01/1950”,
+                    “assistants” : [ 
+                                        {
+                                        “utilisateurId” : 2,
+                                        “nom” : “Dubois”,
+                                        “prenom” : “Marc”,
+                                        }
+                                    ],
+                    “assistes” : [
+                                    {
+                                        {
+                                        “utilisateurId” : 10,
+                                        “nom” : “Dubois”,
+                                        “prenom” : “Marco”,
+                                        }
+                                    }
+
+                                    ],
+                    “medicaments” : [
+                                        {
+                                            “nom” : “Doliprane”,
+                                            “prescription” : [
+                                                                {
+                                                                    “dateDebut” : "01/01/2021",
+                                                                    "dateFin" : "15/01/2021,
+                                                                    "nombreUnite" : 2,
+                                                                    "isMatin" : true,
+                                                                    "isMidi" : true,
+                                                                    "isSoir" : true
+                                                                }
+                                                            ]
+                                        }
+                                    ],
+                    "notification" : [
+                                        {
+                                            "message" : "Medicaments prit le matin",
+                                            "date" : "02/01/2021",
+                                            "isVue" : true
+                                        },
+                                        {
+                                            "message" : "Medicaments prit le midi",
+                                            "date" : "02/01/2021",
+                                            "isVue" : true
+                                        },
+                                        {
+                                            "message" : "Medicaments prit le soir",
+                                            "date" : "02/01/2021",
+                                            "isVue" : false
+                                        },
+                                        {
+                                            "message" : "Medicaments prit le matin",
+                                            "date" : "03/01/2021",
+                                            "isVue" : false
+                                        },
+                                        {
+                                            "message" : "Medicaments prit le midi",
+                                            "date" : "03/01/2021",
+                                            "isVue" : false
+                                        },
+                                        {
+                                            "message" : "Medicaments prit le soir",
+                                            "date" : "03/01/2021",
+                                            "isVue" : false
+                                        },
+                                    ],
+                    "rendezVous" : [
+                                        {
+                                            "nom" : "rdv Dr Michel",
+                                            "date" : "24/01/2021-13:00:00",
+                                            "info" : "5 rue de la Paix, Paris",
+                                            "typeMedecin" : "general"
+                                        },
+                                        {
+                                            "nom" : "rdv Dr Michel",
+                                            "date" : "25/01/2021-13:00:00",
+                                            "info" : "5 rue de la Paix, Paris",
+                                            "typeMedecin" : "general"
+                                        },
+                                        {
+                                            "nom" : "rdv Dr Michel",
+                                            "date" : "26/01/2021-13:00:00",
+                                            "info" : "5 rue de la Paix, Paris",
+                                            "typeMedecin" : "general"
+                                        },
+                                        {
+                                            "nom" : "rdv Dr Michel",
+                                            "date" : "27/01/2021-13:00:00",
+                                            "info" : "5 rue de la Paix, Paris",
+                                            "typeMedecin" : "general"
+                                        }
+                                    ]
+                    };

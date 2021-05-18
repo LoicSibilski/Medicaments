@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AssistantOuAssiste } from '../../models/assistant-ou-assiste';
+import { User } from '../../models/user';
 
 @Component({
   selector: 'app-users-list',
@@ -7,7 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsersListComponent implements OnInit {
 
-  constructor() { }
+  users : User[];
+  assistants : AssistantOuAssiste[];
+
+  constructor() {
+    
+   }
 
   ngOnInit(): void {
   }

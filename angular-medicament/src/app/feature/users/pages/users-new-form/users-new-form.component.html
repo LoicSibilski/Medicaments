@@ -1,1 +1,30 @@
-<p>users-new-form works!</p>
+<h1>Medical.</h1>
+
+<h2>Créer un utilisateur</h2>
+
+<div id="container">
+    <div id="profile-picture-container">   
+        <div class="profile-picture"></div>
+        <span>insérer image</span>
+        <i class="fas fa-upload"></i>
+        <i class="far fa-trash-alt"></i>
+    </div>  
+    <form>
+        <label> Nom :
+            <input type="text" class="to-uppercase">
+        </label>
+        <label> Prenom :
+            <input type="text">
+        </label>
+        <label> Date de naissance :
+            <input type="date" placeholder="jour/mois/année">
+        </label>
+
+        <button type="submit">Créer un utilisateur</button>
+    </form>
+    <app-button-redirector routerLink="/users">
+        Retour
+    </app-button-redirector>
+
+</div>
+
