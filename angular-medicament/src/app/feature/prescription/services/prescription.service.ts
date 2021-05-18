@@ -9,6 +9,7 @@ import { Prescription } from '../models/prescription';
 export class PrescriptionService {
 
   posologieDoliprane1: Posologie = {
+    'id':1,
     'nombreUnite': 2.5,
     'isMatin': true,
     'isMidi': true,
@@ -17,6 +18,7 @@ export class PrescriptionService {
   }
 
   posologieDoliprane2: Posologie = {
+    'id':2,
     'nombreUnite': 2,
     'isMatin': true,
     'isMidi': false,
@@ -25,6 +27,7 @@ export class PrescriptionService {
   }
 
   posologieMemorex1: Posologie = {
+    'id':3,
     'nombreUnite': 2,
     'isMatin': true,
     'isMidi': false,
@@ -33,6 +36,7 @@ export class PrescriptionService {
   }
 
   posologieMemorex2: Posologie = {
+    'id':4,
     'nombreUnite': 2,
     'isMatin': true,
     'isMidi': false,
@@ -41,6 +45,7 @@ export class PrescriptionService {
   }
 
   posologieMemorex3: Posologie = {
+    'id':5,
     'nombreUnite': 1,
     'isMatin': true,
     'isMidi': true,
@@ -49,36 +54,39 @@ export class PrescriptionService {
   }
 
   doliprane: Medic = {
+    'id':1,
     'nom': 'Doliprane',
     'posologies': [ this.posologieDoliprane1, this.posologieDoliprane2 ]
   }
 
   memorex: Medic = {
+    'id':2,
     'nom': 'Memorex',
     'posologies': [ this.posologieMemorex1, this.posologieMemorex2, this.posologieMemorex3 ]
 
   }
 
   prescrDoli1: Prescription = {
+    'id':1,
     'dateDebut': new Date('20/05/1992'),
     'dateFin': new Date('27/05/1998'),
     'medics' : [this.doliprane],
   }
-  prescrMemorex1: Prescription = {
+
+  prescrDoliMemorex: Prescription = {
+    'id':2,
     'dateDebut': new Date('25/06/2014'),
     'dateFin': new Date('01/01/2021'),
     'medics' : [this.doliprane, this.memorex]
   }
-  prescrMemorex2: Prescription = {
-    'dateDebut': new Date('10/05/1995'),
-    'dateFin': new Date('14/05/2025'),
-    'nombreUnite': 4,
-    'isMatin': false,
-    'isMidi': false,
-    'isSoir': true,
-    'medics': [this.doliprane]
+
+  constructor() { }
+
+  findAll = (): Prescription[] => {
+    let tmp : Prescription[] = [this.prescrDoli1, this.prescrDoliMemorex];
+    return tmp;
   }
 
 
-  constructor() { }
+
 }
