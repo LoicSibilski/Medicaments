@@ -1,0 +1,7 @@
+.container{
+    margin: 3em;
+}
+.posologie{
+    display: flex;
+    justify-content: space-around;
+}

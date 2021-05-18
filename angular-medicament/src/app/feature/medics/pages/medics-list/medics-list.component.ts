@@ -14,17 +14,15 @@ export class MedicsListComponent implements OnInit {
 
   medics: Medic[];
 
-  constructor(private prescService: PrescriptionService, private medicService: MedicService) { }
+  constructor(private medicService: MedicService, private prescService: PrescriptionService) { }
 
   ngOnInit(): void {
     if (this.id === undefined) {
       this.medics = this.medicService.findAll();
     }
-    else{
+    else {
       this.medics = this.prescService.findAllMedicsByPrescrId(this.id)
     }
   }
-
-
 
 }

@@ -15,6 +15,11 @@ import { NotificationEditFormComponent } from './feature/notification/pages/noti
 import { NotificationListComponent } from './feature/notification/pages/notification-list/notification-list.component';
 import { NotificationNewFormComponent } from './feature/notification/pages/notification-new-form/notification-new-form.component';
 import { NotificationPageComponent } from './feature/notification/pages/notification-page/notification-page.component';
+import { PosologiesDetailComponent } from './feature/posologie/pages/posologies-detail/posologies-detail.component';
+import { PosologiesEditFormComponent } from './feature/posologie/pages/posologies-edit-form/posologies-edit-form.component';
+import { PosologiesListComponent } from './feature/posologie/pages/posologies-list/posologies-list.component';
+import { PosologiesNewFormComponent } from './feature/posologie/pages/posologies-new-form/posologies-new-form.component';
+import { PosologiesPageComponent } from './feature/posologie/pages/posologies-page/posologies-page.component';
 import { PrescriptionsDetailComponent } from './feature/prescription/pages/prescriptions-detail/prescriptions-detail.component';
 import { PrescriptionsEditFormComponent } from './feature/prescription/pages/prescriptions-edit-form/prescriptions-edit-form.component';
 import { PrescriptionsListComponent } from './feature/prescription/pages/prescriptions-list/prescriptions-list.component';
@@ -66,6 +71,17 @@ const routes: Routes = [
       { path: "update/:id", component: PrescriptionsEditFormComponent },
       { path: "list", component: PrescriptionsListComponent },
       { path: "", component: PrescriptionsListComponent }
+    ]
+  },
+
+  {
+    path: "posologies", component: PosologiesPageComponent,
+    children: [
+      { path: "create", component: PosologiesNewFormComponent },
+      { path: "detail/:id", component: PosologiesDetailComponent },
+      { path: "update/:id", component: PosologiesEditFormComponent },
+      { path: "list", component: PosologiesListComponent },
+      { path: "", component: PosologiesListComponent }
     ]
   },
 
