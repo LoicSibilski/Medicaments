@@ -3,15 +3,15 @@
 <div id="affichage">
     <div id="users-area">
         <p>Utilisateur(s) du compte</p>
-        <div class="profile" routerLink="/users/details/:id">
+        <div class="profile" routerLink="/users/details/:id" >
             <div class="profile-picture"></div>
-            <span>Monique DUBOIS</span>
+            <span>qzqzdd</span>
         </div>
     </div>
     
-    <div id="others-area">
+    <div id="assistant-area">
         <p>Assistant(s)</p>
-        <div class="profile">
+        <div class="profile" routerLink="/users/assistant/:id">
             <div class="profile-picture"></div>
             <span>Marc DUBOIS</span>
         </div>
@@ -19,7 +19,9 @@
 </div>
 
 <div id="button-container">
-    <button routerLink="/users/create">Ajouter un utilisateur</button>
+    <app-button-redirector routerLink="/users/create">
+        Ajouter un utilisateur
+    </app-button-redirector>
     <app-button-redirector routerLink="/home">
         Retour
     </app-button-redirector>

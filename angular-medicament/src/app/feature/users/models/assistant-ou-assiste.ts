@@ -1,4 +1,4 @@
-export class Autre {
+export class AssistantOuAssiste {
     public compteId : number;
     public utilisateurId : number;
     public nom : string;
@@ -14,4 +14,3 @@ export class Autre {
             this.isAssistant = isAssistant;
     }
 }
-

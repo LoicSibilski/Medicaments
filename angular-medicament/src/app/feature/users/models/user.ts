@@ -1,7 +1,7 @@
 import { Medic } from "../../medics/models/medic";
 import { Notification } from "../../notification/models/notification";
 import { Rendezvous } from "../../rendezvous/models/rendezvous";
-import { Autre } from "./autre";
+import { AssistantOuAssiste } from "./assistant-ou-assiste";
 
 export class User {
     public compteId : number;
@@ -9,8 +9,8 @@ export class User {
     public nom : string;
     public prenom : string;
     public dateDeNaissance : Date;
-    public assistants : Autre[];
-    public assistes : Autre[];
+    public assistants : AssistantOuAssiste[];
+    public assistes : AssistantOuAssiste[];
     public medicaments : Medic[];
     public notifications : Notification[];
     public rendezVous : Rendezvous[];
@@ -21,8 +21,8 @@ export class User {
         nom : string,
         prenom : string,
         dateDeNaissance : Date,
-        assistants : Autre[],
-        assistes : Autre[],
+        assistants : AssistantOuAssiste[],
+        assistes : AssistantOuAssiste[],
         medicaments : Medic[],
         notifications : Notification[],
         rendezVous : Rendezvous[]
