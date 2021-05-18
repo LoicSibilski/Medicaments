@@ -11,8 +11,14 @@
         </div>
     </div>
     <div class="button" *ngIf="fromMedicList">
+        <app-button-redirector routerLink="/prescriptions">
+            /prescriptions
+        </app-button-redirector>
+        <app-button-redirector routerLink="/medics">
+            /medics
+        </app-button-redirector>
         <app-button-redirector routerLink="/home">
-            homesdf
+            home
         </app-button-redirector>
     </div>
 </div>
