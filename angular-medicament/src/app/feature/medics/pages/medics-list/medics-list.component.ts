@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Medic } from '../../models/medic';
 
 @Component({
   selector: 'app-medics-list',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MedicsListComponent implements OnInit {
 
+  medics : Medic[];
+
   constructor() { }
 
   ngOnInit(): void {
   }
+
+  
 
 }

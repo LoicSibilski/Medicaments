@@ -7,8 +7,10 @@ import { Posologie } from '../models/posologie';
 export class PosologieService {
 
   posologieDoliprane1: Posologie = {
-    'id': 1,
+    'id':1,
     'nombreUnite': 2.5,
+    'dateDebut': new Date("2005-03-02"),
+    'dateFin': new Date("2021-04-26"),
     'isMatin': true,
     'isMidi': true,
     'isSoir': true,
@@ -16,8 +18,10 @@ export class PosologieService {
   }
 
   posologieDoliprane2: Posologie = {
-    'id': 2,
+    'id':2,
     'nombreUnite': 2,
+    'dateDebut': new Date("2021-04-27"),
+    'dateFin': new Date("2021-05-27"),
     'isMatin': true,
     'isMidi': false,
     'isSoir': true,
@@ -25,8 +29,10 @@ export class PosologieService {
   }
 
   posologieMemorex1: Posologie = {
-    'id': 3,
+    'id':3,
     'nombreUnite': 2,
+    'dateDebut': new Date("1992-05-20"),
+    'dateFin': new Date("1998-05-27"),
     'isMatin': true,
     'isMidi': false,
     'isSoir': true,
@@ -34,8 +40,10 @@ export class PosologieService {
   }
 
   posologieMemorex2: Posologie = {
-    'id': 4,
+    'id':4,
     'nombreUnite': 2,
+    'dateDebut': new Date("2002-03-06"),
+    'dateFin': new Date("2002-04-08"),
     'isMatin': true,
     'isMidi': false,
     'isSoir': false,
@@ -43,17 +51,20 @@ export class PosologieService {
   }
 
   posologieMemorex3: Posologie = {
-    'id': 5,
+    'id':5,
     'nombreUnite': 1,
+    'dateDebut': new Date("2012-12-05"),
+    'dateFin': new Date(),
     'isMatin': true,
     'isMidi': true,
     'isSoir': true,
     'isActive': true,
   }
-
   posologieTiorfan: Posologie = {
     'id': 6,
     'nombreUnite': 1,
+    'dateDebut': new Date("2021-05-17"),
+    'dateFin': new Date("2021-05-20"),
     'isMatin': true,
     'isMidi': true,
     'isSoir': true,

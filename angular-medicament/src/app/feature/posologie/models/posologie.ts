@@ -1,6 +1,8 @@
 export class Posologie {
     public id: number;
     public nombreUnite: number;
+    public dateDebut: Date;
+    public dateFin: Date;
     public isMatin: boolean;
     public isMidi: boolean;
     public isSoir: boolean;
