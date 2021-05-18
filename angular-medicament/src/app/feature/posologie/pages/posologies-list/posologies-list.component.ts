@@ -15,6 +15,7 @@ export class PosologiesListComponent implements OnInit {
   @Input() id: number;
 
   posologies: Posologie[];
+  fromMedicList: boolean =true;
 
   constructor(private posoService: PosologieService, private medicService: MedicService) { }
 
@@ -24,6 +25,8 @@ export class PosologiesListComponent implements OnInit {
     }
     else {
       this.posologies = this.medicService.findAllPosologiesByMedicId(this.id)
+      this.fromMedicList = false;
+
     }
   }
 }
