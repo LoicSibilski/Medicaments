@@ -97,8 +97,8 @@ const routes: Routes = [
   { path: "home", component: HomePageComponent },
   { path: "", component: HomePageComponent },
   { path: "404", component: NotfoundComponent },
-/*   { path: "**", redirectTo: "404" }
- */
+  { path: "**", redirectTo: "404" }
+
 ];
 
 @NgModule({
