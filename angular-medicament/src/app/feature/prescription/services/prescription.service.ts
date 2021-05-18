@@ -85,22 +85,22 @@ export class PrescriptionService {
 
   prescrDoli1: Prescription = {
     'id':1,
-    'dateDebut': new Date('20/05/1992'),
-    'dateFin': new Date('27/05/1998'),
+    'dateDebut': new Date("1992-05-20"),
+    'dateFin': new Date("1998-05-27"),
     'medics' : [this.doliprane],
   }
 
   prescrDoliMemorex: Prescription = {
     'id':2,
-    'dateDebut': new Date('25/06/2014'),
-    'dateFin': new Date('01/01/2021'),
+    'dateDebut': new Date("2014-05-12"),
+    'dateFin': new Date("2021-01-01"),
     'medics' : [this.doliprane, this.memorex]
   }
 
   prescrTiorfan: Prescription = {
     'id':3,
-    'dateDebut': new Date('17/05/2021'),
-    'dateFin': new Date('19/05/2021'),
+    'dateDebut': new Date("2021-05-17"),
+    'dateFin': new Date("2021-05-19"),
     'medics' : [this.tiorfan]
   }
 

@@ -1,9 +1,9 @@
 <div class="container">
     <div class="prescr" *ngFor="let prescr of prescriptions">
-        {{prescr.id}}
-        {{prescr.dateDebut}}
-        {{prescr.dateFin}}
-        {{prescr.medics}}
+        <p>ID : {{prescr.id}}</p>
+        <p>Debut : {{prescr.dateDebut | date:'dd/MM/yyyy'}}</p>
+        <p>Fin : {{prescr.dateFin | date:'dd/MM/yyyy'}}</p>
+        <app-medics-list [medics]="prescr.medics"></app-medics-list>
     </div>
 </div>
 
