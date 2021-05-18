@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Posologie } from '../../models/posologie';
+import { PosologieService } from '../../services/posologie.service';
 
 @Component({
   selector: 'app-posologies-detail',
@@ -7,9 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PosologiesDetailComponent implements OnInit {
 
-  constructor() { }
+  posologie: Posologie;
+
+  constructor(private posologieService: PosologieService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-  }
+    let id = Number.parseInt(this.activatedRoute.snapshot.paramMap.get('id'));
+    this.posologie = this.posologieService.findById(id);
+  } 
 
 }
