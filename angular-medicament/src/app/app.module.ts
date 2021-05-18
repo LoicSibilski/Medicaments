@@ -41,6 +41,7 @@ import { ComptePageComponent } from './feature/compte/pages/compte-page/compte-p
 import { HomePageComponent } from './feature/home/pages/home-page/home-page.component';
 import { NotfoundComponent } from './feature/notfound/notfound.component';
 import { MdpOublieComponent } from './feature/auth/mdp-oublie/mdp-oublie.component';
+import { ButtonRedirectorComponent } from './shared-component/button-redirector/button-redirector.component';
 
 
 @NgModule({
@@ -80,6 +81,7 @@ import { MdpOublieComponent } from './feature/auth/mdp-oublie/mdp-oublie.compone
     HomePageComponent,
     NotfoundComponent,
     MdpOublieComponent,
+    ButtonRedirectorComponent,
 
 
   ],
