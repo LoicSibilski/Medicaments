@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Prescription } from '../../models/prescription';
+import { PrescriptionService } from '../../services/prescription.service';
 
 @Component({
   selector: 'app-prescriptions-detail',
@@ -7,9 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PrescriptionsDetailComponent implements OnInit {
 
-  constructor() { }
+  prescription: Prescription;
+
+  constructor(private prescrService : PrescriptionService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-  }
-
+    let id = Number.parseInt(this.activatedRoute.snapshot.paramMap.get('id'));
+    this.prescription = this.prescrService.findById(id);
+    /* this.activatedRoute.queryParams.subscribe(params=>{
+      this.prescription = this.prescrService.findById(params['id']);
+    })
+    */
+  } 
 }

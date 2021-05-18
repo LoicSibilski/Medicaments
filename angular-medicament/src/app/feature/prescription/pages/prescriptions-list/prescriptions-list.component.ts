@@ -15,7 +15,6 @@ export class PrescriptionsListComponent implements OnInit {
 
   ngOnInit(): void {
     this.prescriptions = this.prescrService.findAll();
-
   }
 
 }
