@@ -1,14 +1,22 @@
 <div class="container">
-    <div class="prescr" *ngFor="let prescr of prescriptions">
-        <p>ID : {{prescr.id}}</p>
-        <p>Debut : {{prescr.dateDebut | date:'dd/MM/yyyy'}}</p>
-        <p>Fin : {{prescr.dateFin | date:'dd/MM/yyyy'}}</p>
-        <div id="button-container">
-            <button [routerLink]="['detail', prescr.id]">Voir details</button>
+    <div class="titre">
+        <h2>Liste des prescriptions</h2>
+
+    </div>
+    <div class="prescr">
+        <div class="prescr-ngFor" *ngFor="let prescr of prescriptions">
+            <p>ID : {{prescr.id}}</p>
+            <p>Debut : {{prescr.dateDebut | date:'dd/MM/yyyy'}}</p>
+            <p>Fin : {{prescr.dateFin | date:'dd/MM/yyyy'}}</p>
+            <app-button-redirector [routerLink]="['detail', prescr.id]">
+                Voir details
+            </app-button-redirector>
         </div>
     </div>
-    <div id="button-container">
-        <button type="button" routerLink="/home">Retour</button>
+    <div class="button">
+        <app-button-redirector routerLink="/home">
+            home
+        </app-button-redirector>
     </div>
 </div>
 

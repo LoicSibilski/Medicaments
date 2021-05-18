@@ -12,7 +12,7 @@ export class PrescriptionService {
   medicService : MedicService;
 
   posologieDoliprane1: Posologie = {
-    'id':1,
+    'id': 1,
     'nomMedic': "Doliprane",
     'nombreUnite': 2.5,
     'dateDebut': new Date("2005-03-02"),
@@ -24,7 +24,7 @@ export class PrescriptionService {
   }
 
   posologieDoliprane2: Posologie = {
-    'id':2,
+    'id': 2,
     'nomMedic': "Doliprane",
     'nombreUnite': 2,
     'dateDebut': new Date("2021-04-27"),
@@ -36,7 +36,7 @@ export class PrescriptionService {
   }
 
   posologieMemorex1: Posologie = {
-    'id':3,
+    'id': 3,
     'nomMedic': "Memorex",
     'nombreUnite': 2,
     'dateDebut': new Date("1992-05-20"),
@@ -48,7 +48,7 @@ export class PrescriptionService {
   }
 
   posologieMemorex2: Posologie = {
-    'id':4,
+    'id': 4,
     'nomMedic': "Memorex",
     'nombreUnite': 2,
     'dateDebut': new Date("2002-03-06"),
@@ -60,7 +60,7 @@ export class PrescriptionService {
   }
 
   posologieMemorex3: Posologie = {
-    'id':5,
+    'id': 5,
     'nomMedic': "Memorex",
     'nombreUnite': 1,
     'dateDebut': new Date("2012-12-05"),
@@ -81,24 +81,74 @@ export class PrescriptionService {
     'isSoir': true,
     'isActive': true,
   }
+  posologieTiorfan2: Posologie = {
+    'id': 7,
+    'nomMedic': "Tiorfan",
+    'nombreUnite': 2,
+    'dateDebut': new Date("1997-12-12"),
+    'dateFin': new Date(),
+    'isMatin': true,
+    'isMidi': false,
+    'isSoir': true,
+    'isActive': true,
+  }
+  posologieTiorfan3: Posologie = {
+    'id': 8,
+    'nomMedic': "Tiorfan",
+    'nombreUnite': 1,
+    'dateDebut': new Date("2012-12-20"),
+    'dateFin': new Date("2012-12-22"),
+    'isMatin': false,
+    'isMidi': true,
+    'isSoir': false,
+    'isActive': false,
+  }
+  posologieCoalgan: Posologie = {
+    'id': 9,
+    'nomMedic': "Coalgan",
+    'nombreUnite': 2,
+    'dateDebut': new Date("1515-11-30"),
+    'dateFin': new Date("1515-12-20"),
+    'isMatin': false,
+    'isMidi': true,
+    'isSoir': true,
+    'isActive': false,
+  }  
+  posologieCoalgan2: Posologie = {
+    'id': 10,
+    'nomMedic': "Tiorfan",
+    'nombreUnite': 1,
+    'dateDebut': new Date("2008-11-13"),
+    'dateFin': new Date("2016-06-10"),
+    'isMatin': false,
+    'isMidi': true,
+    'isSoir': false,
+    'isActive': true,
+  }
+
 
   doliprane: Medic = {
-    'id':1,
+    'id': 1,
     'nom': 'Doliprane',
-    'posologies': [ this.posologieDoliprane1, this.posologieDoliprane2 ]
+    'posologies': [this.posologieDoliprane1, this.posologieDoliprane2]
   }
 
   memorex: Medic = {
-    'id':2,
+    'id': 2,
     'nom': 'Memorex',
-    'posologies': [ this.posologieMemorex1, this.posologieMemorex2, this.posologieMemorex3 ]
-
+    'posologies': [this.posologieMemorex1, this.posologieMemorex2, this.posologieMemorex3]
   }
 
   tiorfan: Medic = {
     'id': 3,
     'nom': 'Tiorfan',
-    'posologies': [this.posologieTiorfan]
+    'posologies': [this.posologieTiorfan, this.posologieTiorfan2, this.posologieTiorfan3]
+  }
+
+  coalgan: Medic = {
+    'id': 4,
+    'nom': 'Colagan',
+    'posologies': [this.posologieCoalgan, this.posologieCoalgan2],
   }
 
   prescrDoli1: Prescription = {
@@ -117,12 +167,29 @@ export class PrescriptionService {
 
   prescrTiorfan: Prescription = {
     'id':3,
-    'dateDebut': new Date("2021-05-17"),
-    'dateFin': new Date("2021-05-19"),
+    'dateDebut': new Date("2003-06-12"),
+    'dateFin': new Date("2005-09-23"),
     'medics' : [this.tiorfan]
   }
-
-  listePrescriptions =[this.prescrDoli1, this.prescrDoliMemorex];
+  prescrTiorfan2: Prescription = {
+    'id':4,
+    'dateDebut': new Date("2000-08-27"),
+    'dateFin': new Date("2000-09-12"),
+    'medics' : [this.tiorfan, this.doliprane]
+  }
+  prescrTiorfan3: Prescription = {
+    'id':5,
+    'dateDebut': new Date("1992-05-20"),
+    'dateFin': new Date("1998-05-27"),
+    'medics' : [this.tiorfan, this.coalgan, this.memorex]
+  }
+  prescrCoalgan: Prescription = {
+    'id':6,
+    'dateDebut': new Date("2012-09-25"),
+    'dateFin': new Date("2014-04-15"),
+    'medics' : [this.coalgan, this.doliprane]
+  }
+  listePrescriptions =[this.prescrDoli1, this.prescrDoliMemorex, this.prescrTiorfan, this.prescrTiorfan2, this.prescrTiorfan3, this.prescrCoalgan];
 
   constructor(medicService: MedicService) {
     this.medicService = medicService;
