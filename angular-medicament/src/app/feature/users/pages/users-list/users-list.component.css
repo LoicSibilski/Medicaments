@@ -21,6 +21,7 @@ span{
 .profile{
     display: flex;
     align-items: center;
+    margin-bottom: 20px;
 }
 
 h1{
