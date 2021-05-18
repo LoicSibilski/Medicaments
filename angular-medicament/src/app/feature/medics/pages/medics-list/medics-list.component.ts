@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { PrescriptionService } from 'src/app/feature/prescription/services/prescription.service';
+import { Medic } from '../../models/medic';
+import { MedicService } from '../../services/medic.service';
 
 @Component({
   selector: 'app-medics-list',
@@ -7,9 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MedicsListComponent implements OnInit {
 
-  constructor() { }
+  @Input() id: number;
+
+  medics: Medic[];
+
+  constructor(private medicService: MedicService, private prescService: PrescriptionService) { }
 
   ngOnInit(): void {
+    if (this.id === undefined) {
+      this.medics = this.medicService.findAll();
+    }
+    else {
+      this.medics = this.prescService.findAllMedicsByPrescrId(this.id)
+    }
   }
 
 }

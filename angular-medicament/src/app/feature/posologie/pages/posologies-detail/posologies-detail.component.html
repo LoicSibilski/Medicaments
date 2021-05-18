@@ -1,1 +1,31 @@
-<p>posologies-detail works!</p>
+<div class="container">
+    <div class="oui">
+        <div class="titre">
+            <h1>Posologie : {{posologie.nomMedic}} </h1>
+            <h2>(id:{{posologie.id}})</h2>
+        </div>
+        <div class="info">
+            <p>Nombre d'unite : {{posologie.nombreUnite}}</p>
+            <p>Date Debut : {{posologie.dateDebut | date:'dd/MM/yyyy'}}</p>
+            <p>Date Fin : {{posologie.dateFin | date:'dd/MM/yyyy'}}</p>
+            <p>Matin : {{posologie.isMatin}}</p>
+            <p>Midi : {{posologie.isMidi}}</p>
+            <p>Soir : {{posologie.isSoir}}</p>
+            <p>Activer : {{posologie.isActive}}</p>
+        </div>
+    </div>
+    <div class="button">
+        <app-button-redirector routerLink="/posologies">
+            /posologies
+        </app-button-redirector>
+        <app-button-redirector routerLink="/prescriptions">
+            /prescriptions
+        </app-button-redirector>
+        <app-button-redirector routerLink="/medics">
+            /medics
+        </app-button-redirector>
+        <app-button-redirector routerLink="/home">
+            /home
+        </app-button-redirector>
+    </div>
+</div>

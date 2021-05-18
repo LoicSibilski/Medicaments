@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Prescription } from '../../models/prescription';
+import { PrescriptionService } from '../../services/prescription.service';
 
 @Component({
   selector: 'app-prescriptions-list',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PrescriptionsListComponent implements OnInit {
 
-  constructor() { }
+  prescriptions : Prescription[];
+
+  constructor(private prescrService : PrescriptionService) { }
 
   ngOnInit(): void {
+    this.prescriptions = this.prescrService.findAll();
   }
 
 }

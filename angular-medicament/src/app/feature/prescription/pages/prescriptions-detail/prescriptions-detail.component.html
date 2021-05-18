@@ -1,1 +1,25 @@
-<p>prescriptions-detail works!</p>
+<div class="container">
+    <div class="info-prescri">
+        <h1>Prescription n°{{prescription.id}}</h1>
+        <h3>{{prescription.dateDebut | date:'dd/MM/yyyy'}} - {{prescription.dateFin | date:'dd/MM/yyyy'}}</h3>
+    </div>
+    <div class="info-medics">
+        <app-medics-list [id]="prescription.id"></app-medics-list>
+    </div>
+
+
+</div>
+<div class="button">
+    <app-button-redirector routerLink="/prescriptions">
+        /prescriptions
+    </app-button-redirector>
+    <app-button-redirector routerLink="/medics">
+        /medics
+    </app-button-redirector>
+    <app-button-redirector routerLink="/posologies">
+        posologies
+    </app-button-redirector>
+    <app-button-redirector routerLink="/home">
+        home
+    </app-button-redirector>
+</div>

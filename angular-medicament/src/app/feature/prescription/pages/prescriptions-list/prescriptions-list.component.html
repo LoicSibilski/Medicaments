@@ -1,1 +1,28 @@
-<p>prescriptions-list works!</p>
+<div class="container">
+    <div class="titre">
+        <h2>Liste des prescriptions</h2>
+
+    </div>
+    <div class="prescr">
+        <div class="prescr-ngFor" *ngFor="let prescr of prescriptions">
+            <p>ID : {{prescr.id}}</p>
+            <p>Debut : {{prescr.dateDebut | date:'dd/MM/yyyy'}}</p>
+            <p>Fin : {{prescr.dateFin | date:'dd/MM/yyyy'}}</p>
+            <app-button-redirector [routerLink]="['detail', prescr.id]">
+                Voir details
+            </app-button-redirector>
+        </div>
+    </div>
+    <div class="button">
+        <app-button-redirector routerLink="/medics">
+            /medics
+        </app-button-redirector>
+        <app-button-redirector routerLink="/posologies">
+            /posologies
+        </app-button-redirector>
+        <app-button-redirector routerLink="/home">
+            /home
+        </app-button-redirector>
+    </div>
+</div>
+

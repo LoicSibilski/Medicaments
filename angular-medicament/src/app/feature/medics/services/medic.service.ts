@@ -7,9 +7,13 @@ import { Medic } from '../models/medic';
 })
 export class MedicService {
 
+
   posologieDoliprane1: Posologie = {
     'id': 1,
+    'nomMedic': "Doliprane",
     'nombreUnite': 2.5,
+    'dateDebut': new Date("2005-03-02"),
+    'dateFin': new Date("2021-04-26"),
     'isMatin': true,
     'isMidi': true,
     'isSoir': true,
@@ -18,7 +22,10 @@ export class MedicService {
 
   posologieDoliprane2: Posologie = {
     'id': 2,
+    'nomMedic': "Doliprane",
     'nombreUnite': 2,
+    'dateDebut': new Date("2021-04-27"),
+    'dateFin': new Date("2021-05-27"),
     'isMatin': true,
     'isMidi': false,
     'isSoir': true,
@@ -27,7 +34,10 @@ export class MedicService {
 
   posologieMemorex1: Posologie = {
     'id': 3,
+    'nomMedic': "Memorex",
     'nombreUnite': 2,
+    'dateDebut': new Date("1992-05-20"),
+    'dateFin': new Date("1998-05-27"),
     'isMatin': true,
     'isMidi': false,
     'isSoir': true,
@@ -36,7 +46,10 @@ export class MedicService {
 
   posologieMemorex2: Posologie = {
     'id': 4,
+    'nomMedic': "Memorex",
     'nombreUnite': 2,
+    'dateDebut': new Date("2002-03-06"),
+    'dateFin': new Date("2002-04-08"),
     'isMatin': true,
     'isMidi': false,
     'isSoir': false,
@@ -45,21 +58,71 @@ export class MedicService {
 
   posologieMemorex3: Posologie = {
     'id': 5,
+    'nomMedic': "Memorex",
     'nombreUnite': 1,
+    'dateDebut': new Date("2012-12-05"),
+    'dateFin': new Date(),
     'isMatin': true,
     'isMidi': true,
     'isSoir': true,
+    'isActive': true,
+  }
+  posologieTiorfan: Posologie = {
+    'id': 6,
+    'nomMedic': "Tiorfan",
+    'nombreUnite': 1,
+    'dateDebut': new Date("2021-05-17"),
+    'dateFin': new Date("2021-05-20"),
+    'isMatin': true,
+    'isMidi': true,
+    'isSoir': true,
+    'isActive': true,
+  }
+  posologieTiorfan2: Posologie = {
+    'id': 7,
+    'nomMedic': "Tiorfan",
+    'nombreUnite': 2,
+    'dateDebut': new Date("1997-12-12"),
+    'dateFin': new Date(),
+    'isMatin': true,
+    'isMidi': false,
+    'isSoir': true,
+    'isActive': true,
+  }
+  posologieTiorfan3: Posologie = {
+    'id': 8,
+    'nomMedic': "Tiorfan",
+    'nombreUnite': 1,
+    'dateDebut': new Date("2012-12-20"),
+    'dateFin': new Date("2012-12-22"),
+    'isMatin': false,
+    'isMidi': true,
+    'isSoir': false,
+    'isActive': false,
+  }
+  posologieCoalgan: Posologie = {
+    'id': 9,
+    'nomMedic': "Coalgan",
+    'nombreUnite': 2,
+    'dateDebut': new Date("1515-11-30"),
+    'dateFin': new Date("1515-12-20"),
+    'isMatin': false,
+    'isMidi': true,
+    'isSoir': true,
+    'isActive': false,
+  }  
+  posologieCoalgan2: Posologie = {
+    'id': 10,
+    'nomMedic': "Tiorfan",
+    'nombreUnite': 1,
+    'dateDebut': new Date("2008-11-13"),
+    'dateFin': new Date("2016-06-10"),
+    'isMatin': false,
+    'isMidi': true,
+    'isSoir': false,
     'isActive': true,
   }
 
-  posologieTiorfan: Posologie = {
-    'id': 6,
-    'nombreUnite': 1,
-    'isMatin': true,
-    'isMidi': true,
-    'isSoir': true,
-    'isActive': true,
-  }
 
   doliprane: Medic = {
     'id': 1,
@@ -76,9 +139,15 @@ export class MedicService {
   tiorfan: Medic = {
     'id': 3,
     'nom': 'Tiorfan',
-    'posologies': [this.posologieTiorfan]
+    'posologies': [this.posologieTiorfan, this.posologieTiorfan2, this.posologieTiorfan3]
   }
-  listeMedics = [this.doliprane, this.memorex, this.tiorfan];
+
+  coalgan: Medic = {
+    'id': 4,
+    'nom': 'Colagan',
+    'posologies': [this.posologieCoalgan, this.posologieCoalgan2],
+  }
+  listeMedics = [this.doliprane, this.memorex, this.tiorfan, this.coalgan];
 
   constructor() { }
 

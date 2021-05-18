@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Medic } from '../../models/medic';
+import { MedicService } from '../../services/medic.service';
 
 @Component({
   selector: 'app-medics-detail',
@@ -7,9 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MedicsDetailComponent implements OnInit {
 
-  constructor() { }
+  medic: Medic;
+
+  constructor(private medicService : MedicService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-  }
-
+    let id = Number.parseInt(this.activatedRoute.snapshot.paramMap.get('id'));
+    this.medic = this.medicService.findById(id);
+  } 
 }
