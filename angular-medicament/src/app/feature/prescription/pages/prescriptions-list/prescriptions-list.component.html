@@ -1,1 +1,9 @@
-<p>prescriptions-list works!</p>
+<div class="container">
+    <div class="prescr" *ngFor="let prescr of prescriptions">
+        {{prescr.id}}
+        {{prescr.dateDebut}}
+        {{prescr.dateFin}}
+        {{prescr.medics}}
+    </div>
+</div>
+
