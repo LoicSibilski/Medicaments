@@ -3,7 +3,7 @@
 <div id="affichage">
     <div id="users-area">
         <p>Utilisateur(s) du compte</p>
-        <div class="profile" routerLink="/users/:id">
+        <div class="profile" routerLink="/users/details/:id">
             <div class="profile-picture"></div>
             <span>Monique DUBOIS</span>
         </div>
@@ -20,5 +20,7 @@
 
 <div id="button-container">
     <button routerLink="/users/create">Ajouter un utilisateur</button>
-    <button type="button" routerLink="/home">Retour</button>
+    <app-button-redirector routerLink="/home">
+        Retour
+    </app-button-redirector>
 </div>

@@ -1,13 +1,4 @@
-a{
-    background-color: #4997D1;
-    color: white;
-    padding: 15px 30px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-size: 20px;
-    font-weight: bold;
-    width: 20%;
-}
+
 
 div{
     background-color: white;
@@ -21,7 +12,6 @@ div{
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-
 }
 
 h1 {
