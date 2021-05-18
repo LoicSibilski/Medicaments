@@ -1,13 +1,15 @@
-import { Prescription } from "../../prescription/models/prescription"
+import { Posologie } from "../../posologie/models/posologie";
 
 export class Medic {
 
+    public id: number;
     public nom : string;
-    public prescription : Prescription[];
+    public posologies : Posologie[];
 
-    constructor(nom:string, prescription:Prescription[]){
+    constructor(id:number, nom:string, posologies:Posologie[]){
+        this.id = id;
         this.nom = nom;
-        this.prescription = prescription;
+        this.posologies = posologies;
     }
 
 }
