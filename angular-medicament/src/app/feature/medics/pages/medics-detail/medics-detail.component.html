@@ -1,12 +1,19 @@
 <div class="container">
-    <p>ID : {{medic.id}}</p>
-    <p>Nom : {{medic.nom}}</p>
-    <app-posologies-list [id]="medic.id"></app-posologies-list>
-    <app-button-redirector routerLink="/medics">
-        medics
+    <div class="info-prescri">
+        <h1>Médicaments n°{{medic.id}}</h1>
+        <h3>{{medic.nom}}</h3>
+    </div>
+    <div class="info-posos">
+        <app-posologies-list [id]="medic.id"></app-posologies-list>
+    </div>
+
+
+</div>
+<div class="button">
+    <app-button-redirector routerLink="/prescriptions">
+        /prescriptions
     </app-button-redirector>
     <app-button-redirector routerLink="/home">
         home
     </app-button-redirector>
-
 </div>
