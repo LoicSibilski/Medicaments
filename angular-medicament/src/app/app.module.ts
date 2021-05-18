@@ -40,7 +40,6 @@ import { NotificationFormComponent } from './feature/notification/components/not
 import { ComptePageComponent } from './feature/compte/pages/compte-page/compte-page.component';
 import { HomePageComponent } from './feature/home/pages/home-page/home-page.component';
 import { NotfoundComponent } from './feature/notfound/notfound.component';
-import { MdpOublieComponent } from './feature/auth/mdp-oublie/mdp-oublie.component';
 import { ButtonRedirectorComponent } from './shared-component/button-redirector/button-redirector.component';
 import { PosologiesPageComponent } from './feature/posologie/pages/posologies-page/posologies-page.component';
 import { PosologiesDetailComponent } from './feature/posologie/pages/posologies-detail/posologies-detail.component';
@@ -49,6 +48,8 @@ import { PosologiesListComponent } from './feature/posologie/pages/posologies-li
 import { PosologiesNewFormComponent } from './feature/posologie/pages/posologies-new-form/posologies-new-form.component';
 import { PosologieFormComponent } from './feature/posologie/components/posologie-form/posologie-form.component';
 import { AssistantDetailComponent } from './feature/users/pages/assistant-detail/assistant-detail.component';
+import { ConnexionComponent } from './feature/authentification/connexion/connexion.component';
+import { InscriptionComponent } from './feature/authentification/inscription/inscription.component';
 
 
 
@@ -88,7 +89,6 @@ import { AssistantDetailComponent } from './feature/users/pages/assistant-detail
     ComptePageComponent,
     HomePageComponent,
     NotfoundComponent,
-    MdpOublieComponent,
     ButtonRedirectorComponent,
     PosologiesPageComponent,
     PosologiesDetailComponent,
@@ -97,6 +97,8 @@ import { AssistantDetailComponent } from './feature/users/pages/assistant-detail
     PosologiesNewFormComponent,
     PosologieFormComponent,
     AssistantDetailComponent,
+    ConnexionComponent,
+    InscriptionComponent,
 
 
   ],

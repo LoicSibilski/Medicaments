@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ConnexionComponent } from './feature/auth/connexion/connexion.component';
-import { InscriptionComponent } from './feature/auth/inscription/inscription.component';
-import { MdpOublieComponent } from './feature/auth/mdp-oublie/mdp-oublie.component';
+import { ConnexionComponent } from './feature/authentification/connexion/connexion.component';
+import { InscriptionComponent } from './feature/authentification/inscription/inscription.component';
+import { MdpOublieComponent } from './feature/authentification/mdp-oublie/mdp-oublie.component';
 import { HomePageComponent } from './feature/home/pages/home-page/home-page.component';
 import { MedicsDetailComponent } from './feature/medics/pages/medics-detail/medics-detail.component';
 import { MedicsEditFormComponent } from './feature/medics/pages/medics-edit-form/medics-edit-form.component';
