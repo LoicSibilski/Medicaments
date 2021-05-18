@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Medic } from '../../medics/models/medic';
+import { MedicService } from '../../medics/services/medic.service';
 import { Posologie } from '../../posologie/models/posologie';
 import { Prescription } from '../models/prescription';
 
@@ -7,6 +8,8 @@ import { Prescription } from '../models/prescription';
   providedIn: 'root'
 })
 export class PrescriptionService {
+
+  medicService : MedicService;
 
   posologieDoliprane1: Posologie = {
     'id':1,
@@ -52,6 +55,14 @@ export class PrescriptionService {
     'isSoir': true,
     'isActive': true,
   }
+  posologieTiorfan: Posologie = {
+    'id': 6,
+    'nombreUnite': 1,
+    'isMatin': true,
+    'isMidi': true,
+    'isSoir': true,
+    'isActive': true,
+  }
 
   doliprane: Medic = {
     'id':1,
@@ -64,6 +75,12 @@ export class PrescriptionService {
     'nom': 'Memorex',
     'posologies': [ this.posologieMemorex1, this.posologieMemorex2, this.posologieMemorex3 ]
 
+  }
+
+  tiorfan: Medic = {
+    'id': 3,
+    'nom': 'Tiorfan',
+    'posologies': [this.posologieTiorfan]
   }
 
   prescrDoli1: Prescription = {
@@ -80,13 +97,21 @@ export class PrescriptionService {
     'medics' : [this.doliprane, this.memorex]
   }
 
+  prescrTiorfan: Prescription = {
+    'id':3,
+    'dateDebut': new Date('17/05/2021'),
+    'dateFin': new Date('19/05/2021'),
+    'medics' : [this.tiorfan]
+  }
+
   listePrescriptions =[this.prescrDoli1, this.prescrDoliMemorex];
 
-  constructor() { }
+  constructor(medicService: MedicService) {
+    this.medicService = medicService;
+   }
 
   findAll = (): Prescription[] => {
-    let tmp : Prescription[] = [this.prescrDoli1, this.prescrDoliMemorex];
-    return tmp;
+    return this.listePrescriptions
   }
 
   findById = (id:number): Prescription => {
@@ -98,6 +123,11 @@ export class PrescriptionService {
     })
     console.log("aucune prescription avec cette id")
     return prescrTmp;
+  }
+
+  findAllMedicsByPrescrId = (id:number) :Medic[] =>{
+    let prescr = this.findById(id);
+    return prescr.medics;
   }
 
   save = (prescription : Prescription) => {
