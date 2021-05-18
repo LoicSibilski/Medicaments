@@ -42,6 +42,13 @@ import { HomePageComponent } from './feature/home/pages/home-page/home-page.comp
 import { NotfoundComponent } from './feature/notfound/notfound.component';
 import { MdpOublieComponent } from './feature/auth/mdp-oublie/mdp-oublie.component';
 import { ButtonRedirectorComponent } from './shared-component/button-redirector/button-redirector.component';
+import { PosologiesPageComponent } from './feature/posologie/pages/posologies-page/posologies-page.component';
+import { PosologiesDetailComponent } from './feature/posologie/pages/posologies-detail/posologies-detail.component';
+import { PosologiesEditFormComponent } from './feature/posologie/pages/posologies-edit-form/posologies-edit-form.component';
+import { PosologiesListComponent } from './feature/posologie/pages/posologies-list/posologies-list.component';
+import { PosologiesNewFormComponent } from './feature/posologie/pages/posologies-new-form/posologies-new-form.component';
+import { PosologieFormComponent } from './feature/posologie/components/posologie-form/posologie-form.component';
+
 
 
 @NgModule({
@@ -82,6 +89,12 @@ import { ButtonRedirectorComponent } from './shared-component/button-redirector/
     NotfoundComponent,
     MdpOublieComponent,
     ButtonRedirectorComponent,
+    PosologiesPageComponent,
+    PosologiesDetailComponent,
+    PosologiesEditFormComponent,
+    PosologiesListComponent,
+    PosologiesNewFormComponent,
+    PosologieFormComponent,
 
 
   ],
