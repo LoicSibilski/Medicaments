@@ -10,14 +10,19 @@ import { MedicService } from '../../services/medic.service';
 })
 export class MedicsListComponent implements OnInit {
 
-  @Input() id:number;
+  @Input() id: number;
 
-  medics : Medic[];
+  medics: Medic[];
 
-  constructor(private prescService:PrescriptionService) { }
+  constructor(private prescService: PrescriptionService, private medicService: MedicService) { }
 
   ngOnInit(): void {
-    this.medics = this.prescService.findAllMedicsByPrescrId(this.id)
+    if (this.id === undefined) {
+      this.medics = this.medicService.findAll();
+    }
+    else{
+      this.medics = this.prescService.findAllMedicsByPrescrId(this.id)
+    }
   }
 
 
