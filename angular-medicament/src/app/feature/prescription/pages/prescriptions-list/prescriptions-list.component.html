@@ -4,7 +4,7 @@
         <p>Debut : {{prescr.dateDebut | date:'dd/MM/yyyy'}}</p>
         <p>Fin : {{prescr.dateFin | date:'dd/MM/yyyy'}}</p>
         <div id="button-container">
-            <button routerLink="['/prescriptions/detail',{{prescr.id}}]">Voir details</button>
+            <button [routerLink]="['detail', prescr.id]">Voir details</button>
         </div>
     </div>
     <div id="button-container">

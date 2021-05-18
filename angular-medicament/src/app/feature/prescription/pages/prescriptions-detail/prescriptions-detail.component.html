@@ -2,4 +2,5 @@
     <p>ID : {{prescription.id}}</p>
     <p>Debut : {{prescription.dateDebut | date:'dd/MM/yyyy'}}</p>
     <p>Fin : {{prescription.dateFin | date:'dd/MM/yyyy'}}</p>
+    <app-medics-list [id]="prescription.id"></app-medics-list>
 </div>

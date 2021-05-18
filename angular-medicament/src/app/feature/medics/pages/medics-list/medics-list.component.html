@@ -1,1 +1,13 @@
-<p>medics-list works!</p>
+<div class="container">
+    <div class="medic" *ngFor="let medic of medics">
+        <p>ID : {{medic.id}}</p>
+        <p>Nom : {{medic.nom}}</p>
+        <div id="button-container">
+            <button [routerLink]="['/medics/detail', medic.id]">Voir details</button>
+        </div>
+    </div>
+    <div id="button-container">
+        <button type="button" routerLink="/home">Retour</button>
+    </div>
+</div>
+

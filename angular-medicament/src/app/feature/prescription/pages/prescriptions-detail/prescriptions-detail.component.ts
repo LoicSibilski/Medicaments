@@ -17,9 +17,5 @@ export class PrescriptionsDetailComponent implements OnInit {
   ngOnInit(): void {
     let id = Number.parseInt(this.activatedRoute.snapshot.paramMap.get('id'));
     this.prescription = this.prescrService.findById(id);
-    /* this.activatedRoute.queryParams.subscribe(params=>{
-      this.prescription = this.prescrService.findById(params['id']);
-    })
-    */
   } 
 }
