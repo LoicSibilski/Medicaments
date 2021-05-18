@@ -80,6 +80,8 @@ export class PrescriptionService {
     'medics' : [this.doliprane, this.memorex]
   }
 
+  listePrescriptions =[this.prescrDoli1, this.prescrDoliMemorex];
+
   constructor() { }
 
   findAll = (): Prescription[] => {
@@ -87,6 +89,39 @@ export class PrescriptionService {
     return tmp;
   }
 
+  findById = (id:number): Prescription => {
+    let prescrTmp : Prescription;
+    this.listePrescriptions.forEach(prescr =>{
+      if (prescr.id == id){
+        prescrTmp = prescr;
+      }
+    })
+    console.log("aucune prescription avec cette id")
+    return prescrTmp;
+  }
 
+  save = (prescription : Prescription) => {
+    console.log("Liste des prescription : "+ this.listePrescriptions);
+    console.log("Ajout de la prescription : "+ prescription);
+    this.listePrescriptions.push(prescription);
+    console.log("Liste des prescription : "+ this.listePrescriptions);
+  }
+
+  update = (prescription : Prescription) => {
+    console.log("Liste des prescription : "+ this.listePrescriptions);
+    console.log("MAJ de la prescription : "+ prescription);
+    this.delete(prescription.id);
+    this.save(prescription);
+    console.log("Liste des prescription : "+ this.listePrescriptions);
+  }
+
+  delete = (id:number) => {
+    console.log("Liste des prescription : "+ this.listePrescriptions);
+    let prescr = this.findById(id);
+    console.log("Suppression de la prescription : "+ prescr);
+    let pos = this.listePrescriptions.indexOf(prescr)
+    this.listePrescriptions.splice(pos,1);
+    console.log("Liste des prescription : "+ this.listePrescriptions);
+  }
 
 }
