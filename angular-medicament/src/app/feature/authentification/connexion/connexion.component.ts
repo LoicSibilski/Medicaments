@@ -7,6 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConnexionComponent implements OnInit {
 
+  currentItem = 'Television';
+
+
+  newValueInput = {id: "email", type: "text", title: "Email"}
+  
+
   constructor() { }
 
   ngOnInit(): void {

@@ -50,7 +50,7 @@ import { PosologieFormComponent } from './feature/posologie/components/posologie
 import { AssistantDetailComponent } from './feature/users/pages/assistant-detail/assistant-detail.component';
 import { ConnexionComponent } from './feature/authentification/connexion/connexion.component';
 import { InscriptionComponent } from './feature/authentification/inscription/inscription.component';
-import { CardContentComponent } from './feature/authentification/shared/card-content/card-content.component';
+import { FormContentComponent } from './feature/authentification/shared/form-content/form-content.component';
 
 
 
@@ -100,7 +100,7 @@ import { CardContentComponent } from './feature/authentification/shared/card-con
     AssistantDetailComponent,
     ConnexionComponent,
     InscriptionComponent,
-    CardContentComponent,
+    FormContentComponent,
 
 
   ],
