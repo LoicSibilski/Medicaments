@@ -6,13 +6,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./connexion.component.css']
 })
 export class ConnexionComponent implements OnInit {
-
-  currentItem = 'Television';
-
-
-  newValueInput = {id: "email", type: "text", title: "Email"}
   
+  inputs = [
+    {id:"email", type:"email", text:"Email"},
+    {id:"password", type:"password", text:"Mot de passe"}
+  ];
 
+  buttons = [
+    {title:"Se connecter", link:"/connexion"},
+    {title:"Créer un compte", link:"/inscription"}
+  ]
+
+  description="Bienvenue ! 🎉"
+  
   constructor() { }
 
   ngOnInit(): void {
