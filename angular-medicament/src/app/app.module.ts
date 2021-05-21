@@ -50,7 +50,9 @@ import { PosologieFormComponent } from './feature/posologie/components/posologie
 import { AssistantDetailComponent } from './feature/users/pages/assistant-detail/assistant-detail.component';
 import { ConnexionComponent } from './feature/authentification/connexion/connexion.component';
 import { InscriptionComponent } from './feature/authentification/inscription/inscription.component';
-import { FormContentComponent } from './feature/authentification/shared/form-content/form-content.component';
+import { InputComponent } from './shared-component/input/input.component';
+import { LayoutComponent } from './shared-component/layout/layout.component';
+import { ButtonComponent } from './shared-component/button/button.component';
 
 
 
@@ -100,7 +102,9 @@ import { FormContentComponent } from './feature/authentification/shared/form-con
     AssistantDetailComponent,
     ConnexionComponent,
     InscriptionComponent,
-    FormContentComponent,
+    InputComponent,
+    LayoutComponent,
+    ButtonComponent,
 
 
   ],

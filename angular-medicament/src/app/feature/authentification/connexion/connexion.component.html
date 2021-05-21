@@ -1,3 +1,10 @@
-<app-form-content>
-    [item]="currentItem"
-</app-form-content>
+<!-- Intégrer le layout à la page est l'ensemble des composants -->
+<app-layout [layoutText]="description"></app-layout> 
+<form>
+    <app-input *ngFor="let input of inputs" [inputId]="input.id" [inputType]="input.type" [inputText]="input.text"></app-input>
+    <section>
+        <a routerLink="/mdp_oublie">Mot de passe oublié ?</a>
+    </section>
+    <app-button *ngFor="let button of buttons;" [buttonTitle]="button.title" [buttonLink]="button.link"></app-button>
+</form>
+
