@@ -1,14 +1,19 @@
 <div class="container">
-    <div class="info-prescri">
+    <div class="info-prescri-current-date" *ngIf="dateNowBetweenPrescrDates(); else notCurrent">
         <h1>Prescription n°{{prescription.id}}</h1>
         <h3>{{prescription.dateDebut | date:'dd/MM/yyyy'}} - {{prescription.dateFin | date:'dd/MM/yyyy'}}</h3>
     </div>
+    <ng-template #notCurrent>
+        <div class="info-prescri-not-current-date">
+            <h1>Prescription n°{{prescription.id}}</h1>
+            <h3>{{prescription.dateDebut | date:'dd/MM/yyyy'}} - {{prescription.dateFin | date:'dd/MM/yyyy'}}</h3>
+        </div>
+    </ng-template>
     <div class="info-medics">
         <app-medics-list [id]="prescription.id"></app-medics-list>
     </div>
-
-
 </div>
+
 <div class="button">
     <app-button-redirector routerLink="/prescriptions">
         /prescriptions
