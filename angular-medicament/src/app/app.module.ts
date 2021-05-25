@@ -108,6 +108,7 @@ import { InscriptionComponent } from './feature/authentification/inscription/ins
     RouterModule,
     ReactiveFormsModule,
     HttpClientModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

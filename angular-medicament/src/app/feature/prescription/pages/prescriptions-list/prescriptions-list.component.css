@@ -7,3 +7,9 @@
     display: flex;
     margin: 1em;
 }
+.date-prescr-current{
+    color: #abd473;
+}
+.date-prescr-not-current{
+    color: #8c1616;
+}
