@@ -6,8 +6,16 @@
         </div>
         <div class="info">
             <p>Nombre d'unite : {{posologie.nombreUnite}}</p>
-            <p>Date Debut : {{posologie.dateDebut | date:'dd/MM/yyyy'}}</p>
-            <p>Date Fin : {{posologie.dateFin | date:'dd/MM/yyyy'}}</p>
+            <div class="posologie-current-date" *ngIf="dateNowBetweenPrescrDates(); else notCurrent">
+                <p>Date Debut : {{posologie.dateDebut | date:'dd/MM/yyyy'}}</p>
+                <p>Date Fin : {{posologie.dateFin | date:'dd/MM/yyyy'}}</p>
+            </div>
+            <ng-template #notCurrent>
+                <div class="posologie-not-current-date">
+                    <p>Date Debut : {{posologie.dateDebut | date:'dd/MM/yyyy'}}</p>
+                    <p>Date Fin : {{posologie.dateFin | date:'dd/MM/yyyy'}}</p>
+                </div>     
+            </ng-template>
             <p>Matin : {{posologie.isMatin}}</p>
             <p>Midi : {{posologie.isMidi}}</p>
             <p>Soir : {{posologie.isSoir}}</p>

@@ -5,3 +5,9 @@
     display: flex;
     justify-content: space-around;
 }
+.posologie-current-date{
+    color: #abd473;
+}
+.posologie-not-current-date{
+    color: #8c1616;
+}
