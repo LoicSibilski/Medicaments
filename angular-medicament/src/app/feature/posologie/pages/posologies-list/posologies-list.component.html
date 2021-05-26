@@ -1,5 +1,8 @@
 <div class="container">
-    <h2>Liste des posologies</h2>
+    <div class="titre">
+        <h2>Liste des posologies</h2>
+
+    </div>
     <div class="posologie">
         <div class="posologie-ngFor" *ngFor="let posologie of posologies">
             <div class="posologie-current-date" *ngIf="dateNowBetweenPrescrDates(posologie); else notCurrent">
@@ -20,7 +23,12 @@
             </div>
         </div>
     </div>
-    <div class="button" *ngIf="fromMedicList">
+    <div class="boutons-histo">
+        <button type="button" (click)="getHistorique()">Voir histo</button>
+        <button type="button" (click)="getCurrent()">En cours</button>
+    </div>
+
+    <div class="button" *ngIf="!fromMedicList">
         <app-button-redirector routerLink="/prescriptions">
             /prescriptions
         </app-button-redirector>

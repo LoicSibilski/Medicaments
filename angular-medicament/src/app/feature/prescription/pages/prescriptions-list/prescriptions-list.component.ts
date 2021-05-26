@@ -20,7 +20,6 @@ export class PrescriptionsListComponent implements OnInit {
     this.prescriptions = this.prescrService.findAllCurrentDate();
     this.dateNow = formatDate(new Date(), 'yyyy-MM-dd', 'en_US');
     this.date = new Date(this.dateNow);
-    this.prescrService.findAllCurrentDate();
   }
 
   dateNowBetweenPrescrDates(prescription: Prescription){

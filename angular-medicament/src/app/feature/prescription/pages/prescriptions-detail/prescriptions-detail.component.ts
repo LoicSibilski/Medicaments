@@ -16,7 +16,7 @@ export class PrescriptionsDetailComponent implements OnInit {
   dateNow: string;
   date: Date;
 
-  constructor(private prescrService : PrescriptionService, private activatedRoute: ActivatedRoute) { }
+  constructor(private prescrService: PrescriptionService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     let id = Number.parseInt(this.activatedRoute.snapshot.paramMap.get('id'));
@@ -24,8 +24,8 @@ export class PrescriptionsDetailComponent implements OnInit {
 
     this.dateNow = formatDate(new Date(), 'yyyy-MM-dd', 'en_US');
     this.date = new Date(this.dateNow);
-  } 
-  dateNowBetweenPrescrDates(){
+  }
+  dateNowBetweenPrescrDates() {
     return this.prescription.dateDebut <= this.date && this.date <= this.prescription.dateFin
   }
 }

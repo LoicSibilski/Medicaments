@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Posologie } from '../models/posologie';
+import { formatDate } from "@angular/common";;
 
 @Injectable({
   providedIn: 'root'
@@ -138,6 +139,19 @@ export class PosologieService {
 
   findAll = (): Posologie[] => {
     return this.listePosologies;
+  }
+
+  findAllCurrentDate = () : Posologie[] => {
+    let listeCurrentDate : Posologie[] = [];
+    let dateNow = formatDate(new Date(), 'yyyy-MM-dd', 'en_US');
+    let date = new Date(dateNow);
+    this.listePosologies.forEach(poso => {
+      if (poso.dateDebut <= date && date <= poso.dateFin){
+        listeCurrentDate.push(poso);
+      }
+    });
+    console.log(listeCurrentDate);
+    return listeCurrentDate;
   }
 
   findById = (id: number): Posologie => {

@@ -11,3 +11,8 @@
 .posologie-not-current-date{
     color: #8c1616;
 }
+.titre, .boutons-histo{
+    display: flex;
+    justify-content: center;
+}
+
