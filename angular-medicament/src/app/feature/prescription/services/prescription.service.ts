@@ -3,6 +3,7 @@ import { Medic } from '../../medics/models/medic';
 import { MedicService } from '../../medics/services/medic.service';
 import { Posologie } from '../../posologie/models/posologie';
 import { Prescription } from '../models/prescription';
+import { formatDate } from "@angular/common";;
 
 @Injectable({
   providedIn: 'root'
@@ -197,6 +198,19 @@ export class PrescriptionService {
 
   findAll = (): Prescription[] => {
     return this.listePrescriptions
+  }
+
+  findAllCurrentDate = () : Prescription[] => {
+    let listeCurrentDate : Prescription[] = [];
+    let dateNow = formatDate(new Date(), 'yyyy-MM-dd', 'en_US');
+    let date = new Date(dateNow);
+    this.listePrescriptions.forEach(prescr => {
+      if (prescr.dateDebut <= date && date <= prescr.dateFin){
+        listeCurrentDate.push(prescr);
+      }
+    });
+    console.log(listeCurrentDate);
+    return listeCurrentDate;
   }
 
   findById = (id:number): Prescription => {
