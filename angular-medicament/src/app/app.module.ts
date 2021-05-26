@@ -6,6 +6,10 @@ import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatButtonModule} from '@angular/material/button';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
 
 import { UsersPagesComponent } from './feature/users/pages/users-pages/users-pages.component';
 import { UsersDetailComponent } from './feature/users/pages/users-detail/users-detail.component';
@@ -50,8 +54,14 @@ import { PosologieFormComponent } from './feature/posologie/components/posologie
 import { AssistantDetailComponent } from './feature/users/pages/assistant-detail/assistant-detail.component';
 import { ConnexionComponent } from './feature/authentification/connexion/connexion.component';
 import { InscriptionComponent } from './feature/authentification/inscription/inscription.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-
+const modules = [
+  MatButtonModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatDialogModule
+];
 
 @NgModule({
   declarations: [
@@ -100,6 +110,7 @@ import { InscriptionComponent } from './feature/authentification/inscription/ins
     ConnexionComponent,
     InscriptionComponent,
 
+    
 
   ],
   imports: [
@@ -108,7 +119,11 @@ import { InscriptionComponent } from './feature/authentification/inscription/ins
     RouterModule,
     ReactiveFormsModule,
     HttpClientModule,
-    
+    BrowserAnimationsModule,
+    [...modules]
+  ],
+  exports: [
+    [...modules]
   ],
   providers: [],
   bootstrap: [AppComponent]

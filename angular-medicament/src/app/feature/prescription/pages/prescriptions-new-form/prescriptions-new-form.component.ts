@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-prescriptions-new-form',
@@ -7,9 +9,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PrescriptionsNewFormComponent implements OnInit {
 
-  constructor() { }
+  form: FormGroup;
+  description: string;
 
-  ngOnInit(): void {
+  constructor(
+    private fb: FormBuilder,
+    private dialogRef: MatDialogRef<PrescriptionsNewFormComponent>,
+    @Inject(MAT_DIALOG_DATA) data) {
+
+    this.description = data.description;
   }
 
+  ngOnInit() {
+    this.form = this.fb.group({
+      description: [this.description, []],
+      
+  });
+  }
+
+  save() {
+    this.dialogRef.close(this.form.value);
+  }
+
+  close() {
+    this.dialogRef.close();
+  }
 }
