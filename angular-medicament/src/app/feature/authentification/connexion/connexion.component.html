@@ -1,13 +1,11 @@
-<<<<<<< HEAD
-=======
-<!-- Intégrer le layout à la page est l'ensemble des composants -->
-<app-layout [layoutText]="description"></app-layout> 
-<form>
-    <app-input *ngFor="let input of inputs" [inputId]="input.id" [inputType]="input.type" [inputText]="input.text"></app-input>
-    <section>
+<section>
+    <h2>Se connecter</h2>
+    <form [formGroup]="compteForm" (ngSubmit)="onSubmit()">
+        <label>Email</label>
+        <input type="text" placeholder="Email" formControlName="email">
+        <label>Mot de passe</label>
+        <input type="password" placeholder="Mot de passe" formControlName="motDePasse">
         <a routerLink="/mdp_oublie">Mot de passe oublié ?</a>
-    </section>
-    <app-button *ngFor="let button of buttons;" [buttonTitle]="button.title" [buttonLink]="button.link"></app-button>
-</form>
->>>>>>> 324362c40641476a40eb4c7888458e2ea4645de8
-
+        <button type="submit" >Se connecter</button>
+    </form>
+</section>
