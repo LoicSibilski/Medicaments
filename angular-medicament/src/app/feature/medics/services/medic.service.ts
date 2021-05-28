@@ -152,6 +152,18 @@ export class MedicService {
 
   constructor() { }
 
+  getNextId = (): number => {
+    let nextId: number = 1;
+    this.listeMedics.forEach(medic => {
+      if(medic.id === nextId){
+        nextId++;
+      } else{
+        return nextId;
+      }
+    });
+    return nextId;
+  }
+
   findAll = (): Medic[] => {
     return this.listeMedics;
   }

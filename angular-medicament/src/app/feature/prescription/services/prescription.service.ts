@@ -10,7 +10,7 @@ import { formatDate } from "@angular/common";;
 })
 export class PrescriptionService {
 
-  medicService : MedicService;
+  medicService: MedicService;
 
   posologieDoliprane1: Posologie = {
     'id': 1,
@@ -114,7 +114,7 @@ export class PrescriptionService {
     'isMidi': true,
     'isSoir': true,
     'isActive': false,
-  }  
+  }
   posologieCoalgan2: Posologie = {
     'id': 10,
     'nomMedic': "Tiorfan",
@@ -153,59 +153,71 @@ export class PrescriptionService {
   }
 
   prescrDoli1: Prescription = {
-    'id':1,
+    'id': 1,
     'dateDebut': new Date("1992-05-20"),
     'dateFin': new Date("1998-05-27"),
-    'medics' : [this.doliprane],
+    'medics': [this.doliprane],
   }
 
   prescrDoliMemorex: Prescription = {
-    'id':2,
+    'id': 2,
     'dateDebut': new Date("2014-05-30"),
     'dateFin': new Date("2022-01-01"),
-    'medics' : [this.doliprane, this.memorex]
+    'medics': [this.doliprane, this.memorex]
   }
 
   prescrTiorfan: Prescription = {
-    'id':3,
+    'id': 3,
     'dateDebut': new Date("2003-06-12"),
     'dateFin': new Date("2005-09-23"),
-    'medics' : [this.tiorfan]
+    'medics': [this.tiorfan]
   }
   prescrTiorfan2: Prescription = {
-    'id':4,
+    'id': 4,
     'dateDebut': new Date("2021-05-20"),
     'dateFin': new Date("2021-07-20"),
-    'medics' : [this.tiorfan, this.doliprane]
+    'medics': [this.tiorfan, this.doliprane]
   }
   prescrTiorfan3: Prescription = {
-    'id':5,
+    'id': 5,
     'dateDebut': new Date("1992-05-20"),
     'dateFin': new Date("1998-05-27"),
-    'medics' : [this.tiorfan, this.coalgan, this.memorex]
+    'medics': [this.tiorfan, this.coalgan, this.memorex]
   }
   prescrCoalgan: Prescription = {
-    'id':6,
+    'id': 6,
     'dateDebut': new Date("2012-09-25"),
     'dateFin': new Date("2014-04-15"),
-    'medics' : [this.coalgan, this.doliprane]
+    'medics': [this.coalgan, this.doliprane]
   }
-  listePrescriptions =[this.prescrDoli1, this.prescrDoliMemorex, this.prescrTiorfan, this.prescrTiorfan2, this.prescrTiorfan3, this.prescrCoalgan];
+  listePrescriptions = [this.prescrDoli1, this.prescrDoliMemorex, this.prescrTiorfan, this.prescrTiorfan2, this.prescrTiorfan3, this.prescrCoalgan];
 
   constructor(medicService: MedicService) {
     this.medicService = medicService;
-   }
+  }
+
+  getNextId = (): number => {
+    let nextId: number = 1;
+    this.listePrescriptions.forEach(prescr => {
+      if(prescr.id === nextId){
+        nextId++;
+      } else{
+        return nextId;
+      }
+    });
+    return nextId;
+  }
 
   findAll = (): Prescription[] => {
     return this.listePrescriptions
   }
 
-  findAllCurrentDate = () : Prescription[] => {
-    let listeCurrentDate : Prescription[] = [];
+  findAllCurrentDate = (): Prescription[] => {
+    let listeCurrentDate: Prescription[] = [];
     let dateNow = formatDate(new Date(), 'yyyy-MM-dd', 'en_US');
     let date = new Date(dateNow);
     this.listePrescriptions.forEach(prescr => {
-      if (prescr.dateDebut <= date && date <= prescr.dateFin){
+      if (prescr.dateDebut <= date && date <= prescr.dateFin) {
         listeCurrentDate.push(prescr);
       }
     });
@@ -213,10 +225,10 @@ export class PrescriptionService {
     return listeCurrentDate;
   }
 
-  findById = (id:number): Prescription => {
-    let prescrTmp : Prescription;
-    this.listePrescriptions.forEach(prescr =>{
-      if (prescr.id == id){
+  findById = (id: number): Prescription => {
+    let prescrTmp: Prescription;
+    this.listePrescriptions.forEach(prescr => {
+      if (prescr.id == id) {
         prescrTmp = prescr;
       }
     })
@@ -224,32 +236,32 @@ export class PrescriptionService {
     return prescrTmp;
   }
 
-  findAllMedicsByPrescrId = (id:number) :Medic[] =>{
+  findAllMedicsByPrescrId = (id: number): Medic[] => {
     let prescr = this.findById(id);
     return prescr.medics;
   }
 
-  save = (prescription : Prescription) => {
-    console.log("Liste des prescription : "+ this.listePrescriptions);
-    console.log("Ajout de la prescription : "+ prescription);
+  save = (prescription: Prescription) => {
+    console.log("Liste des prescription : " + this.listePrescriptions);
+    console.log("Ajout de la prescription : " + prescription);
     this.listePrescriptions.push(prescription);
-    console.log("Liste des prescription : "+ this.listePrescriptions);
+    console.log("Liste des prescription : " + this.listePrescriptions);
   }
 
-  delete = (id:number) => {
-    console.log("Liste des prescription : "+ this.listePrescriptions);
+  delete = (id: number) => {
+    console.log("Liste des prescription : " + this.listePrescriptions);
     let prescr = this.findById(id);
-    console.log("Suppression de la prescription : "+ prescr);
+    console.log("Suppression de la prescription : " + prescr);
     let pos = this.listePrescriptions.indexOf(prescr)
-    this.listePrescriptions.splice(pos,1);
-    console.log("Liste des prescription : "+ this.listePrescriptions);
+    this.listePrescriptions.splice(pos, 1);
+    console.log("Liste des prescription : " + this.listePrescriptions);
   }
-  
-  update = (prescription : Prescription) => {
-    console.log("Liste des prescription : "+ this.listePrescriptions);
-    console.log("MAJ de la prescription : "+ prescription);
+
+  update = (prescription: Prescription) => {
+    console.log("Liste des prescription : " + this.listePrescriptions);
+    console.log("MAJ de la prescription : " + prescription);
     this.delete(prescription.id);
     this.save(prescription);
-    console.log("Liste des prescription : "+ this.listePrescriptions);
+    console.log("Liste des prescription : " + this.listePrescriptions);
   }
 }

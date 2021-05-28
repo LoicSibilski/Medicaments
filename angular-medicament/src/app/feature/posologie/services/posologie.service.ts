@@ -137,6 +137,18 @@ export class PosologieService {
 
   constructor() { }
 
+  getNextId = (): number => {
+    let nextId: number = 1;
+    this.listePosologies.forEach(poso => {
+      if(poso.id === nextId){
+        nextId++;
+      } else{
+        return nextId;
+      }
+    });
+    return nextId;
+  }
+
   findAll = (): Posologie[] => {
     return this.listePosologies;
   }

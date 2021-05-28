@@ -1,1 +1,19 @@
-<p>medics-new-form works!</p>
+<h1 mat-dialog-title>Add New Questions</h1>
+<div mat-dialog-content>
+    <form [formGroup]="form" novalidate>
+
+        <mat-form-field [attr.aria-label]="'Nom'">
+            <input name="nom" matInput type="text" readonly formControlName="nom">
+        </mat-form-field>
+
+
+        <div formArrayName="posologie" >
+            <button type="button" (click)="openMedicFormDialog()">ajouter Posologie</button>
+        </div>
+    </form>
+</div>
+<div mat-dialog-actions align="end">
+    <button type="button" mat-raised-button mat-dialog-close [attr.aria-label]="'Cancel add questions'">Cancel</button>
+    <button type="button" mat-raised-button (click)="returnPosologie()" [attr.aria-label]="'Save new questions'"
+        [disabled]="form.invalid">Save</button>
+</div>

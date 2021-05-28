@@ -4,6 +4,7 @@ import { PrescriptionService } from '../../services/prescription.service';
 import { formatDate } from "@angular/common";;
 import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
 import { PrescriptionsNewFormComponent } from '../prescriptions-new-form/prescriptions-new-form.component';
+import { Medic } from 'src/app/feature/medics/models/medic';
 
 
 @Component({
@@ -17,6 +18,9 @@ export class PrescriptionsListComponent implements OnInit {
   dateNow: string;
   date: Date;
 
+  dateDebut: Date;
+  dateFin: Date;
+  medics: Medic[];
 
   constructor(private prescrService: PrescriptionService, private dialog: MatDialog) { }
 
@@ -33,17 +37,11 @@ export class PrescriptionsListComponent implements OnInit {
     dialogConfig.autoFocus = true;
 
     dialogConfig.data = {
-      id: 1,
-      title: 'Angular For Beginners'
+      dateDebut: this.dateDebut,
+      dateFin: this.dateFin,
+      medics: this.medics,
     };
-
     this.dialog.open(PrescriptionsNewFormComponent, dialogConfig);
-
-    const dialogRef = this.dialog.open(PrescriptionsNewFormComponent, dialogConfig);
-
-    dialogRef.afterClosed().subscribe(
-      data => console.log("Dialog output:", data)
-    );
   }
 
   dateNowBetweenPrescrDates(prescription: Prescription) {

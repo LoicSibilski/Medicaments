@@ -4,12 +4,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import {MatDialogModule} from '@angular/material/dialog';
-import {MatButtonModule} from '@angular/material/button';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 import { UsersPagesComponent } from './feature/users/pages/users-pages/users-pages.component';
 import { UsersDetailComponent } from './feature/users/pages/users-detail/users-detail.component';
@@ -60,7 +62,9 @@ const modules = [
   MatButtonModule,
   MatFormFieldModule,
   MatInputModule,
-  MatDialogModule
+  MatDialogModule,
+  MatRadioModule, 
+  MatCheckboxModule
 ];
 
 @NgModule({
@@ -110,7 +114,7 @@ const modules = [
     ConnexionComponent,
     InscriptionComponent,
 
-    
+
 
   ],
   imports: [
@@ -118,7 +122,9 @@ const modules = [
     AppRoutingModule,
     RouterModule,
     ReactiveFormsModule,
+    FormsModule,
     HttpClientModule,
+    BrowserModule,
     BrowserAnimationsModule,
     [...modules]
   ],
