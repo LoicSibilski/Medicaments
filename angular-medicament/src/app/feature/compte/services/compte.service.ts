@@ -11,10 +11,6 @@ import { Compte } from '../models/compte';
  */
 export class CompteService {
 
-<<<<<<< Updated upstream
-  // Instancier un objet de type compte
-  compte : Compte = new Compte(1,"moniquedubois@example.com","Du1950!bois", []);
-=======
   // TODO
   // matcher l'adresse mail et le mot de passe, l'adresse mail est unique, le mot de passe peut exister sur des comptes différents.
   // capturer et gérer l'erreur, si une donnée est null 
@@ -23,12 +19,9 @@ export class CompteService {
   compte2 : Compte = new Compte(2,"test2@test.com","test2", []);
 
   listeComptes = [this.compte1, this.compte2];
->>>>>>> Stashed changes
 
   constructor() { }
 
-<<<<<<< Updated upstream
-=======
   /**
    * Créer un compte
    * @param compte 
@@ -93,5 +86,4 @@ export class CompteService {
     console.log("compte supprimé : " + compte)
   }
 
->>>>>>> Stashed changes
 }
