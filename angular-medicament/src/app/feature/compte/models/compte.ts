@@ -1,11 +1,23 @@
 import { User } from "../../users/models/user";
 
+/**
+ * Class représentant le modèle d'un compte
+ * @author fabien
+ * @version 1.0
+ */
 export class Compte {
     private _id: number;
     private _email: string;
     private _password: string;
     private _users: User[];
 
+    /**
+     * @constructor
+     * @param {number} id
+     * @param {string} email 
+     * @param {string} password 
+     * @param {[User]} users 
+     */
     constructor(id: number, email: string, password: string, users: User[]) {
         this._id = id;
         this._email = email;
@@ -13,47 +25,78 @@ export class Compte {
         this._users = users;
     }
 
-    // Getter : qui permet de récupérer l'id d'un compte
-    get id () : number {
+    /**
+     * Get l'id d'un compte
+     * @returns {number} : id
+     * @public
+     */
+    public get id () : number {
         return this._id;
     }
 
-    // Setter : qui permet de modifier l'id d'un compte
-    // param : newId est la nouvelle valeur de l'id
-    set id (newId:number) {
+    /**
+     * Set l'id d'un compte
+     * @param {number} newId
+     * @public
+     * l'utilisateur n'a pas accès à cette interface.
+     */
+    /*
+    public set id (newId:number) {
         this._id = newId;
     }
+    */
 
-    // Getter : qui permet de récupérer l'email d'un compte
-    get email () : string {
+    /**
+     * Get l'email d'un compte
+     * @returns email
+     * @public
+     */
+    public get email () : string {
         return this._email;
     }
 
-    // Setter : qui permet de modifier l'email d'un compte
-    // param : newEmail est la nouvelle valeur de l'email
-    set email (newEmail: string) {
+    /**
+     * Set l'email d'un compte
+     * @param {string} newEmail
+     * @public
+     */
+    public set email (newEmail : string) {
         this._email = newEmail;
     }
 
-    // Getter : qui permet de récupérer le mot de passe d'un compte
-    get password () : string {
+    /**
+     * Get le mot de passe d'un compte
+     * @returns {string} password
+     * @public
+     */
+    public get password () : string {
         return this._password;
     }
 
-    // Setter : qui permet de modifier le mot de passe d'un compte
-    // param : newPassword est la nouvelle valeur du mot de passe
-    set password (newPassword) {
+    /**
+     * Set le mot de passe d'un compte
+     * @param {string} newPassword
+     * @public
+     */
+    public set password (newPassword : string) {
         this._password = newPassword;
     }
 
-    // Getter : qui permet de récupérer la liste des utilisateurs d'un compte
-    get users () : User[] {
-        return this.users;
+    /**
+     * Get la liste des utilisateurs d'un compte
+     * @returns {[User]} users
+     * @public
+     */
+    public get users () : User[] {
+        return this._users;
     }
 
-    // Setter : qui permet de modifier la liste des utilisateurs d'un compte
-    // param : newUsers est la nouvelles liste des utilisateurs
-    set users (newUsers: User[]) {
+    /**
+     * Set la liste des utilisateurs d'un compte
+     * @param {[User]} newUsers
+     * @public
+     */
+    public set users (newUsers: User[]) {
         this._users = newUsers;
     }
 
