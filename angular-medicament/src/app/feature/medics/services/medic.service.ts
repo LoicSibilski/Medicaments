@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Posologie } from '../../posologie/models/posologie';
 import { Medic } from '../models/medic';
+import { formatDate } from "@angular/common";;
 
 @Injectable({
   providedIn: 'root'
@@ -151,6 +152,18 @@ export class MedicService {
 
   constructor() { }
 
+  getNextId = (): number => {
+    let nextId: number = 1;
+    this.listeMedics.forEach(medic => {
+      if(medic.id === nextId){
+        nextId++;
+      } else{
+        return nextId;
+      }
+    });
+    return nextId;
+  }
+
   findAll = (): Medic[] => {
     return this.listeMedics;
   }
@@ -165,6 +178,20 @@ export class MedicService {
     console.log("aucune Medic avec cette id")
     return medicTmp;
   }
+
+  findAllPosologiesByMedicIdWithCurrentDate = (id: number): Posologie[] => {
+    let medic = this.findById(id);
+    let listeCurrentDate : Posologie[] = [];
+    let dateNow = formatDate(new Date(), 'yyyy-MM-dd', 'en_US');
+    let date = new Date(dateNow);
+    medic.posologies.forEach(poso => {
+      if (poso.dateDebut <= date && date <= poso.dateFin){
+        listeCurrentDate.push(poso);
+      }
+    });
+    return listeCurrentDate;
+  }
+
 
   findAllPosologiesByMedicId = (id: number): Posologie[] => {
     let medic = this.findById(id);

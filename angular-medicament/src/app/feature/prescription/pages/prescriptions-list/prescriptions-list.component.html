@@ -5,14 +5,28 @@
     </div>
     <div class="prescr">
         <div class="prescr-ngFor" *ngFor="let prescr of prescriptions">
-            <p>ID : {{prescr.id}}</p>
-            <p>Debut : {{prescr.dateDebut | date:'dd/MM/yyyy'}}</p>
-            <p>Fin : {{prescr.dateFin | date:'dd/MM/yyyy'}}</p>
+            <div class="date-prescr-current" *ngIf="dateNowBetweenPrescrDates(prescr); else notCurrent">
+                <p>ID : {{prescr.id}}</p>   
+                <p>Debut : {{prescr.dateDebut | date:'dd/MM/yyyy'}}</p>
+                <p>Fin : {{prescr.dateFin | date:'dd/MM/yyyy'}}</p>
+            </div>
+            <ng-template #notCurrent>
+                <div class="date-prescr-not-current">
+                    <p>ID : {{prescr.id}}</p>   
+                    <p>Debut : {{prescr.dateDebut | date:'dd/MM/yyyy'}}</p>
+                    <p>Fin : {{prescr.dateFin | date:'dd/MM/yyyy'}}</p>
+                </div>
+            </ng-template>
+
             <app-button-redirector [routerLink]="['detail', prescr.id]">
                 Voir details
             </app-button-redirector>
         </div>
     </div>
+    <button type="button" (click)="getHistorique()">Voir histo</button>
+    <button type="button" (click)="getCurrent()">En cours</button>
+    <button type="button" (click)="openDialog()">ajouter</button>
+    
     <div class="button">
         <app-button-redirector routerLink="/medics">
             /medics
