@@ -12,6 +12,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatTableModule } from '@angular/material/table';
 
 import { UsersPagesComponent } from './feature/users/pages/users-pages/users-pages.component';
 import { UsersDetailComponent } from './feature/users/pages/users-detail/users-detail.component';
@@ -64,7 +65,8 @@ const modules = [
   MatInputModule,
   MatDialogModule,
   MatRadioModule, 
-  MatCheckboxModule
+  MatCheckboxModule,
+  MatTableModule
 ];
 
 @NgModule({

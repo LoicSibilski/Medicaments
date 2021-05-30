@@ -5,6 +5,7 @@ import { formatDate } from "@angular/common";
 import { MedicService } from '../../services/medic.service';
 import { PosologiesNewFormComponent } from 'src/app/feature/posologie/pages/posologies-new-form/posologies-new-form.component';
 import { Posologie } from 'src/app/feature/posologie/models/posologie';
+import { Medic } from '../../models/medic';
 
 @Component({
   selector: 'app-medics-new-form',
@@ -20,27 +21,23 @@ export class MedicsNewFormComponent implements OnInit {
   dateDebut: Date;
   dateFin: Date;
 
-  nom:string;
+  nom: string;
   posologie: Posologie;
-
   form: FormGroup;
 
   constructor(
     private medicService: MedicService,
     private fb: FormBuilder,
-    private dialogRef: MatDialogRef<MedicsNewFormComponent>,
+    private dialogRef: MatDialogRef<PosologiesNewFormComponent>,
     private dialog: MatDialog,
-    @Inject(MAT_DIALOG_DATA) data) {
-
-    this.dateDebut = data.dateDebut;
-
-    this.id = medicService.getNextId();
-  }
+    @Inject(MAT_DIALOG_DATA) public data) { }
 
   ngOnInit() {
 
     this.dateNow = formatDate(new Date(), 'yyyy-MM-dd', 'en_US');
     this.date = new Date(this.dateNow);
+
+    console.log("ngOnInit data : " + this.data)
 
     this.form = this.fb.group({
       nom: new FormControl('nom'),
@@ -66,20 +63,26 @@ export class MedicsNewFormComponent implements OnInit {
     dialogConfig.autoFocus = true;
 
     dialogConfig.data = {
-      nom: this.nom,
-      posologie: this.posologie,
+      nom: this.form.get('nom').value
     };
-    this.dialog.open(PosologiesNewFormComponent, dialogConfig);
-
+    let dialogRef = this.dialog.open(PosologiesNewFormComponent, dialogConfig);
+    dialogRef.afterClosed().subscribe(res => {
+      this.posologie = res;
+    })
   }
 
-  get questions() {
-    const medicsArray = this.form.controls.questions as FormArray;
+  isPosologieNull() {
+    return this.posologie === undefined;
+  }
+
+  get medics() {
+    const medicsArray = this.form.controls.medics as FormArray;
     return medicsArray;
   }
 
   returnPosologie() {
-    this.dialogRef.close(this.questions.value);
+    console.log("medicsForm returnposo => " + this.medics)
+    this.dialogRef.close(this.medics.value);
   }
 
   save() {
