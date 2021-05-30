@@ -6,6 +6,7 @@ import { Medic } from 'src/app/feature/medics/models/medic';
 import { PrescriptionService } from '../../services/prescription.service';
 import { Posologie } from 'src/app/feature/posologie/models/posologie';
 import { MedicsNewFormComponent } from 'src/app/feature/medics/pages/medics-new-form/medics-new-form.component';
+import { Prescription } from '../../models/prescription';
 
 
 @Component({
@@ -23,21 +24,18 @@ export class PrescriptionsNewFormComponent implements OnInit {
   dateFin: Date;
 
   nom: string;
-  posologie: Posologie;
-
+  prescription: Prescription;
   form: FormGroup;
-  medics= new  FormArray([]);
+  listeMedics: Medic[];
 
   constructor(
     private prescService: PrescriptionService,
     private fb: FormBuilder,
     private dialogRef: MatDialogRef<PrescriptionsNewFormComponent>,
-    private dialog: MatDialog,
-    @Inject(MAT_DIALOG_DATA) data) {
-
-    this.dateDebut = data.dateDebut;
-
-    this.id = prescService.getNextId();
+    private dialog: MatDialog) {
+      this.listeMedics = [];
+      this.id = prescService.getNextId();
+      this.prescription = {'id': this.id, 'dateDebut':null, 'dateFin': null, 'medics': []}
   }
 
   ngOnInit() {
@@ -48,24 +46,8 @@ export class PrescriptionsNewFormComponent implements OnInit {
     this.form = this.fb.group({
       dateDebut: new FormControl('dateDebut'),
       dateFin: new FormControl('dateFin'),
-      medics: this.fb.array([
-        this.fb.group({
-          nom: new FormControl('nom'),
-          posologie: this.fb.array([
-            this.fb.group({
-              nomMedic: new FormControl('nomMedic'),
-              nombreUnite: new FormControl('nombreUnite'),
-              dateDebut: new FormControl('dateDebut'),
-              dateFin: new FormControl('dateFin'),
-              isMatin: new FormControl('isMatin'),
-              isMidi: new FormControl('isMidi'),
-              isSoir: new FormControl('isSoir'),
-              isActive: new FormControl('isActive'),
-            })
-          ])
-        })
-      ])
     });
+
   }
 
   openMedicFormDialog() {
@@ -74,48 +56,27 @@ export class PrescriptionsNewFormComponent implements OnInit {
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
 
-    dialogConfig.data = {
-      nom: this.nom,
-      posologie: this.posologie,
-    };
-    this.dialog.open(MedicsNewFormComponent, dialogConfig);
-
-  }
-
-  get questions() {
-    const medicsArray = this.form.controls.questions as FormArray;
-    return medicsArray;
-  }
-
-
-  addMore() {
-    let formg = this.fb.group({
-      nom: new FormControl('nom'),
-      posologie: this.fb.array([
-        this.fb.group({
-          nomMedic: new FormControl('nomMedic'),
-          nombreUnite: new FormControl('nombreUnite'),
-          dateDebut: new FormControl('dateDebut'),
-          dateFin: new FormControl('dateFin'),
-          isMatin: new FormControl('isMatin'),
-          isMidi: new FormControl('isMidi'),
-          isSoir: new FormControl('isSoir'),
-          isActive: new FormControl('isActive'),
-        })
-      ])
+    let dialogRef = this.dialog.open(MedicsNewFormComponent, dialogConfig);
+    dialogRef.afterClosed().subscribe(res => {
+      console.log("res => " + res.nom)
+      const medicTmp = res;
+      this.listeMedics.push(medicTmp);
     })
-    this.medics.push(formg);
-  }
-
-  returnMedics() {
-    this.dialogRef.close(this.questions.value);
   }
 
   save() {
     this.dialogRef.afterClosed().subscribe(
-      data => console.log("Dialog output:", data)
-    );
-    this.dialogRef.close(this.form.value);
+      data => {
+        console.log("data prescr => "+ JSON.stringify(data) )
+        const tmp = data;
+        this.prescription = tmp;
+      })
+      this.listeMedics.forEach(medic=>{
+        this.prescription.medics.push(medic);
+      })
+      this.prescription.dateDebut = this.form.get('dateDebut').value;
+      this.prescription.dateFin = this.form.get('dateFin').value;
+    this.dialogRef.close(this.prescription);
   }
 
   close() {

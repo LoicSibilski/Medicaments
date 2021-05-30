@@ -35,10 +35,9 @@ export class PosologiesNewFormComponent implements OnInit {
     private fb: FormBuilder,
     private dialogRef: MatDialogRef<PosologiesNewFormComponent>,
     private dialog: MatDialog,
-    @Inject(MAT_DIALOG_DATA) public medicData: Medic) {
-    console.log("this.data posologie construct=> " + medicData.nom);
+    @Inject(MAT_DIALOG_DATA) public nomMedica: string) {
+      this.nomMedic = nomMedica;
     this.id = posoService.getNextId();
-    console.log("poso constru id => " + this.id)
   }
 
   ngOnInit() {
@@ -63,30 +62,11 @@ export class PosologiesNewFormComponent implements OnInit {
     this.dialogRef.afterClosed().subscribe(data => {
       this.posologie = data;
     })
-    console.log("form value poso => " + this.form.value);
     this.dialogRef.close(this.form.value);
   }
 
   close() {
     this.dialogRef.close();
-  }
-
-  formatPosologie(data: Posologie) {
-    if (this.posologie.dateDebut === null) {
-      this.posologie.dateDebut = this.date;
-    }
-    if (this.posologie.isActive === undefined) {
-      this.posologie.isActive = false;
-    }
-    if (this.posologie.isMatin === undefined) {
-      this.posologie.isMatin = false;
-    }
-    if (this.posologie.isMidi === undefined) {
-      this.posologie.isMidi = false;
-    }
-    if (this.posologie.isSoir === undefined) {
-      this.posologie.isSoir = false;
-    }
   }
 
 }

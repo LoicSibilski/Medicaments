@@ -1,24 +1,24 @@
-<h1 mat-dialog-title>Add New Questions</h1>
+<h1 mat-dialog-title>Ajouter une préscription</h1>
 <div mat-dialog-content>
     <form [formGroup]="form" novalidate>
 
         <mat-form-field [attr.aria-label]="'date debut'">
-            <input name="dateDebut" matInput type="date" readonly formControlName="dateDebut">
+            <input name="dateDebut" matInput type="date" formControlName="dateDebut">
         </mat-form-field>
         <mat-form-field [attr.aria-label]="'date fin'">
-            <input name="dateFin" matInput type="date" readonly formControlName="dateFin">
+            <input name="dateFin" matInput type="date" formControlName="dateFin">
         </mat-form-field>
-
-        <div formArrayName="medics" *ngFor="let medic of medics.controls; let i = index">
+<!--         "
+ -->        <div class="medics">
+            <div class="listMedics" *ngFor="let medic of listeMedics">
+                <p> Nom : {{medic.nom}} Début : </p>
+            </div>
             <button type="button" (click)="openMedicFormDialog()">ajouter medic</button>
-
         </div>
     </form>
 </div>
 <div mat-dialog-actions align="end">
-    <button type="button" mat-raised-button color="primary" (click)="addMore()" cdkFocusInitial
-        [attr.aria-label]="'Add more questions'">Add more</button>
-    <button type="button" mat-raised-button mat-dialog-close [attr.aria-label]="'Cancel add questions'">Cancel</button>
-    <button type="button" mat-raised-button (click)="returnMedics()" [attr.aria-label]="'Save new questions'"
+    <button type="button" mat-raised-button mat-dialog-close [attr.aria-label]="'Annuler'">Cancel</button>
+    <button type="button" mat-raised-button (click)="save()" [attr.aria-label]="'Save'"
         [disabled]="form.invalid">Save</button>
 </div>

@@ -36,12 +36,12 @@ export class PrescriptionsListComponent implements OnInit {
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
 
-    dialogConfig.data = {
-      dateDebut: this.dateDebut,
-      dateFin: this.dateFin,
-      medics: this.medics,
-    };
-    this.dialog.open(PrescriptionsNewFormComponent, dialogConfig);
+    let dialogRef = this.dialog.open(PrescriptionsNewFormComponent, dialogConfig);
+
+    dialogRef.afterClosed().subscribe(res => {
+      console.log(res)
+/*       this.prescrService.save(res);
+ */    })
   }
 
   dateNowBetweenPrescrDates(prescription: Prescription) {

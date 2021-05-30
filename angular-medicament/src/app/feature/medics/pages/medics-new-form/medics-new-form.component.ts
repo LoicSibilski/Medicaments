@@ -21,7 +21,7 @@ export class MedicsNewFormComponent implements OnInit {
   dateDebut: Date;
   dateFin: Date;
 
-  nom: string;
+  medic: Medic;
   posologie: Posologie;
   form: FormGroup;
 
@@ -33,26 +33,12 @@ export class MedicsNewFormComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data) { }
 
   ngOnInit() {
-
+    this.medic = { 'id': this.id, 'nom': null, posologies: [] }
     this.dateNow = formatDate(new Date(), 'yyyy-MM-dd', 'en_US');
     this.date = new Date(this.dateNow);
 
-    console.log("ngOnInit data : " + this.data)
-
     this.form = this.fb.group({
-      nom: new FormControl('nom'),
-      posologie: this.fb.array([
-        this.fb.group({
-          nomMedic: new FormControl('nomMedic'),
-          nombreUnite: new FormControl('nombreUnite'),
-          dateDebut: new FormControl('dateDebut'),
-          dateFin: new FormControl('dateFin'),
-          isMatin: new FormControl('isMatin'),
-          isMidi: new FormControl('isMidi'),
-          isSoir: new FormControl('isSoir'),
-          isActive: new FormControl('isActive'),
-        })
-      ])
+      nom: new FormControl(),
     })
   }
 
@@ -67,7 +53,8 @@ export class MedicsNewFormComponent implements OnInit {
     };
     let dialogRef = this.dialog.open(PosologiesNewFormComponent, dialogConfig);
     dialogRef.afterClosed().subscribe(res => {
-      this.posologie = res;
+      const posoTmp = res;
+      this.posologie = posoTmp;
     })
   }
 
@@ -75,21 +62,15 @@ export class MedicsNewFormComponent implements OnInit {
     return this.posologie === undefined;
   }
 
-  get medics() {
-    const medicsArray = this.form.controls.medics as FormArray;
-    return medicsArray;
-  }
-
-  returnPosologie() {
-    console.log("medicsForm returnposo => " + this.medics)
-    this.dialogRef.close(this.medics.value);
-  }
-
   save() {
     this.dialogRef.afterClosed().subscribe(
-      data => console.log("Dialog output:", data)
-    );
-    this.dialogRef.close(this.form.value);
+      data => {
+        const tmp = data;
+        this.medic = tmp;
+      })
+    this.medic.nom = this.form.get('nom').value;
+    this.medic.posologies.push(this.posologie);
+    this.dialogRef.close(this.medic);
   }
 
   close() {
