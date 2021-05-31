@@ -47,7 +47,7 @@ export class MedicsNewFormComponent implements OnInit {
 
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
-
+    console.log("this.form.get('nom').value => " + this.form.get('nom').value)
     dialogConfig.data = {
       nom: this.form.get('nom').value
     };
@@ -69,8 +69,25 @@ export class MedicsNewFormComponent implements OnInit {
         this.medic = tmp;
       })
     this.medic.nom = this.form.get('nom').value;
+    this.formatPosologie();
     this.medic.posologies.push(this.posologie);
     this.dialogRef.close(this.medic);
+  }
+
+  formatPosologie(){
+    this.posologie.nomMedic = this.medic.nom;
+    if (this.posologie.isActive === null){
+      this.posologie.isActive = false;
+    }
+    if (this.posologie.isMidi === null){
+      this.posologie.isMidi = false;
+    }
+    if (this.posologie.isMatin === null){
+      this.posologie.isMatin = false;
+    }
+    if (this.posologie.isSoir === null){
+      this.posologie.isSoir = false;
+    }
   }
 
   close() {

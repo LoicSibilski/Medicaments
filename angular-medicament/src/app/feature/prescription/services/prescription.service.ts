@@ -242,22 +242,18 @@ export class PrescriptionService {
   }
 
   save = (prescription: Prescription) => {
-    console.log("Liste des prescription : " + this.listePrescriptions);
-    console.log("Ajout de la prescription : " + prescription);
     console.log("dateDebut: " + prescription.dateDebut);
     console.log("dateFin: " + prescription.dateFin);
     console.log("medics:");
     prescription.medics.forEach(element => {
-      console.log("dateDebut" + element.nom);
+      console.log("Nom" + element.nom);
       console.log("posologie :");
       console.log("dateDebut: " + element.posologies[0].dateDebut);
       console.log("dateFin: " + element.posologies[0].dateFin);
       console.log("nombreUnite: " + element.posologies[0].nombreUnite);
       
     });
-
     this.listePrescriptions.push(prescription);
-    console.log("Liste des prescription : " + this.listePrescriptions);
   }
 
   delete = (id: number) => {

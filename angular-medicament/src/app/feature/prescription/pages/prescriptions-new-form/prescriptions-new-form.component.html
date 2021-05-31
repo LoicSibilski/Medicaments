@@ -11,7 +11,7 @@
 <!--         "
  -->        <div class="medics">
             <div class="listMedics" *ngFor="let medic of listeMedics">
-                <p> Nom : {{medic.nom}} Début : </p>
+                <p> Nom : {{medic.nom}} {{medic.dateDebut}}</p>
             </div>
             <button type="button" (click)="openMedicFormDialog()">ajouter medic</button>
         </div>

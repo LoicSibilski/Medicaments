@@ -35,9 +35,8 @@ export class PosologiesNewFormComponent implements OnInit {
     private fb: FormBuilder,
     private dialogRef: MatDialogRef<PosologiesNewFormComponent>,
     private dialog: MatDialog,
-    @Inject(MAT_DIALOG_DATA) public nomMedica: string) {
-      this.nomMedic = nomMedica;
-    this.id = posoService.getNextId();
+    @Inject(MAT_DIALOG_DATA) public nom: any) {
+      this.id = posoService.getNextId();
   }
 
   ngOnInit() {

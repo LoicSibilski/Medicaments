@@ -39,9 +39,9 @@ export class PrescriptionsListComponent implements OnInit {
     let dialogRef = this.dialog.open(PrescriptionsNewFormComponent, dialogConfig);
 
     dialogRef.afterClosed().subscribe(res => {
-      console.log(res)
-/*       this.prescrService.save(res);
- */    })
+        console.log(res)
+        this.prescrService.save(res);
+     })
   }
 
   dateNowBetweenPrescrDates(prescription: Prescription) {
