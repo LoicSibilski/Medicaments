@@ -26,7 +26,6 @@ export class PosologiesNewFormComponent implements OnInit {
   isMatin: boolean;
   isMidi: boolean;
   isSoir: boolean;
-  isActive: boolean;
 
   form: FormGroup;
 
@@ -52,7 +51,6 @@ export class PosologiesNewFormComponent implements OnInit {
       isMatin: new FormControl(),
       isMidi: new FormControl(),
       isSoir: new FormControl(),
-      isActive: new FormControl(),
     })
   }
 

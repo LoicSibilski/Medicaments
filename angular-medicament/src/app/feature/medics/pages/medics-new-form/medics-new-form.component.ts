@@ -76,9 +76,6 @@ export class MedicsNewFormComponent implements OnInit {
 
   formatPosologie(){
     this.posologie.nomMedic = this.medic.nom;
-    if (this.posologie.isActive === null){
-      this.posologie.isActive = false;
-    }
     if (this.posologie.isMidi === null){
       this.posologie.isMidi = false;
     }

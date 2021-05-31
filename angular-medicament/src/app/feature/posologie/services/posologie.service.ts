@@ -16,7 +16,6 @@ export class PosologieService {
     'isMatin': true,
     'isMidi': true,
     'isSoir': true,
-    'isActive': false,
   }
 
   posologieDoliprane2: Posologie = {
@@ -28,7 +27,6 @@ export class PosologieService {
     'isMatin': true,
     'isMidi': false,
     'isSoir': true,
-    'isActive': true,
   }
 
   posologieMemorex1: Posologie = {
@@ -40,7 +38,6 @@ export class PosologieService {
     'isMatin': true,
     'isMidi': false,
     'isSoir': true,
-    'isActive': false,
   }
 
   posologieMemorex2: Posologie = {
@@ -52,7 +49,6 @@ export class PosologieService {
     'isMatin': true,
     'isMidi': false,
     'isSoir': false,
-    'isActive': false,
   }
 
   posologieMemorex3: Posologie = {
@@ -64,7 +60,6 @@ export class PosologieService {
     'isMatin': true,
     'isMidi': true,
     'isSoir': true,
-    'isActive': true,
   }
   posologieTiorfan: Posologie = {
     'id': 6,
@@ -75,7 +70,6 @@ export class PosologieService {
     'isMatin': true,
     'isMidi': true,
     'isSoir': true,
-    'isActive': true,
   }
   posologieTiorfan2: Posologie = {
     'id': 7,
@@ -86,7 +80,6 @@ export class PosologieService {
     'isMatin': true,
     'isMidi': false,
     'isSoir': true,
-    'isActive': true,
   }
   posologieTiorfan3: Posologie = {
     'id': 8,
@@ -97,7 +90,6 @@ export class PosologieService {
     'isMatin': false,
     'isMidi': true,
     'isSoir': false,
-    'isActive': false,
   }
   posologieCoalgan: Posologie = {
     'id': 9,
@@ -108,7 +100,6 @@ export class PosologieService {
     'isMatin': false,
     'isMidi': true,
     'isSoir': true,
-    'isActive': false,
   }  
   posologieCoalgan2: Posologie = {
     'id': 10,
@@ -119,8 +110,7 @@ export class PosologieService {
     'isMatin': false,
     'isMidi': true,
     'isSoir': false,
-    'isActive': true,
-  }
+    }
 
   listePosologies = [
     this.posologieDoliprane1,

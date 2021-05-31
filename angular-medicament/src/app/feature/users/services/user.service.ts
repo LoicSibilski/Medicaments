@@ -19,7 +19,6 @@ export class UserService {
     'isMatin': true,
     'isMidi': true,
     'isSoir': true,
-    'isActive': false,
   }
 
   posologieDoliprane2: Posologie = {
@@ -31,7 +30,6 @@ export class UserService {
     'isMatin': true,
     'isMidi': false,
     'isSoir': true,
-    'isActive': true,
   }
 
   posologieMemorex1: Posologie = {
@@ -43,7 +41,6 @@ export class UserService {
     'isMatin': true,
     'isMidi': false,
     'isSoir': true,
-    'isActive': false,
   }
 
   posologieMemorex2: Posologie = {
@@ -55,7 +52,6 @@ export class UserService {
     'isMatin': true,
     'isMidi': false,
     'isSoir': false,
-    'isActive': false,
   }
 
   posologieMemorex3: Posologie = {
@@ -67,8 +63,58 @@ export class UserService {
     'isMatin': true,
     'isMidi': true,
     'isSoir': true,
-    'isActive': true,
   }
+  posologieTiorfan: Posologie = {
+    'id': 6,
+    'nomMedic': "Tiorfan",
+    'nombreUnite': 1,
+    'dateDebut': new Date("2021-05-17"),
+    'dateFin': new Date("2021-05-20"),
+    'isMatin': true,
+    'isMidi': true,
+    'isSoir': true,
+  }
+  posologieTiorfan2: Posologie = {
+    'id': 7,
+    'nomMedic': "Tiorfan",
+    'nombreUnite': 2,
+    'dateDebut': new Date("1997-12-12"),
+    'dateFin': new Date(),
+    'isMatin': true,
+    'isMidi': false,
+    'isSoir': true,
+  }
+  posologieTiorfan3: Posologie = {
+    'id': 8,
+    'nomMedic': "Tiorfan",
+    'nombreUnite': 1,
+    'dateDebut': new Date("2012-12-20"),
+    'dateFin': new Date("2012-12-22"),
+    'isMatin': false,
+    'isMidi': true,
+    'isSoir': false,
+  }
+  posologieCoalgan: Posologie = {
+    'id': 9,
+    'nomMedic': "Coalgan",
+    'nombreUnite': 2,
+    'dateDebut': new Date("1515-11-30"),
+    'dateFin': new Date("1515-12-20"),
+    'isMatin': false,
+    'isMidi': true,
+    'isSoir': true,
+  }  
+  posologieCoalgan2: Posologie = {
+    'id': 10,
+    'nomMedic': "Tiorfan",
+    'nombreUnite': 1,
+    'dateDebut': new Date("2008-11-13"),
+    'dateFin': new Date("2016-06-10"),
+    'isMatin': false,
+    'isMidi': true,
+    'isSoir': false,
+    }
+
 
   doliprane: Medic = {
     'id':1,
