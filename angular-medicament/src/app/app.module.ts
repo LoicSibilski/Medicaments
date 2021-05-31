@@ -4,8 +4,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatTableModule } from '@angular/material/table';
 
 import { UsersPagesComponent } from './feature/users/pages/users-pages/users-pages.component';
 import { UsersDetailComponent } from './feature/users/pages/users-detail/users-detail.component';
@@ -50,16 +57,20 @@ import { PosologieFormComponent } from './feature/posologie/components/posologie
 import { AssistantDetailComponent } from './feature/users/pages/assistant-detail/assistant-detail.component';
 import { ConnexionComponent } from './feature/authentification/connexion/connexion.component';
 import { InscriptionComponent } from './feature/authentification/inscription/inscription.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { InputComponent } from './shared-component/input/input.component';
 import { LayoutComponent } from './shared-component/layout/layout.component';
 import { ButtonComponent } from './shared-component/button/button.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatButtonModule } from '@angular/material/button';
-import { MatInputModule } from '@angular/material/input';
 
-
-
+const modules = [
+  MatButtonModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatDialogModule,
+  MatRadioModule, 
+  MatCheckboxModule,
+  MatTableModule
+];
 
 @NgModule({
   declarations: [
@@ -112,17 +123,21 @@ import { MatInputModule } from '@angular/material/input';
     ButtonComponent,
 
 
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RouterModule,
     ReactiveFormsModule,
+    FormsModule,
     HttpClientModule,
+    BrowserModule,
     BrowserAnimationsModule,
-    MatButtonModule,
-    MatFormFieldModule,
-    MatInputModule
+    [...modules]
+  ],
+  exports: [
+    [...modules]
   ],
   providers: [],
   bootstrap: [AppComponent]
