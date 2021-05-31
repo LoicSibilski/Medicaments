@@ -1,11 +1,19 @@
 <section>
-    <h2>Se connecter</h2>
+    <h3>Se connecter</h3>
     <form [formGroup]="compteForm" (ngSubmit)="onSubmit()">
-        <label>Email</label>
-        <input type="text" placeholder="Email" formControlName="email">
-        <label>Mot de passe</label>
-        <input type="password" placeholder="Mot de passe" formControlName="motDePasse">
-        <a routerLink="/mdp_oublie">Mot de passe oublié ?</a>
-        <button type="submit" >Se connecter</button>
+        <section>
+            <label>Email</label>
+            <input type="text" placeholder="Saisir une adresse email" formControlName="email">
+        </section>
+        <section>
+            <label>Mot de passe</label>
+            <input type="password" placeholder="Saisir un mot de passe" formControlName="motDePasse">
+        </section>
+        <section>
+            <a routerLink="/mdp_oublie">Mot de passe oublié ?</a>
+        </section>
+        <section>
+            <button type="submit">Se connecter</button>
+        </section>
     </form>
 </section>
