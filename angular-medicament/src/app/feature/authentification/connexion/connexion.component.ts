@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Compte } from '../../compte/models/compte';
 
 @Component({
   selector: 'app-connexion',
@@ -14,32 +15,25 @@ import { Router } from '@angular/router';
  */
 export class ConnexionComponent implements OnInit {
 
+  // TODO 
+  // récupérer les données du formulaire
+  // vérifier si les données sont dans la liste des comptes 
+  // * si oui, renvoyer vers la page home avec un objet compte
+  // * si non, rester sur la même page
+
   compteForm : FormGroup;
-  emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-  motDePasseRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;
-  
-  /**
-   * @constructor
-   * @param fb
-   */
-  constructor(private fb : FormBuilder, private router : Router) { 
-    this.compteForm = this.fb.group({
-      email : ['', [Validators.required, Validators.pattern(this.emailRegex)]],
-      motDePasse : ['', [Validators.required, Validators.pattern(this.motDePasseRegex)]]
-    });
-  }
+  soumettre = false;
+
+  constructor() { }
   
   ngOnInit(): void {}
-  
+
   /**
-   * Récupérer les données passé dans le formulaire
+   * Récupérer les données du formulaire
+   * @public
    */
-  onSubmit = () : void => {
-    // vérifier l'authenticité de l'adresse mail
-    // vérifier l'authenticité du mot de passe
-    console.log(this.compteForm.value);
-    let email = this.compteForm.get('email').value;
-    let motDePasse = this.compteForm.get('motDePasse').value;
+  public onSubmit = () : void => {
+    this.soumettre = true;
   }
 
 }
