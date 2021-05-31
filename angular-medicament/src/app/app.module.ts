@@ -58,6 +58,9 @@ import { AssistantDetailComponent } from './feature/users/pages/assistant-detail
 import { ConnexionComponent } from './feature/authentification/connexion/connexion.component';
 import { InscriptionComponent } from './feature/authentification/inscription/inscription.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { InputComponent } from './shared-component/input/input.component';
+import { LayoutComponent } from './shared-component/layout/layout.component';
+import { ButtonComponent } from './shared-component/button/button.component';
 
 const modules = [
   MatButtonModule,
@@ -115,6 +118,9 @@ const modules = [
     AssistantDetailComponent,
     ConnexionComponent,
     InscriptionComponent,
+    InputComponent,
+    LayoutComponent,
+    ButtonComponent,
 
 
 
