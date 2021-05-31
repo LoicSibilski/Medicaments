@@ -53,6 +53,11 @@ import { InscriptionComponent } from './feature/authentification/inscription/ins
 import { InputComponent } from './shared-component/input/input.component';
 import { LayoutComponent } from './shared-component/layout/layout.component';
 import { ButtonComponent } from './shared-component/button/button.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+
 
 
 
@@ -114,6 +119,10 @@ import { ButtonComponent } from './shared-component/button/button.component';
     RouterModule,
     ReactiveFormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
