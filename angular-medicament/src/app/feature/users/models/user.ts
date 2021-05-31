@@ -38,4 +38,9 @@ export class User {
             this.notifications = notifications;
             this.rendezVous = rendezVous;
     }
+
+    public getNom = () => {
+        return this.nom;
+    }
+
 }
