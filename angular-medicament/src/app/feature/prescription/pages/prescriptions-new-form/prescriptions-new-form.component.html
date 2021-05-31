@@ -3,10 +3,10 @@
     <form [formGroup]="form" novalidate>
 
         <mat-form-field [attr.aria-label]="'date debut'">
-            <input name="dateDebut" matInput type="date" formControlName="dateDebut">
+            <input name="dateDebut" matInput type="date" formControlName="dateDebut" ngModel required>
         </mat-form-field>
         <mat-form-field [attr.aria-label]="'date fin'">
-            <input name="dateFin" matInput type="date" formControlName="dateFin">
+            <input name="dateFin" matInput type="date" formControlName="dateFin" ngModel required>
         </mat-form-field>
 <!--         "
  -->        <div class="medics">

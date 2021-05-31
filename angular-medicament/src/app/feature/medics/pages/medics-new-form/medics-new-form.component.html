@@ -3,7 +3,7 @@
     <form [formGroup]="form" novalidate>
 
         <mat-form-field [attr.aria-label]="'Nom'">
-            <input name="nom" matInput type="text" formControlName="nom">
+            <input name="nom" matInput type="text" formControlName="nom" placeholder="Nom du médicament" ngModel required>
         </mat-form-field>
 
         <div class="" *ngIf="isPosologieNull(); else posologieIsNull">
@@ -13,9 +13,8 @@
         </div>
         <ng-template #posologieIsNull>
             <div class="posologieNotEmpty">
-                <p>nombre : {{posologie.nombreUnite}}</p>
-                <p>début : {{posologie.dateDebut}} </p>
-                <p>fin : {{posologie.dateFin}} </p>
+                <p>{{posologie.nombreUnite}}</p>
+                <p>du {{posologie.dateDebut}} au {{posologie.dateFin}} </p>
                 <p *ngIf="posologie.isMatin">Matin</p>
                 <p *ngIf="posologie.isMidi">Midi</p>
                 <p *ngIf="posologie.isSoir">Soir</p>
