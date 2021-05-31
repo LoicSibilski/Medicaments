@@ -1,19 +1,23 @@
+<mat-form-field>
+    <mat-label>Email</mat-label>
+    <input mat-input type="text" placeholder="Saisir une adresse email" formControlName="email">
+</mat-form-field>
 <section>
     <h3>Se connecter</h3>
     <form [formGroup]="compteForm" (ngSubmit)="onSubmit()">
-        <section>
-            <label>Email</label>
-            <input type="text" placeholder="Saisir une adresse email" formControlName="email">
-        </section>
-        <section>
-            <label>Mot de passe</label>
-            <input type="password" placeholder="Saisir un mot de passe" formControlName="motDePasse">
-        </section>
-        <section>
-            <a routerLink="/mdp_oublie">Mot de passe oublié ?</a>
-        </section>
-        <section>
-            <button type="submit">Se connecter</button>
-        </section>
+        <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input mat-input type="text" placeholder="Saisir une adresse email" formControlName="email">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Mot de passe</mat-label>
+            <input mat-input type="password" placeholder="Saisir un mot de passe" formControlName="motDePasse">
+        </mat-form-field>
+        <mat-form-field>
+            <a mat-button routerLink="/mdp_oublie">Mot de passe oublié ?</a>
+        </mat-form-field>
+        <mat-form-field>
+            <button mat-raised-button type="submit">Se connecter</button>
+        </mat-form-field>
     </form>
 </section>
