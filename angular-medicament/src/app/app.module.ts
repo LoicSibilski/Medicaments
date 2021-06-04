@@ -59,7 +59,6 @@ import { ConnexionComponent } from './feature/authentification/connexion/connexi
 import { InscriptionComponent } from './feature/authentification/inscription/inscription.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-
 const modules = [
   MatButtonModule,
   MatFormFieldModule,
@@ -115,9 +114,7 @@ const modules = [
     PosologieFormComponent,
     AssistantDetailComponent,
     ConnexionComponent,
-    InscriptionComponent
-
-
+    InscriptionComponent,
   ],
   imports: [
     BrowserModule,
