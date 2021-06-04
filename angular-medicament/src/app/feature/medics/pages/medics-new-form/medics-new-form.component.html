@@ -1,1 +1,33 @@
-<p>medics-new-form works!</p>
+<h1 mat-dialog-title>Ajouter un médicament</h1>
+<div mat-dialog-content>
+    <form [formGroup]="form" novalidate>
+
+        <mat-form-field [attr.aria-label]="'Nom'">
+            <input name="nom" matInput type="text" formControlName="nom">
+        </mat-form-field>
+
+        <div class="" *ngIf="isPosologieNull(); else posologieIsNull">
+            <div class="posologieEmpty">
+                <button type="button" (click)="openMedicFormDialog()">ajouter Posologie</button>
+            </div>
+        </div>
+        <ng-template #posologieIsNull>
+            <div class="posologieNotEmpty">
+                <p>nombre : {{posologie.nombreUnite}}</p>
+                <p>début : {{posologie.dateDebut}} </p>
+                <p>fin : {{posologie.dateFin}} </p>
+                <p *ngIf="posologie.isMatin">Matin</p>
+                <p *ngIf="posologie.isMidi">Midi</p>
+                <p *ngIf="posologie.isSoir">Soir</p>
+
+                <button type="button" (click)="openMedicFormDialog()">Mettre à jour la Posologie</button>
+            </div>
+        </ng-template>
+    </form>
+</div>
+
+<div mat-dialog-actions align="end">
+    <button type="button" mat-raised-button mat-dialog-close [attr.aria-label]="'Annuler'">Cancel</button>
+    <button type="button" mat-raised-button (click)="save()" [attr.aria-label]="'Enregistrer médicament'"
+        [disabled]="form.invalid">Save</button>
+</div>

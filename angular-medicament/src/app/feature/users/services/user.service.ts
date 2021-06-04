@@ -11,8 +11,11 @@ import { User } from '../models/user';
 export class UserService {
 
   posologieDoliprane1: Posologie = {
-    'id':1,
+    'id': 1,
+    'nomMedic': "Doliprane",
     'nombreUnite': 2.5,
+    'dateDebut': new Date("2005-03-02"),
+    'dateFin': new Date("2021-04-26"),
     'isMatin': true,
     'isMidi': true,
     'isSoir': true,
@@ -20,8 +23,11 @@ export class UserService {
   }
 
   posologieDoliprane2: Posologie = {
-    'id':2,
+    'id': 2,
+    'nomMedic': "Doliprane",
     'nombreUnite': 2,
+    'dateDebut': new Date("2021-04-27"),
+    'dateFin': new Date("2021-05-27"),
     'isMatin': true,
     'isMidi': false,
     'isSoir': true,
@@ -29,8 +35,11 @@ export class UserService {
   }
 
   posologieMemorex1: Posologie = {
-    'id':3,
+    'id': 3,
+    'nomMedic': "Memorex",
     'nombreUnite': 2,
+    'dateDebut': new Date("1992-05-20"),
+    'dateFin': new Date("1998-05-27"),
     'isMatin': true,
     'isMidi': false,
     'isSoir': true,
@@ -38,8 +47,11 @@ export class UserService {
   }
 
   posologieMemorex2: Posologie = {
-    'id':4,
+    'id': 4,
+    'nomMedic': "Memorex",
     'nombreUnite': 2,
+    'dateDebut': new Date("2002-03-06"),
+    'dateFin': new Date("2002-04-08"),
     'isMatin': true,
     'isMidi': false,
     'isSoir': false,
@@ -47,8 +59,11 @@ export class UserService {
   }
 
   posologieMemorex3: Posologie = {
-    'id':5,
+    'id': 5,
+    'nomMedic': "Memorex",
     'nombreUnite': 1,
+    'dateDebut': new Date("2012-12-05"),
+    'dateFin': new Date(),
     'isMatin': true,
     'isMidi': true,
     'isSoir': true,

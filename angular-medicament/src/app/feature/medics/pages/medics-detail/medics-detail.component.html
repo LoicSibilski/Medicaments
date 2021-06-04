@@ -1,1 +1,19 @@
-<p>medics-detail works!</p>
+<div class="container">
+    <div class="info-prescri">
+        <h1>Médicaments n°{{medic.id}}</h1>
+        <h3>{{medic.nom}}</h3>
+    </div>
+    <div class="info-posos">
+        <app-posologies-list [id]="medic.id"></app-posologies-list>
+    </div>
+
+
+</div>
+<div class="button">
+    <app-button-redirector routerLink="/prescriptions">
+        /prescriptions
+    </app-button-redirector>
+    <app-button-redirector routerLink="/home">
+        home
+    </app-button-redirector>
+</div>

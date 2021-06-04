@@ -13,8 +13,6 @@ import { MatInputModule } from '@angular/material/input';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatTableModule } from '@angular/material/table';
-import { MatCardModule } from '@angular/material/card';
-
 
 import { UsersPagesComponent } from './feature/users/pages/users-pages/users-pages.component';
 import { UsersDetailComponent } from './feature/users/pages/users-detail/users-detail.component';
@@ -60,9 +58,7 @@ import { AssistantDetailComponent } from './feature/users/pages/assistant-detail
 import { ConnexionComponent } from './feature/authentification/connexion/connexion.component';
 import { InscriptionComponent } from './feature/authentification/inscription/inscription.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { InputComponent } from './shared-component/input/input.component';
-import { LayoutComponent } from './shared-component/layout/layout.component';
-import { ButtonComponent } from './shared-component/button/button.component';
+
 
 const modules = [
   MatButtonModule,
@@ -71,8 +67,7 @@ const modules = [
   MatDialogModule,
   MatRadioModule, 
   MatCheckboxModule,
-  MatTableModule,
-  MatCardModule
+  MatTableModule
 ];
 
 @NgModule({
@@ -120,11 +115,7 @@ const modules = [
     PosologieFormComponent,
     AssistantDetailComponent,
     ConnexionComponent,
-    InscriptionComponent,
-    InputComponent,
-    LayoutComponent,
-    ButtonComponent,
-
+    InscriptionComponent
 
 
   ],

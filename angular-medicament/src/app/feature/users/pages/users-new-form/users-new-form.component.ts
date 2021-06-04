@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-users-new-form',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsersNewFormComponent implements OnInit {
 
-  constructor() { }
+  userProfile: FormGroup;
+
+  constructor(public fb: FormBuilder) {
+    this.userProfile = this.fb.group({
+      nom: [''],
+      prenom: [''],
+      dateDeNaissance: ['']
+    })
+   }
 
   ngOnInit(): void {
+  }
+
+  inscription = () => {
+    console.log(this.userProfile.value)
   }
 
 }

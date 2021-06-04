@@ -1,1 +1,42 @@
-<p>posologies-list works!</p>
+<div class="container">
+    <div class="titre">
+        <h2>Liste des posologies</h2>
+
+    </div>
+    <div class="posologie">
+        <div class="posologie-ngFor" *ngFor="let posologie of posologies">
+            <div class="posologie-current-date" *ngIf="dateNowBetweenPrescrDates(posologie); else notCurrent">
+                <p>ID : {{posologie.id}}</p>
+                <p>Date Debut : {{posologie.dateDebut | date:'dd/MM/yyyy'}}</p>
+                <p>Date Fin : {{posologie.dateFin | date:'dd/MM/yyyy'}}</p>
+            </div>
+            <ng-template #notCurrent>
+                <div class="posologie-not-current-date">
+                    <p>ID : {{posologie.id}}</p>
+                    <p>Date Debut : {{posologie.dateDebut | date:'dd/MM/yyyy'}}</p>
+                    <p>Date Fin : {{posologie.dateFin | date:'dd/MM/yyyy'}}</p>
+                </div>    
+            </ng-template>
+
+            <div id="button-container">
+                <button [routerLink]="['/posologies/detail', posologie.id]">Voir details</button>
+            </div>
+        </div>
+    </div>
+    <div class="boutons-histo">
+        <button type="button" (click)="getHistorique()">Voir histo</button>
+        <button type="button" (click)="getCurrent()">En cours</button>
+    </div>
+
+    <div class="button" *ngIf="!fromMedicList">
+        <app-button-redirector routerLink="/prescriptions">
+            /prescriptions
+        </app-button-redirector>
+        <app-button-redirector routerLink="/medics">
+            /medics
+        </app-button-redirector>
+        <app-button-redirector routerLink="/home">
+            home
+        </app-button-redirector>
+    </div>
+</div>

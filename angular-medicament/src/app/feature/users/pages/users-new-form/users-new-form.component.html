@@ -2,22 +2,16 @@
 
 <h2>Créer un utilisateur</h2>
 
-<div id="container">
-    <div id="profile-picture-container">   
-        <div class="profile-picture"></div>
-        <span>insérer image</span>
-        <i class="fas fa-upload"></i>
-        <i class="far fa-trash-alt"></i>
-    </div>  
-    <form>
+<div id="container"> 
+    <form [formGroup]="userProfile" (ngSubmit)="inscription()">
         <label> Nom :
-            <input type="text" class="to-uppercase">
+            <input type="text" class="to-uppercase" formControlName="nom">
         </label>
         <label> Prenom :
-            <input type="text">
+            <input type="text" formControlName="prenom">
         </label>
         <label> Date de naissance :
-            <input type="date" placeholder="jour/mois/année">
+            <input type="date" placeholder="jour/mois/année" formControlName="dateDeNaissance">
         </label>
 
         <button type="submit">Créer un utilisateur</button>
