@@ -58,6 +58,7 @@ import { AssistantDetailComponent } from './feature/users/pages/assistant-detail
 import { ConnexionComponent } from './feature/authentification/connexion/connexion.component';
 import { InscriptionComponent } from './feature/authentification/inscription/inscription.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material/material.module';
 
 const modules = [
   MatButtonModule,
@@ -125,6 +126,7 @@ const modules = [
     HttpClientModule,
     BrowserModule,
     BrowserAnimationsModule,
+    MaterialModule,
     [...modules]
   ],
   exports: [
