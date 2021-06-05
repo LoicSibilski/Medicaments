@@ -3,6 +3,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { ConnexionComponent } from './feature/authentification/connexion/connexion.component';
 import { InscriptionComponent } from './feature/authentification/inscription/inscription.component';
 import { MdpOublieComponent } from './feature/authentification/mdp-oublie/mdp-oublie.component';
+import { DureesEditFormComponent } from './feature/duree/pages/durees-edit-form/durees-edit-form.component';
+import { DureesListComponent } from './feature/duree/pages/durees-list/durees-list.component';
+import { DureesNewFormComponent } from './feature/duree/pages/durees-new-form/durees-new-form.component';
+import { DureesPagesComponent } from './feature/duree/pages/durees-pages/durees-pages.component';
+import { FrequencesEditFormComponent } from './feature/frequence/pages/frequences-edit-form/frequences-edit-form.component';
+import { FrequencesListComponent } from './feature/frequence/pages/frequences-list/frequences-list.component';
+import { FrequencesNewFormComponent } from './feature/frequence/pages/frequences-new-form/frequences-new-form.component';
+import { FrequencesPagesComponent } from './feature/frequence/pages/frequences-pages/frequences-pages.component';
 import { HomePageComponent } from './feature/home/pages/home-page/home-page.component';
 import { MedicsDetailComponent } from './feature/medics/pages/medics-detail/medics-detail.component';
 import { MedicsEditFormComponent } from './feature/medics/pages/medics-edit-form/medics-edit-form.component';
@@ -15,16 +23,6 @@ import { NotificationEditFormComponent } from './feature/notification/pages/noti
 import { NotificationListComponent } from './feature/notification/pages/notification-list/notification-list.component';
 import { NotificationNewFormComponent } from './feature/notification/pages/notification-new-form/notification-new-form.component';
 import { NotificationPageComponent } from './feature/notification/pages/notification-page/notification-page.component';
-import { PosologiesDetailComponent } from './feature/posologie/pages/posologies-detail/posologies-detail.component';
-import { PosologiesEditFormComponent } from './feature/posologie/pages/posologies-edit-form/posologies-edit-form.component';
-import { PosologiesListComponent } from './feature/posologie/pages/posologies-list/posologies-list.component';
-import { PosologiesNewFormComponent } from './feature/posologie/pages/posologies-new-form/posologies-new-form.component';
-import { PosologiesPageComponent } from './feature/posologie/pages/posologies-page/posologies-page.component';
-import { PrescriptionsDetailComponent } from './feature/prescription/pages/prescriptions-detail/prescriptions-detail.component';
-import { PrescriptionsEditFormComponent } from './feature/prescription/pages/prescriptions-edit-form/prescriptions-edit-form.component';
-import { PrescriptionsListComponent } from './feature/prescription/pages/prescriptions-list/prescriptions-list.component';
-import { PrescriptionsNewFormComponent } from './feature/prescription/pages/prescriptions-new-form/prescriptions-new-form.component';
-import { PrescriptionsPageComponent } from './feature/prescription/pages/prescriptions-page/prescriptions-page.component';
 import { RendezvousDetailComponent } from './feature/rendezvous/pages/rendezvous-detail/rendezvous-detail.component';
 import { RendezvousEditFormComponent } from './feature/rendezvous/pages/rendezvous-edit-form/rendezvous-edit-form.component';
 import { RendezvousListComponent } from './feature/rendezvous/pages/rendezvous-list/rendezvous-list.component';
@@ -62,28 +60,25 @@ const routes: Routes = [
       { path: "", component: MedicsListComponent }
     ]
   },
-
   {
-    path: "prescriptions", component: PrescriptionsPageComponent,
+    path: "frequence", component: FrequencesPagesComponent,
     children: [
-      { path: "create", component: PrescriptionsNewFormComponent },
-      { path: "detail/:id", component: PrescriptionsDetailComponent },
-      { path: "update/:id", component: PrescriptionsEditFormComponent },
-      { path: "list", component: PrescriptionsListComponent },
-      { path: "", component: PrescriptionsListComponent }
+      { path: "create", component: FrequencesNewFormComponent },
+      { path: "update/:id", component: FrequencesEditFormComponent },
+      { path: "list", component: FrequencesListComponent },
+      { path: "", component: FrequencesListComponent }
+    ]
+  },
+  {
+    path: "duree", component: DureesPagesComponent,
+    children: [
+      { path: "create", component: DureesNewFormComponent },
+      { path: "update/:id", component: DureesEditFormComponent },
+      { path: "list", component: DureesListComponent },
+      { path: "", component: DureesListComponent }
     ]
   },
 
-  {
-    path: "posologies", component: PosologiesPageComponent,
-    children: [
-      { path: "create", component: PosologiesNewFormComponent },
-      { path: "detail/:id", component: PosologiesDetailComponent },
-      { path: "update/:id", component: PosologiesEditFormComponent },
-      { path: "list", component: PosologiesListComponent },
-      { path: "", component: PosologiesListComponent }
-    ]
-  },
 
   {
     path: "rendezvous", component: RendezvousPageComponent,

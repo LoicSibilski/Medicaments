@@ -3,8 +3,6 @@ import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { MatDialog, MatDialogConfig, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { formatDate } from "@angular/common";
 import { MedicService } from '../../services/medic.service';
-import { PosologiesNewFormComponent } from 'src/app/feature/posologie/pages/posologies-new-form/posologies-new-form.component';
-import { Posologie } from 'src/app/feature/posologie/models/posologie';
 import { Medic } from '../../models/medic';
 
 @Component({
@@ -14,7 +12,7 @@ import { Medic } from '../../models/medic';
 })
 export class MedicsNewFormComponent implements OnInit {
 
-  dateNow: string;
+/*   dateNow: string;
   date: Date;
 
   id: number;
@@ -23,27 +21,27 @@ export class MedicsNewFormComponent implements OnInit {
 
   medic: Medic;
   posologie: Posologie;
-  form: FormGroup;
+  form: FormGroup; */
 
   constructor(
-    private medicService: MedicService,
+/*     private medicService: MedicService,
     private fb: FormBuilder,
     private dialogRef: MatDialogRef<PosologiesNewFormComponent>,
-    private dialog: MatDialog,
-    @Inject(MAT_DIALOG_DATA) public data) { }
+    private dialog: MatDialog, */
+    ) { }
 
   ngOnInit() {
-    this.medic = { 'id': this.id, 'nom': null, posologies: [] }
+/*     this.medic = { 'id': this.id, 'nom': null, posologies: [] }
     this.dateNow = formatDate(new Date(), 'yyyy-MM-dd', 'en_US');
     this.date = new Date(this.dateNow);
 
     this.form = this.fb.group({
       nom: new FormControl(),
-    })
+    }) */
   }
 
   openMedicFormDialog() {
-    const dialogConfig = new MatDialogConfig();
+/*     const dialogConfig = new MatDialogConfig();
 
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
@@ -55,40 +53,26 @@ export class MedicsNewFormComponent implements OnInit {
     dialogRef.afterClosed().subscribe(res => {
       const posoTmp = res;
       this.posologie = posoTmp;
-    })
+    }) */
   }
 
   isPosologieNull() {
-    return this.posologie === undefined;
-  }
+/*     return this.posologie === undefined;
+ */  }
 
-  save() {
-    this.dialogRef.afterClosed().subscribe(
+  saveDuree() {
+/*     this.dialogRef.afterClosed().subscribe(
       data => {
         const tmp = data;
         this.medic = tmp;
       })
     this.medic.nom = this.form.get('nom').value;
-    this.formatPosologie();
     this.medic.posologies.push(this.posologie);
-    this.dialogRef.close(this.medic);
-  }
-
-  formatPosologie(){
-    this.posologie.nomMedic = this.medic.nom;
-    if (this.posologie.isMidi === null){
-      this.posologie.isMidi = false;
-    }
-    if (this.posologie.isMatin === null){
-      this.posologie.isMatin = false;
-    }
-    if (this.posologie.isSoir === null){
-      this.posologie.isSoir = false;
-    }
+    this.dialogRef.close(this.medic); */
   }
 
   close() {
-    this.dialogRef.close();
-  }
+/*     this.dialogRef.close();
+ */  }
 
 }
