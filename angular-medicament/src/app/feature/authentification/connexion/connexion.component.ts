@@ -40,8 +40,8 @@ export class ConnexionComponent implements OnInit {
     let email = this.connexionForm.value.email;
     let motDePasse = this.connexionForm.value.motDePasse;
     let compteRecupere = this.service.findByEmail(email);
-    console.log(motDePasse + " " +compteRecupere.password);
-    if(compteRecupere.email === email && compteRecupere.password === motDePasse) {
+    console.log(motDePasse + " " +compteRecupere.motDePasse);
+    if(compteRecupere.email === email && compteRecupere.motDePasse === motDePasse) {
       this.router.navigate(["/home"]);
     }
   }
