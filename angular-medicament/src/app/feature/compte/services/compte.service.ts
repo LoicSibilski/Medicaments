@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Compte } from '../models/compte';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,25 @@ import { Injectable } from '@angular/core';
  */
 export class CompteService {
 
+  compteTest : Compte = new Compte(1,"test@test.com","test", []); 
+
+  listeComptes = [this.compteTest];
+
   constructor() { }
+
+  /**
+   * Cette méthode me permet de récupérer un compte à partir d'une adresse email
+   * @param email 
+   * @returns 
+   */
+  public findByEmail = (email : string) : Compte => {
+    let compteRecupere : Compte;
+    this.listeComptes.forEach(compte => {
+      if(compte.email == email) {
+        compteRecupere = compte;
+      }
+    })
+    return compteRecupere;
+  }
 
 }
