@@ -16,7 +16,7 @@ import { CompteService } from '../../compte/services/compte.service';
  */
 export class ConnexionComponent implements OnInit {
 
-  compteForm : FormGroup;
+  connexionForm : FormGroup;
 
   compte : Compte = new Compte(0, "" , "", []);
 
@@ -25,11 +25,10 @@ export class ConnexionComponent implements OnInit {
     private fb : FormBuilder, 
     private router : Router
     ) { 
-      this.compteForm = this.fb.group({
+      this.connexionForm = this.fb.group({
         email : "",
         motDePasse : ""
       })
-
     }
   
   ngOnInit(): void {}
@@ -38,10 +37,10 @@ export class ConnexionComponent implements OnInit {
    * Cette méthode permet de vérifier si un compte existe
    */
   verifierCompteExiste = () => {
-    let email = this.compteForm.value.email;
-    let motDePasse = this.compteForm.value.motDePasse;
+    let email = this.connexionForm.value.email;
+    let motDePasse = this.connexionForm.value.motDePasse;
     let compteRecupere = this.service.findByEmail(email);
-    console.log(compteRecupere);
+    console.log(motDePasse + " " +compteRecupere.password);
     if(compteRecupere.email === email && compteRecupere.password === motDePasse) {
       this.router.navigate(["/home"]);
     }
