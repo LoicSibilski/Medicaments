@@ -32,4 +32,9 @@ export class CompteService {
     return compteRecupere;
   }
 
+  public save = (compte : Compte) : void => {
+    this.listeComptes.push(compte);
+    console.log("compte " + compte + " est créer");
+  }
+
 }
