@@ -31,15 +31,10 @@ export class DureesNewFormComponent implements OnInit {
     this.dureeForm = this.fb.group({
       dateDebut: new FormControl(this.dateNow),
       choixDuree: new FormControl(),
-    });
-
-    this.jusqueXForm = this.fb.group({
-      dateFin: new FormControl(),
-    });
-
-    this.pendantXForm = this.fb.group({
+      dateFin: new FormControl(),      
       nbJour: new FormControl(),
     });
+
    }
 
   ngOnInit(): void {
@@ -48,11 +43,6 @@ export class DureesNewFormComponent implements OnInit {
 
   saveDuree() {
     this.dataToReturn.push(this.dureeForm.value)
-    if(this.choixDureeJusqueX){
-      this.dataToReturn.push(this.jusqueXForm.value);
-    } else if (this.choixDureePendantX){
-      this.dataToReturn.push(this.pendantXForm.value);
-    }
     this.dialogRefFrequence.close(this.dataToReturn);
   }
 

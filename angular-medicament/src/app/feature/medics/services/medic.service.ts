@@ -6,6 +6,7 @@ import { Horaire } from '../../frequence/models/horaire';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
+import { MedicTmp } from '../models/medic-tmp';
 
 @Injectable({
   providedIn: 'root'
@@ -47,7 +48,7 @@ export class MedicService {
     return this.http.patch<Medic>(`${environment.urlSpring}/medics`, parc);
   }
 
-  create = (medic: String[]) : Observable<Medic> => {
+  create = (medic: MedicTmp) : Observable<Medic> => {
     return this.http.post<Medic>(`${environment.urlSpring}/medics`, medic);
   }
 

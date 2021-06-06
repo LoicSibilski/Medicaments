@@ -31,7 +31,21 @@ export class FrequencesNewFormComponent implements OnInit {
   ) {
 
     this.frequenceForm = this.fb.group({
-      choixFrequence: ""
+      choixFrequence: "",
+
+      x: new FormControl(),
+
+      heureDebut: new FormControl(),
+      rappel: new FormControl(),
+      heureFin: new FormControl(),
+
+      lundi: new FormControl(true),
+      mardi: new FormControl(true),
+      mercredi: new FormControl(true),
+      jeudi: new FormControl(true),
+      vendredi: new FormControl(true),
+      samedi: new FormControl(),
+      dimanche: new FormControl(),
     });
 
     this.chaqueJourXHeuresForm = this.fb.group({

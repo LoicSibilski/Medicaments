@@ -14,14 +14,14 @@
 
             <div class="classInput">
                 <div class="jusqueX" *ngIf="choixDureeJusqueX()">
-                    <form [formGroup]="jusqueXForm">
+                    <form [formGroup]="dureeForm">
                         <mat-form-field [attr.aria-label]="'Tous les :'">
                             <input name="x" matInput type="date" formControlName="dateFin" placeholder="jusqu'au">
                         </mat-form-field>
                     </form>
                 </div>
                 <div class="pendantX" *ngIf="choixDureePendantX()">
-                    <form [formGroup]="pendantXForm">
+                    <form [formGroup]="dureeForm">
                         <mat-form-field [attr.aria-label]="'Pendant :'">
                             <input name="nbJour" matInput type="number" formControlName="nbJour" placeholder="2 jours">
                         </mat-form-field>

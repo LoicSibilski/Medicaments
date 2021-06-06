@@ -26,7 +26,7 @@ export class MedicsNewFormComponent implements OnInit {
 
   frequenceData: String[] = [];
   dureeData: String[] = [];
-  medicTmp: MedicTmp = new MedicTmp("",[],[]);
+  medicTmp: MedicTmp = new MedicTmp("", [], []);
 
   data: String[] = [];
 
@@ -71,11 +71,11 @@ export class MedicsNewFormComponent implements OnInit {
     this.dialogRefFrequence.afterClosed().subscribe(res => {
       this.frequenceData = res;
       this.data = [];
-      this.frequenceData.forEach(elem=>{
+      this.frequenceData.forEach(elem => {
         this.data.push(elem);
       })
 
-      })
+    })
   }
 
 
@@ -83,11 +83,10 @@ export class MedicsNewFormComponent implements OnInit {
     this.medicTmp.nom = this.medicForm.value;
     this.medicTmp.dureeData = this.dureeData;
     this.medicTmp.frequenceData = this.frequenceData;
-    console.log("sdsddffds,fd,nfdfd,,nfd,nfd");
     console.log(this.medicTmp)
-/*     this.medicService.create().subscribe(medic => {
+    this.medicService.create(this.medicTmp).subscribe(medic => {
       this.router.navigate(["/medics"]);
-    }); */
+    });
   }
 
 

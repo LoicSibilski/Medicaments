@@ -11,7 +11,7 @@
 
             <div class="classInput">
                 <div class="form-chaqueJourXHeures" *ngIf="choixFrequenceChaqueJoursXParHeures()">
-                    <form [formGroup]="chaqueJourXHeuresForm">
+                    <form [formGroup]="frequenceForm">
                         <div class="chaqueJourXHeures">
                             <mat-form-field [attr.aria-label]="'Heure de Debut'">
                                 <input name="heureDebut" matInput type="time" formControlName="heureDebut" placeholder="Heure de debut"
@@ -30,14 +30,14 @@
                     </form>
                 </div>
                 <div class="TtsXJours" *ngIf="choixFrequenceTtsxJours()">
-                    <form [formGroup]="ttsXJoursForm">
+                    <form [formGroup]="frequenceForm">
                         <mat-form-field [attr.aria-label]="'Tous les :'">
                             <input name="x" matInput type="number" formControlName="x" placeholder="Tous les">
                         </mat-form-field>
                     </form>
                 </div>
                 <div class="CertainsJours" *ngIf="choixFrequenceCertainsJours()">
-                    <form class="CertainsJours" [formGroup]="CertainsJoursForm">
+                    <form class="CertainsJours" [formGroup]="frequenceForm">
                         <mat-checkbox formControlName="lundi">
                             Lundi 
                         </mat-checkbox>
