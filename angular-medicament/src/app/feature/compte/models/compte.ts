@@ -66,7 +66,7 @@ export class Compte {
      * @param {string} nouveauMotDePasse
      * @public
      */
-    public set password (nouveauMotDePasse : string) {
+    public set motDePasse (nouveauMotDePasse : string) {
         this._motDePasse = nouveauMotDePasse;
     }
 
@@ -84,7 +84,7 @@ export class Compte {
      * @param {[User]} nouveauUtilisateurs
      * @public
      */
-    public set users (nouveauUtilisateurs : User[]) {
+    public set utilisateurs (nouveauUtilisateurs : User[]) {
         this._utilisateurs = nouveauUtilisateurs;
     }
 
