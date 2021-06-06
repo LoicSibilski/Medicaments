@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -133,7 +133,7 @@ const modules = [
   exports: [
     [...modules]
   ],
-  providers: [],
+  providers: [{ provide: MatDialogRef, useValue: {} }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,7 +1,15 @@
+<form [formGroup]="medicForm" (ngSubmit)="ajouter()">
+    <label>Nom :
+        <input type="text" formControlName="nom">
+    </label>
 
-xdfcghtfcvghjyghj
+    <button>Ajouter</button>
+    <button type="button" (click)="openDureeFormDialog()">duree</button>
+    <button type="button" (click)="openFrequenceFormDialog()">frequence</button> 
+</form>
+
 <!-- <h1 mat-dialog-title>Ajouter un médicament</h1>
-<div mat-dialog-content>
+<div>
     <form [formGroup]="form" novalidate>
 
         <mat-form-field [attr.aria-label]="'Nom'">
@@ -25,10 +33,5 @@ xdfcghtfcvghjyghj
             </div>
         </ng-template>
     </form>
-</div>
-
-<div mat-dialog-actions align="end">
-    <button type="button" mat-raised-button mat-dialog-close [attr.aria-label]="'Annuler'">Cancel</button>
-    <button type="button" mat-raised-button (click)="save()" [attr.aria-label]="'Enregistrer médicament'"
-        [disabled]="form.invalid">Save</button>
 </div> -->
+
