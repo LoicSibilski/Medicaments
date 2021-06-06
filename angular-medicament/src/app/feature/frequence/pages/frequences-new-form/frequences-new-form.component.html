@@ -10,6 +10,25 @@
             </mat-radio-group>
 
             <div class="classInput">
+                <div class="form-chaqueJourXHeures" *ngIf="choixFrequenceChaqueJoursXParHeures()">
+                    <form [formGroup]="chaqueJourXHeuresForm">
+                        <div class="chaqueJourXHeures">
+                            <mat-form-field [attr.aria-label]="'Heure de Debut'">
+                                <input name="heureDebut" matInput type="time" formControlName="heureDebut" placeholder="Heure de debut"
+                                value="07:30" required>
+                            </mat-form-field>
+                            <mat-form-field [attr.aria-label]="'Rappel'">
+                                <input name="rappel" matInput type="time" formControlName="rappel" placeholder="rappel"
+                                value="00:30" >
+                            </mat-form-field>
+                            
+                            <mat-form-field [attr.aria-label]="'Heure de fin'">
+                                <input name="heureFin" matInput type="time" formControlName="heureFin" placeholder="Heure de fin"
+                                value="21:30" required>
+                            </mat-form-field>
+                        </div>
+                    </form>
+                </div>
                 <div class="TtsXJours" *ngIf="choixFrequenceTtsxJours()">
                     <form [formGroup]="ttsXJoursForm">
                         <mat-form-field [attr.aria-label]="'Tous les :'">

@@ -17,11 +17,11 @@ export class FrequencesNewFormComponent implements OnInit {
 
   ttsXJoursForm: FormGroup;
   ChaqueJoursXParJourForm: FormGroup;
-  ChaqueJoursXParHeuresForm: FormGroup;
+  chaqueJourXHeuresForm: FormGroup;
   CertainsJoursForm: FormGroup;
 
   choixFrequence: string = "";
-  frequences: string[] = ['Chaque jours X par jours', 'Chaque jours toutes les X heures', 'Tous les X jours', 'Certains jours'];
+  frequences: string[] = ["Chaque jours X par jours", "Chaque jours toutes les X heures", "Tous les X jours", "Certains jours"];
 
   dataToReturn: string[] = [];
 
@@ -32,6 +32,12 @@ export class FrequencesNewFormComponent implements OnInit {
 
     this.frequenceForm = this.fb.group({
       choixFrequence: ""
+    });
+
+    this.chaqueJourXHeuresForm = this.fb.group({
+      heureDebut: new FormControl(),
+      rappel: new FormControl(),
+      heureFin: new FormControl(),
     });
 
     this.ttsXJoursForm = this.fb.group({
@@ -54,28 +60,32 @@ export class FrequencesNewFormComponent implements OnInit {
 
   saveFrequence() {
     this.dataToReturn.push(this.frequenceForm.value)
-    if (this.choixFrequenceCertainsJours) {
-      this.dataToReturn.push(this.CertainsJoursForm.value)
-    } else if (this.choixFrequenceTtsxJours) {
+    if (this.choixFrequenceChaqueJoursXParHeures()) {
+      this.dataToReturn.push(this.chaqueJourXHeuresForm.value);
+    }
+    if (this.choixFrequenceCertainsJours()) {
+      this.dataToReturn.push(this.CertainsJoursForm.value);
+    }
+    if (this.choixFrequenceTtsxJours()) {
       this.dataToReturn.push(this.ttsXJoursForm.value)
     }
     this.dialogRefFrequence.close(this.dataToReturn);
   }
-  
+
   closeFrequence() {
     this.dialogRefFrequence.close();
   }
 
   choixFrequenceChaqueJoursXParJour() {
-    return this.frequenceForm.value.choixFrequence == this.frequences[0];
+    return this.frequenceForm.value.choixFrequence[0] === this.frequences[0];
   }
 
   choixFrequenceChaqueJoursXParHeures() {
-    return this.frequenceForm.value.choixFrequence == this.frequences[1];
+    return this.frequenceForm.value.choixFrequence ===this.frequences[1];
   }
 
   choixFrequenceTtsxJours() {
-    return this.frequenceForm.value.choixFrequence == this.frequences[2];
+    return this.frequenceForm.value.choixFrequence === this.frequences[2];
   }
 
   choixFrequenceCertainsJours() {

@@ -1,17 +1,19 @@
 <div class="container">
     <form class="form" [formGroup]="medicForm" (ngSubmit)="ajouter()">
         <div class="nom">
-            <label>Nom :
-                <input type="text" formControlName="nom">
-            </label>
+            <mat-form-field [attr.aria-label]="'Nom'">
+                <input name="nom" matInput type="text" formControlName="nom" placeholder="Nom">
+            </mat-form-field>
         </div>
         <div class="duree">
             <button type="button" (click)="openDureeFormDialog()">duree</button>
         </div>
         <div class="frequence">
             <button type="button" (click)="openFrequenceFormDialog()">frequence</button>
-            <div class="">
-                
+            <div *ngIf="frequenceData[0]">
+                <div *ngFor='let freq of data'>
+                    {{freq.choixFrequence}}
+                </div>
             </div>
         </div>
         <div>

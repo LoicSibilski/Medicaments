@@ -28,6 +28,8 @@ export class MedicsNewFormComponent implements OnInit {
   dureeData: String[] = [];
   medicTmp: MedicTmp = new MedicTmp("",[],[]);
 
+  data: String[] = [];
+
   constructor(
     private medicService: MedicService,
     private fb: FormBuilder,
@@ -40,11 +42,7 @@ export class MedicsNewFormComponent implements OnInit {
     this.medicForm = this.fb.group({
       nom: "",
     })
-    this.chaqueJourXHeuresForm = this.fb.group({
-      heureDebut: new FormControl(),
-      frequenceHeure: new FormControl(),
-      heureFin: new FormControl(),
-    })
+
   }
 
   ngOnInit() {
@@ -72,14 +70,16 @@ export class MedicsNewFormComponent implements OnInit {
     this.dialogRefFrequence = this.dialog.open(FrequencesNewFormComponent, dialogConfigFrequence);
     this.dialogRefFrequence.afterClosed().subscribe(res => {
       this.frequenceData = res;
-    })
+      this.data = [];
+      this.frequenceData.forEach(elem=>{
+        this.data.push(elem);
+      })
+
+      })
   }
 
 
   ajouter = () => {
-    console.log(this.medicForm.value);
-    console.log(this.dureeData);
-    console.log(this.frequenceData);
     this.medicTmp.nom = this.medicForm.value;
     this.medicTmp.dureeData = this.dureeData;
     this.medicTmp.frequenceData = this.frequenceData;
@@ -89,6 +89,7 @@ export class MedicsNewFormComponent implements OnInit {
       this.router.navigate(["/medics"]);
     }); */
   }
+
 
 
 }
