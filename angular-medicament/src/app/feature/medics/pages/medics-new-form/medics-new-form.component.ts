@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { MedicService } from '../../services/medic.service';
 import { Medic } from '../../models/medic';
 import { Router } from '@angular/router';
@@ -8,6 +8,7 @@ import { FrequencesNewFormComponent } from 'src/app/feature/frequence/pages/freq
 import { Duree } from 'src/app/feature/duree/models/duree';
 import { Frequence } from 'src/app/feature/frequence/models/frequence';
 import { MatDialog, MatDialogConfig, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MedicTmp } from '../../models/medic-tmp';
 
 @Component({
   selector: 'app-medics-new-form',
@@ -17,6 +18,7 @@ import { MatDialog, MatDialogConfig, MatDialogRef, MAT_DIALOG_DATA } from '@angu
 export class MedicsNewFormComponent implements OnInit {
 
   medicForm: FormGroup;
+  chaqueJourXHeuresForm: FormGroup;
 
   medic: Medic;
   duree: Duree;
@@ -24,6 +26,7 @@ export class MedicsNewFormComponent implements OnInit {
 
   frequenceData: String[] = [];
   dureeData: String[] = [];
+  medicTmp: MedicTmp = new MedicTmp("",[],[]);
 
   constructor(
     private medicService: MedicService,
@@ -37,16 +40,14 @@ export class MedicsNewFormComponent implements OnInit {
     this.medicForm = this.fb.group({
       nom: "",
     })
+    this.chaqueJourXHeuresForm = this.fb.group({
+      heureDebut: new FormControl(),
+      frequenceHeure: new FormControl(),
+      heureFin: new FormControl(),
+    })
   }
 
   ngOnInit() {
-    /*  this.medic = { 'id': this.id, 'nom': null, posologies: [] }
-        this.dateNow = formatDate(new Date(), 'yyyy-MM-dd', 'en_US');
-        this.date = new Date(this.dateNow);
-    
-        this.form = this.fb.group({
-          nom: new FormControl(),
-        }) */
   }
 
   openDureeFormDialog() {
@@ -58,11 +59,12 @@ export class MedicsNewFormComponent implements OnInit {
     this.dialogRefDuree = this.dialog.open(DureesNewFormComponent, dialogConfigDuree);
     this.dialogRefDuree.afterClosed().subscribe(res => {
       this.dureeData = res;
+      console.log(this.dureeData);
     })
   }
 
   openFrequenceFormDialog() {
-    
+
     const dialogConfigFrequence = new MatDialogConfig();
     dialogConfigFrequence.disableClose = true;
     dialogConfigFrequence.autoFocus = true;
@@ -73,14 +75,20 @@ export class MedicsNewFormComponent implements OnInit {
     })
   }
 
-  
+
   ajouter = () => {
     console.log(this.medicForm.value);
-
-    /*     this.medicService.create(this.medicForm.value).subscribe(medic => {
-          this.router.navigate(["/medics"]);
-        }); */
+    console.log(this.dureeData);
+    console.log(this.frequenceData);
+    this.medicTmp.nom = this.medicForm.value;
+    this.medicTmp.dureeData = this.dureeData;
+    this.medicTmp.frequenceData = this.frequenceData;
+    console.log("sdsddffds,fd,nfdfd,,nfd,nfd");
+    console.log(this.medicTmp)
+/*     this.medicService.create().subscribe(medic => {
+      this.router.navigate(["/medics"]);
+    }); */
   }
 
-  
+
 }

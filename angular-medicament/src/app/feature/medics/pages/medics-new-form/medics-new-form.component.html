@@ -1,12 +1,25 @@
-<form [formGroup]="medicForm" (ngSubmit)="ajouter()">
-    <label>Nom :
-        <input type="text" formControlName="nom">
-    </label>
+<div class="container">
+    <form class="form" [formGroup]="medicForm" (ngSubmit)="ajouter()">
+        <div class="nom">
+            <label>Nom :
+                <input type="text" formControlName="nom">
+            </label>
+        </div>
+        <div class="duree">
+            <button type="button" (click)="openDureeFormDialog()">duree</button>
+        </div>
+        <div class="frequence">
+            <button type="button" (click)="openFrequenceFormDialog()">frequence</button>
+            <div class="">
+                
+            </div>
+        </div>
+        <div>
+            <button>Ajouter</button>
+        </div>
+    </form>
+</div>
 
-    <button>Ajouter</button>
-    <button type="button" (click)="openDureeFormDialog()">duree</button>
-    <button type="button" (click)="openFrequenceFormDialog()">frequence</button> 
-</form>
 
 <!-- <h1 mat-dialog-title>Ajouter un médicament</h1>
 <div>
@@ -34,4 +47,3 @@
         </ng-template>
     </form>
 </div> -->
-

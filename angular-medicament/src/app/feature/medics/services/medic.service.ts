@@ -47,8 +47,8 @@ export class MedicService {
     return this.http.patch<Medic>(`${environment.urlSpring}/medics`, parc);
   }
 
-  create = (parc : Medic) : Observable<Medic> => {
-    return this.http.post<Medic>(`${environment.urlSpring}/medics`, parc);
+  create = (medic: String[]) : Observable<Medic> => {
+    return this.http.post<Medic>(`${environment.urlSpring}/medics`, medic);
   }
 
   //Si vous avez fait le back avec un parc en BODY
@@ -61,42 +61,4 @@ export class MedicService {
     return this.http.delete<Medic>(`${environment.urlSpring}/medics/${parc.id}`)
   }
 
-/*   findAll = (): Medic[] => {
-    return this.listeMedics;
-  }
-
-  findById = (id: string): Medic => {
-    let medicTmp: Medic;
-    this.listeMedics.forEach(medic => {
-      if (medic.id == id) {
-        medicTmp = medic;
-      }
-    })
-    console.log("aucune Medic avec cette id")
-    return medicTmp;
-  }
-
-  save = (Medic: Medic) => {
-    console.log("Liste des Medic : " + this.listeMedics);
-    console.log("Ajout de la Medic : " + Medic);
-    this.listeMedics.push(Medic);
-    console.log("Liste des Medic : " + this.listeMedics);
-  }
-
-  delete = (id: string) => {
-    console.log("Liste des Medic : " + this.listeMedics);
-    let medic = this.findById(id);
-    console.log("Suppression de la Medic : " + medic);
-    let pos = this.listeMedics.indexOf(medic)
-    this.listeMedics.splice(pos, 1);
-    console.log("Liste des Medic : " + this.listeMedics);
-  }
-
-  update = (Medic: Medic) => {
-    console.log("Liste des Medic : " + this.listeMedics);
-    console.log("MAJ de la Medic : " + Medic);
-    this.delete(Medic.id);
-    this.save(Medic);
-    console.log("Liste des Medic : " + this.listeMedics);
-  } */
 }
