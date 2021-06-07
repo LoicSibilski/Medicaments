@@ -16,9 +16,10 @@ export class MedicsListComponent implements OnInit {
   constructor(private medicService: MedicService) { }
 
   ngOnInit(): void {
-    this.medicService.getAll().subscribe(elems => {
+    this.medics = this.medicService.getAll();
+/*     this.medicService.getAll().subscribe(elems => {
       this.medics = elems;
-    });
+    }); */
 
   }
 

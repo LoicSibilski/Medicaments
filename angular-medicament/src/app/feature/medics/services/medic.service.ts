@@ -30,9 +30,13 @@ export class MedicService {
 
   constructor(private http : HttpClient) { }
 
-  getAll = () : Observable<Medic[]> => {
-    return this.http.get<Medic[]>(`${environment.urlSpring}/medics`);
+  getAll = () : Medic[] => {
+    return this.listeMedics;
   }
+
+/*   getAll = () : Observable<Medic[]> => {
+    return this.http.get<Medic[]>(`${environment.urlSpring}/medics`);
+  } */
 
   getById = (id : String) : Observable<Medic> => {
     return this.http.get<Medic>(`${environment.urlSpring}/medics/${id}`);
