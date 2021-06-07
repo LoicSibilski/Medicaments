@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { PrescriptionService } from 'src/app/feature/prescription/services/prescription.service';
 import { Medic } from '../../models/medic';
 import { MedicService } from '../../services/medic.service';
 
@@ -14,15 +13,14 @@ export class MedicsListComponent implements OnInit {
 
   medics: Medic[];
 
-  constructor(private medicService: MedicService, private prescService: PrescriptionService) { }
+  constructor(private medicService: MedicService) { }
 
   ngOnInit(): void {
-    if (this.id === undefined) {
-      this.medics = this.medicService.findAll();
-    }
-    else {
-      this.medics = this.prescService.findAllMedicsByPrescrId(this.id)
-    }
+    this.medics = this.medicService.getAll();
+/*     this.medicService.getAll().subscribe(elems => {
+      this.medics = elems;
+    }); */
+
   }
 
 }
