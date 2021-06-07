@@ -15,7 +15,9 @@ export class MedicsDetailComponent implements OnInit {
   constructor(private medicService : MedicService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    let id = Number.parseInt(this.activatedRoute.snapshot.paramMap.get('id'));
-    this.medic = this.medicService.findById(id);
+    let id = this.activatedRoute.snapshot.paramMap.get('id');
+    this.medicService.getById(id).subscribe(elem => {
+      this.medic = elem;
+    })
   } 
 }
