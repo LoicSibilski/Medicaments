@@ -100,10 +100,6 @@ const modules = [
     AssistantDetailComponent,
     ConnexionComponent,
     InscriptionComponent,
-    InputComponent,
-    LayoutComponent,
-    ButtonComponent,
-
     FrequencesPagesComponent,
     FrequencesListComponent,
     FrequencesNewFormComponent,
