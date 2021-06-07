@@ -1,11 +1,14 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { MatDialog, MatDialogConfig, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { formatDate } from "@angular/common";
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { MedicService } from '../../services/medic.service';
-import { PosologiesNewFormComponent } from 'src/app/feature/posologie/pages/posologies-new-form/posologies-new-form.component';
-import { Posologie } from 'src/app/feature/posologie/models/posologie';
 import { Medic } from '../../models/medic';
+import { Router } from '@angular/router';
+import { DureesNewFormComponent } from 'src/app/feature/duree/pages/durees-new-form/durees-new-form.component';
+import { FrequencesNewFormComponent } from 'src/app/feature/frequence/pages/frequences-new-form/frequences-new-form.component';
+import { Duree } from 'src/app/feature/duree/models/duree';
+import { Frequence } from 'src/app/feature/frequence/models/frequence';
+import { MatDialog, MatDialogConfig, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MedicTmp } from '../../models/medic-tmp';
 
 @Component({
   selector: 'app-medics-new-form',
@@ -14,67 +17,78 @@ import { Medic } from '../../models/medic';
 })
 export class MedicsNewFormComponent implements OnInit {
 
-  dateNow: string;
-  date: Date;
-
-  id: number;
-  dateDebut: Date;
-  dateFin: Date;
+  medicForm: FormGroup;
+  chaqueJourXHeuresForm: FormGroup;
 
   medic: Medic;
-  posologie: Posologie;
-  form: FormGroup;
+  duree: Duree;
+  frequence: Frequence;
+
+  frequenceData: String[] = [];
+  dureeData: String[] = [];
+  medicTmp: MedicTmp = new MedicTmp("", [], []);
+
+  data: String[] = [];
 
   constructor(
     private medicService: MedicService,
     private fb: FormBuilder,
-    private dialogRef: MatDialogRef<PosologiesNewFormComponent>,
-    private dialog: MatDialog,
-    @Inject(MAT_DIALOG_DATA) public data) { }
+    private router: Router,
+    private dialogRefDuree: MatDialogRef<DureesNewFormComponent>,
+    private dialogRefFrequence: MatDialogRef<FrequencesNewFormComponent>,
+    private dialog: MatDialog) {
+    this.duree = new Duree("", 0, new Date());
+    this.frequence = new Frequence("", [], []);
+    this.medicForm = this.fb.group({
+      nom: "",
+    })
+
+  }
 
   ngOnInit() {
-    this.medic = { 'id': this.id, 'nom': null, posologies: [] }
-    this.dateNow = formatDate(new Date(), 'yyyy-MM-dd', 'en_US');
-    this.date = new Date(this.dateNow);
+  }
 
-    this.form = this.fb.group({
-      nom: new FormControl(),
+  openDureeFormDialog() {
+    const dialogConfigDuree = new MatDialogConfig();
+
+    dialogConfigDuree.disableClose = true;
+    dialogConfigDuree.autoFocus = true;
+
+    this.dialogRefDuree = this.dialog.open(DureesNewFormComponent, dialogConfigDuree);
+    this.dialogRefDuree.afterClosed().subscribe(res => {
+      this.dureeData = res;
+      console.log(this.dureeData);
     })
   }
 
-  openMedicFormDialog() {
-    const dialogConfig = new MatDialogConfig();
+  openFrequenceFormDialog() {
 
-    dialogConfig.disableClose = true;
-    dialogConfig.autoFocus = true;
+    const dialogConfigFrequence = new MatDialogConfig();
+    dialogConfigFrequence.disableClose = true;
+    dialogConfigFrequence.autoFocus = true;
 
-    dialogConfig.data = {
-      nom: this.form.get('nom').value
-    };
-    let dialogRef = this.dialog.open(PosologiesNewFormComponent, dialogConfig);
-    dialogRef.afterClosed().subscribe(res => {
-      const posoTmp = res;
-      this.posologie = posoTmp;
-    })
-  }
-
-  isPosologieNull() {
-    return this.posologie === undefined;
-  }
-
-  save() {
-    this.dialogRef.afterClosed().subscribe(
-      data => {
-        const tmp = data;
-        this.medic = tmp;
+    this.dialogRefFrequence = this.dialog.open(FrequencesNewFormComponent, dialogConfigFrequence);
+    this.dialogRefFrequence.afterClosed().subscribe(res => {
+      this.frequenceData = res;
+      this.data = [];
+      this.frequenceData.forEach(elem => {
+        this.data.push(elem);
       })
-    this.medic.nom = this.form.get('nom').value;
-    this.medic.posologies.push(this.posologie);
-    this.dialogRef.close(this.medic);
+
+    })
   }
 
-  close() {
-    this.dialogRef.close();
+
+  ajouter = () => {
+    this.medicTmp.nom = this.medicForm.value;
+    this.medicTmp.dureeData = this.dureeData;
+    this.medicTmp.frequenceData = this.frequenceData;
+    console.log(this.medicTmp)
+    this.medicService.create(this.medicTmp).subscribe(medic => {
+      this.router.navigate(["/medics"]);
+    });
   }
+
+
 
 }

@@ -1,224 +1,69 @@
 import { Injectable } from '@angular/core';
-import { Posologie } from '../../posologie/models/posologie';
 import { Medic } from '../models/medic';
-import { formatDate } from "@angular/common";;
+import { formatDate } from "@angular/common";import { Duree } from '../../duree/models/duree';
+import { Frequence } from '../../frequence/models/frequence';
+import { Horaire } from '../../frequence/models/horaire';
+import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
+import { HttpClient } from '@angular/common/http';
+import { MedicTmp } from '../models/medic-tmp';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MedicService {
 
+  horaire1 = new Horaire(12,45);
+  horaire2 = new Horaire(15,30);
+  horaire3 = new Horaire(20,25);
 
-  posologieDoliprane1: Posologie = {
-    'id': 1,
-    'nomMedic': "Doliprane",
-    'nombreUnite': 2.5,
-    'dateDebut': new Date("2005-03-02"),
-    'dateFin': new Date("2021-04-26"),
-    'isMatin': true,
-    'isMidi': true,
-    'isSoir': true,
-    'isActive': false,
-  }
+  duree1 = new Duree("dur1", 3, new Date());
+  duree2 = new Duree("dur2", 2, new Date('2021-08-07'));
 
-  posologieDoliprane2: Posologie = {
-    'id': 2,
-    'nomMedic': "Doliprane",
-    'nombreUnite': 2,
-    'dateDebut': new Date("2021-04-27"),
-    'dateFin': new Date("2021-05-27"),
-    'isMatin': true,
-    'isMidi': false,
-    'isSoir': true,
-    'isActive': true,
-  }
+  freq1 = new Frequence("freq1",[new Date('2021-06-06')],[this.horaire1])
+  freq2 = new Frequence("freq1",[new Date('2021-06-06'),new Date('2021-06-07'),new Date('2021-06-08')],[this.horaire1, this.horaire2,this.horaire3])
 
-  posologieMemorex1: Posologie = {
-    'id': 3,
-    'nomMedic': "Memorex",
-    'nombreUnite': 2,
-    'dateDebut': new Date("1992-05-20"),
-    'dateFin': new Date("1998-05-27"),
-    'isMatin': true,
-    'isMidi': false,
-    'isSoir': true,
-    'isActive': false,
-  }
+  medic1 = new Medic("med1","Doliprane",this.duree1,this.freq1);
+  medic2 = new Medic("med2","Econazole",this.duree2,this.freq2);
 
-  posologieMemorex2: Posologie = {
-    'id': 4,
-    'nomMedic': "Memorex",
-    'nombreUnite': 2,
-    'dateDebut': new Date("2002-03-06"),
-    'dateFin': new Date("2002-04-08"),
-    'isMatin': true,
-    'isMidi': false,
-    'isSoir': false,
-    'isActive': false,
-  }
+  listeMedics = [this.medic1, this.medic2];
 
-  posologieMemorex3: Posologie = {
-    'id': 5,
-    'nomMedic': "Memorex",
-    'nombreUnite': 1,
-    'dateDebut': new Date("2012-12-05"),
-    'dateFin': new Date(),
-    'isMatin': true,
-    'isMidi': true,
-    'isSoir': true,
-    'isActive': true,
-  }
-  posologieTiorfan: Posologie = {
-    'id': 6,
-    'nomMedic': "Tiorfan",
-    'nombreUnite': 1,
-    'dateDebut': new Date("2021-05-17"),
-    'dateFin': new Date("2021-05-20"),
-    'isMatin': true,
-    'isMidi': true,
-    'isSoir': true,
-    'isActive': true,
-  }
-  posologieTiorfan2: Posologie = {
-    'id': 7,
-    'nomMedic': "Tiorfan",
-    'nombreUnite': 2,
-    'dateDebut': new Date("1997-12-12"),
-    'dateFin': new Date(),
-    'isMatin': true,
-    'isMidi': false,
-    'isSoir': true,
-    'isActive': true,
-  }
-  posologieTiorfan3: Posologie = {
-    'id': 8,
-    'nomMedic': "Tiorfan",
-    'nombreUnite': 1,
-    'dateDebut': new Date("2012-12-20"),
-    'dateFin': new Date("2012-12-22"),
-    'isMatin': false,
-    'isMidi': true,
-    'isSoir': false,
-    'isActive': false,
-  }
-  posologieCoalgan: Posologie = {
-    'id': 9,
-    'nomMedic': "Coalgan",
-    'nombreUnite': 2,
-    'dateDebut': new Date("1515-11-30"),
-    'dateFin': new Date("1515-12-20"),
-    'isMatin': false,
-    'isMidi': true,
-    'isSoir': true,
-    'isActive': false,
-  }  
-  posologieCoalgan2: Posologie = {
-    'id': 10,
-    'nomMedic': "Tiorfan",
-    'nombreUnite': 1,
-    'dateDebut': new Date("2008-11-13"),
-    'dateFin': new Date("2016-06-10"),
-    'isMatin': false,
-    'isMidi': true,
-    'isSoir': false,
-    'isActive': true,
-  }
+  constructor(private http : HttpClient) { }
 
-
-  doliprane: Medic = {
-    'id': 1,
-    'nom': 'Doliprane',
-    'posologies': [this.posologieDoliprane1, this.posologieDoliprane2]
-  }
-
-  memorex: Medic = {
-    'id': 2,
-    'nom': 'Memorex',
-    'posologies': [this.posologieMemorex1, this.posologieMemorex2, this.posologieMemorex3]
-  }
-
-  tiorfan: Medic = {
-    'id': 3,
-    'nom': 'Tiorfan',
-    'posologies': [this.posologieTiorfan, this.posologieTiorfan2, this.posologieTiorfan3]
-  }
-
-  coalgan: Medic = {
-    'id': 4,
-    'nom': 'Colagan',
-    'posologies': [this.posologieCoalgan, this.posologieCoalgan2],
-  }
-  listeMedics = [this.doliprane, this.memorex, this.tiorfan, this.coalgan];
-
-  constructor() { }
-
-  getNextId = (): number => {
-    let nextId: number = 1;
-    this.listeMedics.forEach(medic => {
-      if(medic.id === nextId){
-        nextId++;
-      } else{
-        return nextId;
-      }
-    });
-    return nextId;
-  }
-
-  findAll = (): Medic[] => {
+  getAll = () : Medic[] => {
     return this.listeMedics;
   }
 
-  findById = (id: number): Medic => {
-    let medicTmp: Medic;
-    this.listeMedics.forEach(medic => {
-      if (medic.id == id) {
-        medicTmp = medic;
-      }
-    })
-    console.log("aucune Medic avec cette id")
-    return medicTmp;
+/*   getAll = () : Observable<Medic[]> => {
+    return this.http.get<Medic[]>(`${environment.urlSpring}/medics`);
+  } */
+
+  getById = (id : String) : Observable<Medic> => {
+    return this.http.get<Medic>(`${environment.urlSpring}/medics/${id}`);
   }
 
-  findAllPosologiesByMedicIdWithCurrentDate = (id: number): Posologie[] => {
-    let medic = this.findById(id);
-    let listeCurrentDate : Posologie[] = [];
-    let dateNow = formatDate(new Date(), 'yyyy-MM-dd', 'en_US');
-    let date = new Date(dateNow);
-    medic.posologies.forEach(poso => {
-      if (poso.dateDebut <= date && date <= poso.dateFin){
-        listeCurrentDate.push(poso);
-      }
-    });
-    return listeCurrentDate;
+  getByNom = (nom : String) : Observable<Medic> => {
+    return this.http.get<Medic>(`${environment.urlSpring}/medics/nom/${nom}`);
   }
 
-
-  findAllPosologiesByMedicId = (id: number): Posologie[] => {
-    let medic = this.findById(id);
-    return medic.posologies;
+  //PATCH si vous avez mis PATCH dans le back
+  //PUT si vous avez mis PUT dans le back
+  update = (parc : Medic) : Observable<Medic> => {
+    return this.http.patch<Medic>(`${environment.urlSpring}/medics`, parc);
   }
 
-  save = (Medic: Medic) => {
-    console.log("Liste des Medic : " + this.listeMedics);
-    console.log("Ajout de la Medic : " + Medic);
-    this.listeMedics.push(Medic);
-    console.log("Liste des Medic : " + this.listeMedics);
+  create = (medic: MedicTmp) : Observable<Medic> => {
+    return this.http.post<Medic>(`${environment.urlSpring}/medics`, medic);
   }
 
-  delete = (id: number) => {
-    console.log("Liste des Medic : " + this.listeMedics);
-    let medic = this.findById(id);
-    console.log("Suppression de la Medic : " + medic);
-    let pos = this.listeMedics.indexOf(medic)
-    this.listeMedics.splice(pos, 1);
-    console.log("Liste des Medic : " + this.listeMedics);
+  //Si vous avez fait le back avec un parc en BODY
+  delete = (parc : Medic) : Observable<Medic> => {
+    return this.http.request<Medic>('delete', `${environment.urlSpring}/medics`, { body : parc});
   }
 
-  update = (Medic: Medic) => {
-    console.log("Liste des Medic : " + this.listeMedics);
-    console.log("MAJ de la Medic : " + Medic);
-    this.delete(Medic.id);
-    this.save(Medic);
-    console.log("Liste des Medic : " + this.listeMedics);
+  //Si vous avez fait un back avec un deleteById
+  deleteById = (parc: Medic) : Observable<Medic> => {
+    return this.http.delete<Medic>(`${environment.urlSpring}/medics/${parc.id}`)
   }
+
 }

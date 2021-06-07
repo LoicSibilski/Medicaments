@@ -1,15 +1,18 @@
-import { Posologie } from "../../posologie/models/posologie";
+import { Duree } from "../../duree/models/duree";
+import { Frequence } from "../../frequence/models/frequence";
 
 export class Medic {
 
-    public id: number;
+    public id: string;
     public nom : string;
-    public posologies : Posologie[];
+    public duree: Duree;
+    public frequence: Frequence;
 
-    constructor(id:number, nom:string, posologies:Posologie[]){
+    constructor(id:string, nom:string, duree:Duree, frequence:Frequence){
         this.id = id;
         this.nom = nom;
-        this.posologies = posologies;
+        this.duree = duree;
+        this.frequence = frequence;
     }
 
 }
