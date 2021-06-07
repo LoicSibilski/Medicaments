@@ -11,75 +11,30 @@ import { Compte } from '../models/compte';
  */
 export class CompteService {
 
-  compte1 : Compte = new Compte(1,"test1@test.com","test1", []); 
-  compte2 : Compte = new Compte(2,"test2@test.com","test2", []);
+  compteTest : Compte = new Compte(1,"test@test.com","test", []); 
 
-  listeComptes = [this.compte1, this.compte2];
+  listeComptes = [this.compteTest];
 
   constructor() { }
 
   /**
-   * Créer un compte
-   * @param compte 
-   * @public
+   * Cette méthode me permet de récupérer un compte à partir d'une adresse email
+   * @param email 
+   * @returns 
    */
-  public save = (compte : Compte) : void => {
-    console.log("compte ajouté : " + compte)
-    this.listeComptes.push(compte);
-  }
-
-  /**
-   * Récupérer tous les comptes
-   * @returns {[Compte]} listeComptes
-   * @public
-   */
-  public findAll  = () : Compte[] => {
-    console.log("liste des comptes : " + this.listeComptes)
-    return this.listeComptes;
-  }
-
-  /**
-   * Récupérer un compte
-   * @param id 
-   * @returns {Compte} compteId
-   * @public
-   */
-  public findById = (id : number) : Compte => {
-    let compteId : Compte;
+  public findByEmail = (email : string) : Compte => {
+    let compteRecupere : Compte;
     this.listeComptes.forEach(compte => {
-      if(compte.id == id) {
-        compteId = compte;
-        console.log("compte récupéré : " + compteId)
+      if(compte.email == email) {
+        compteRecupere = compte;
       }
     })
-    return compteId;
+    return compteRecupere;
   }
 
-  /**
-   * Mettre à jour un compte
-   * @param compte 
-   * @public
-   */
-  public update = (compte : Compte) : void => {
-    console.log("compte existant : " + this.findById(compte.id));
-    this.delete(compte.id);
-    console.log("liste des comptes : " + this.findAll());
-    this.save(compte);
-    console.log("compte ajouté : " + compte);
-  }
-
-  /**
-   * Supprimer un compte
-   * @param id 
-   * @public
-   */
-  public delete = (id : number) : void => {
-    let compte = this.findById(id);
-    console.log("compte récupéré : " + compte)
-    let indexCompte = this.listeComptes.indexOf(compte);
-    console.log("index du compte : " + indexCompte);
-    this.listeComptes.splice(indexCompte, 1);
-    console.log("compte supprimé : " + compte)
+  public save = (compte : Compte) : void => {
+    this.listeComptes.push(compte);
+    console.log("compte " + compte + " est créer");
   }
 
 }
