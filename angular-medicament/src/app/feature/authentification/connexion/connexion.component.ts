@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Compte } from '../../compte/models/compte';
+import { CompteService } from '../../compte/services/compte.service';
 
 @Component({
   selector: 'app-connexion',
@@ -15,25 +16,34 @@ import { Compte } from '../../compte/models/compte';
  */
 export class ConnexionComponent implements OnInit {
 
-  // TODO 
-  // récupérer les données du formulaire
-  // vérifier si les données sont dans la liste des comptes 
-  // * si oui, renvoyer vers la page home avec un objet compte
-  // * si non, rester sur la même page
+  connexionForm : FormGroup;
 
-  compteForm : FormGroup;
-  soumettre = false;
+  compte : Compte = new Compte(0, "" , "", []);
 
-  constructor() { }
+  constructor(
+    private service : CompteService, 
+    private fb : FormBuilder, 
+    private router : Router
+    ) { 
+      this.connexionForm = this.fb.group({
+        email : "",
+        motDePasse : ""
+      })
+    }
   
   ngOnInit(): void {}
 
   /**
-   * Récupérer les données du formulaire
-   * @public
+   * Cette méthode permet de vérifier si un compte existe
    */
-  public onSubmit = () : void => {
-    this.soumettre = true;
+  verifierCompteExiste = () => {
+    let email = this.connexionForm.value.email;
+    let motDePasse = this.connexionForm.value.motDePasse;
+    let compteRecupere = this.service.findByEmail(email);
+    console.log(motDePasse + " " +compteRecupere.motDePasse);
+    if(compteRecupere.email === email && compteRecupere.motDePasse === motDePasse) {
+      this.router.navigate(["/home"]);
+    }
   }
 
 }

@@ -46,6 +46,7 @@ import { AssistantDetailComponent } from './feature/users/pages/assistant-detail
 import { ConnexionComponent } from './feature/authentification/connexion/connexion.component';
 import { InscriptionComponent } from './feature/authentification/inscription/inscription.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material/material.module';
 
 import { FrequencesPagesComponent } from './feature/frequence/pages/frequences-pages/frequences-pages.component';
 import { FrequencesListComponent } from './feature/frequence/pages/frequences-list/frequences-list.component';
@@ -123,6 +124,7 @@ const modules = [
     HttpClientModule,
     BrowserModule,
     BrowserAnimationsModule,
+    MaterialModule,
     [...modules]
   ],
   exports: [

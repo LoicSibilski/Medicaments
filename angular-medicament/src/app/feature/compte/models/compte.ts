@@ -8,25 +8,25 @@ import { User } from "../../users/models/user";
 export class Compte {
     private _id: number;
     private _email: string;
-    private _password: string;
-    private _users: User[];
+    private _motDePasse: string;
+    private _utilisateurs: User[];
 
     /**
      * @constructor
      * @param {number} id
      * @param {string} email 
-     * @param {string} password 
-     * @param {[User]} users 
+     * @param {string} _motDePasse 
+     * @param {[User]} utilisateurs 
      */
-    constructor(id: number, email: string, password: string, users: User[]) {
+    constructor(id: number, email: string, motDePasse: string, utilisateurs: User[]) {
         this._id = id;
         this._email = email;
-        this._password = password;
-        this._users = users;
+        this._motDePasse = motDePasse;
+        this._utilisateurs = utilisateurs;
     }
 
     /**
-     * Get l'id d'un compte
+     * Cette accesseur permet d'accéder à l'id d'un compte
      * @returns {number} : id
      * @public
      */
@@ -35,19 +35,7 @@ export class Compte {
     }
 
     /**
-     * Set l'id d'un compte
-     * @param {number} newId
-     * @public
-     * l'utilisateur n'a pas accès à cette interface.
-     */
-    /*
-    public set id (newId:number) {
-        this._id = newId;
-    }
-    */
-
-    /**
-     * Get l'email d'un compte
+     * Cette accesseur permet de récupérer à l'email d'un compte
      * @returns email
      * @public
      */
@@ -56,48 +44,48 @@ export class Compte {
     }
 
     /**
-     * Set l'email d'un compte
-     * @param {string} newEmail
+     * Ce mutateur permet de modifier l'email d'un compte
+     * @param {string} nouveauEmail
      * @public
      */
-    public set email (newEmail : string) {
-        this._email = newEmail;
+    public set email (nouveauEmail : string) {
+        this._email = nouveauEmail;
     }
 
     /**
-     * Get le mot de passe d'un compte
+     * Cette accesseur permet de récupérer le mot de passe d'un compte
      * @returns {string} password
      * @public
      */
-    public get password () : string {
-        return this._password;
+    public get motDePasse () : string {
+        return this._motDePasse;
     }
 
     /**
-     * Set le mot de passe d'un compte
-     * @param {string} newPassword
+     * Ce mutateur permet de modifier le mot de passe d'un compte
+     * @param {string} nouveauMotDePasse
      * @public
      */
-    public set password (newPassword : string) {
-        this._password = newPassword;
+    public set motDePasse (nouveauMotDePasse : string) {
+        this._motDePasse = nouveauMotDePasse;
     }
 
     /**
-     * Get la liste des utilisateurs d'un compte
-     * @returns {[User]} users
+     * Cette accesseur permet de récupérer la liste des utilisateurs d'un compte
+     * @returns {[User]} utilisateurs
      * @public
      */
-    public get users () : User[] {
-        return this._users;
+    public get utilisateurs () : User[] {
+        return this._utilisateurs;
     }
 
     /**
-     * Set la liste des utilisateurs d'un compte
-     * @param {[User]} newUsers
+     * Ce mutateur permet de modifier la liste des utilisateurs d'un compte
+     * @param {[User]} nouveauUtilisateurs
      * @public
      */
-    public set users (newUsers: User[]) {
-        this._users = newUsers;
+    public set utilisateurs (nouveauUtilisateurs : User[]) {
+        this._utilisateurs = nouveauUtilisateurs;
     }
 
 }
