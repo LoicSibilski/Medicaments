@@ -13,15 +13,11 @@ import { MedicTmp } from '../models/medic-tmp';
 })
 export class MedicService {
 
-  horaire1 = new Horaire(12,45);
-  horaire2 = new Horaire(15,30);
-  horaire3 = new Horaire(20,25);
-
   duree1 = new Duree("dur1", 3, new Date());
   duree2 = new Duree("dur2", 2, new Date('2021-08-07'));
 
-  freq1 = new Frequence("freq1",[new Date('2021-06-06')],[this.horaire1])
-  freq2 = new Frequence("freq1",[new Date('2021-06-06'),new Date('2021-06-07'),new Date('2021-06-08')],[this.horaire1, this.horaire2,this.horaire3])
+  freq1 = new Frequence("freq1",[new Date('2021-06-06')])
+  freq2 = new Frequence("freq1",[new Date('2021-06-06'),new Date('2021-06-07'),new Date('2021-06-08')])
 
   medic1 = new Medic("med1","Doliprane",this.duree1,this.freq1);
   medic2 = new Medic("med2","Econazole",this.duree2,this.freq2);

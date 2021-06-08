@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { MedicService } from '../../services/medic.service';
 import { Medic } from '../../models/medic';
 import { Router } from '@angular/router';
@@ -19,6 +19,7 @@ export class MedicsNewFormComponent implements OnInit {
 
   medicForm: FormGroup;
   chaqueJourXHeuresForm: FormGroup;
+  heures: FormArray;
 
   medic: Medic;
   duree: Duree;
@@ -26,7 +27,8 @@ export class MedicsNewFormComponent implements OnInit {
 
   frequenceData: String[] = [];
   dureeData: String[] = [];
-  medicTmp: MedicTmp = new MedicTmp("", [], []);
+
+  medicTmp: MedicTmp = new MedicTmp("", [], [], []);
 
   data: String[] = [];
 
@@ -38,10 +40,11 @@ export class MedicsNewFormComponent implements OnInit {
     private dialogRefFrequence: MatDialogRef<FrequencesNewFormComponent>,
     private dialog: MatDialog) {
     this.duree = new Duree("", 0, new Date());
-    this.frequence = new Frequence("", [], []);
+    this.frequence = new Frequence("", []);
     this.medicForm = this.fb.group({
       nom: "",
-    })
+      heures: this.fb.array([]),
+    });
 
   }
 
@@ -57,7 +60,6 @@ export class MedicsNewFormComponent implements OnInit {
     this.dialogRefDuree = this.dialog.open(DureesNewFormComponent, dialogConfigDuree);
     this.dialogRefDuree.afterClosed().subscribe(res => {
       this.dureeData = res;
-      console.log(this.dureeData);
     })
   }
 
@@ -70,25 +72,36 @@ export class MedicsNewFormComponent implements OnInit {
     this.dialogRefFrequence = this.dialog.open(FrequencesNewFormComponent, dialogConfigFrequence);
     this.dialogRefFrequence.afterClosed().subscribe(res => {
       this.frequenceData = res;
-      this.data = [];
-      this.frequenceData.forEach(elem => {
-        this.data.push(elem);
-      })
-
     })
   }
 
 
   ajouter = () => {
-    this.medicTmp.nom = this.medicForm.value;
+    this.medicTmp.nom = this.medicForm.value.nom;
     this.medicTmp.dureeData = this.dureeData;
     this.medicTmp.frequenceData = this.frequenceData;
+    console.log(this.medicForm.value)
+    this.medicTmp.listeHeures = this.medicForm.value.heures;
     console.log(this.medicTmp)
     this.medicService.create(this.medicTmp).subscribe(medic => {
       this.router.navigate(["/medics"]);
     });
   }
 
+  addHeures() {
+    const heures = this.getHeures();
+    heures.push(this.fb.group({
+      heure: new FormControl(),
+    }));
 
+  }
+
+  getHeures() {
+    return this.medicForm.controls["heures"] as FormArray;
+  }
+
+  trackByFn(index) {
+    return index;
+  }
 
 }
