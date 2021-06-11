@@ -1,5 +1,5 @@
 <div class="container">
-    <form class="form" [formGroup]="medicForm" (ngSubmit)="ajouter()">
+    <form class="form" [formGroup]="medicForm">
         <div class="nom">
             <mat-form-field [attr.aria-label]="'Nom'">
                 <input name="nom" matInput type="text" formControlName="nom" placeholder="Nom">
@@ -16,36 +16,15 @@
                 </div>
             </div>
         </div>
+        <div formArrayName="heures" *ngFor="let he of medicForm.controls.heures?.value; let i = index; trackBy: trackByFn">
+            <mat-form-field [attr.aria-label]="'heure'" [formGroupName]="i">
+                <input name="heure" matInput type="time" formControlName="heure" placeholder="heure de prise" required>
+            </mat-form-field>
+        </div>
+        <button (click)="addHeures()">Ajouter heures</button>
+
         <div>
-            <button>Ajouter</button>
+            <button (click)="ajouter()">Save</button>
         </div>
     </form>
 </div>
-
-
-<!-- <h1 mat-dialog-title>Ajouter un médicament</h1>
-<div>
-    <form [formGroup]="form" novalidate>
-
-        <mat-form-field [attr.aria-label]="'Nom'">
-            <input name="nom" matInput type="text" formControlName="nom" placeholder="Nom du médicament" ngModel required>
-        </mat-form-field>
-
-        <div class="" *ngIf="isPosologieNull(); else posologieIsNull">
-            <div class="posologieEmpty">
-                <button type="button" (click)="openMedicFormDialog()">ajouter Posologie</button>
-            </div>
-        </div>
-        <ng-template #posologieIsNull>
-            <div class="posologieNotEmpty">
-                <p>{{posologie.nombreUnite}}</p>
-                <p>du {{posologie.dateDebut}} au {{posologie.dateFin}} </p>
-                <p *ngIf="posologie.isMatin">Matin</p>
-                <p *ngIf="posologie.isMidi">Midi</p>
-                <p *ngIf="posologie.isSoir">Soir</p>
-
-                <button type="button" (click)="openMedicFormDialog()">Mettre à jour la Posologie</button>
-            </div>
-        </ng-template>
-    </form>
-</div> -->

@@ -15,8 +15,8 @@
             <div class="classInput">
                 <div class="jusqueX" *ngIf="choixDureeJusqueX()">
                     <form [formGroup]="dureeForm">
-                        <mat-form-field [attr.aria-label]="'Tous les :'">
-                            <input name="x" matInput type="date" formControlName="dateFin" placeholder="jusqu'au">
+                        <mat-form-field [attr.aria-label]="'jusquau :'">
+                            <input name="dateFin" matInput type="date" formControlName="dateFin" placeholder="jusqu'au">
                         </mat-form-field>
                     </form>
                 </div>
