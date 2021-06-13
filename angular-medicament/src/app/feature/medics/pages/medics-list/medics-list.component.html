@@ -5,6 +5,9 @@
         <div class="medic" *ngFor="let medic of medics">
             <p>ID : {{medic.id}}</p>
             <p>Nom : {{medic.nom}}</p>
+            <p>duree dateDebut: {{medic.dureeDto.dateDebut}}</p>
+            <p>duree dateFin: {{medic.dureeDto.dateFin}}</p>
+            <p>freq : {{medic.frequenceDto.id}}</p>
             <app-button-redirector [routerLink]="['/medics/update', medic.id]">
                 Modifier
             </app-button-redirector>
