@@ -28,8 +28,9 @@ export class MedicsEditFormComponent implements OnInit {
     let id : string ;
     this.route.paramMap.subscribe(params => {
        id = params.get("id");
-       this.medicService.getById(id).subscribe(parc => {
-         this.medic = parc;
+       console.log("id => " + id);
+       this.medicService.getById(id).subscribe(elem  => {
+         this.medic = elem;
          this.medicForm = this.fb.group({
           nom : this.medic.nom,
         })
