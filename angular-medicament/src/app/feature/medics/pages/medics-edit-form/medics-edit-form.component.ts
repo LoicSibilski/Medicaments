@@ -17,7 +17,7 @@ export class MedicsEditFormComponent implements OnInit {
     nom : new FormControl(""),
   });
 
-  medic : Medic = new Medic("","",new Duree(" ", 0 , new Date()),new Frequence("",[],[]));
+  medic : Medic = new Medic("","",new Duree(" ", 0 , new Date()),new Frequence("",[]));
 
   constructor(
     private medicService: MedicService,

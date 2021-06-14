@@ -44,8 +44,8 @@ export class FrequencesNewFormComponent implements OnInit {
       mercredi: new FormControl(true),
       jeudi: new FormControl(true),
       vendredi: new FormControl(true),
-      samedi: new FormControl(),
-      dimanche: new FormControl(),
+      samedi: new FormControl(false),
+      dimanche: new FormControl(false),
     });
 
     this.chaqueJourXHeuresForm = this.fb.group({

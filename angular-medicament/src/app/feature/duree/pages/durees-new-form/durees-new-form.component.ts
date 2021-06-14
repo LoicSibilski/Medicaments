@@ -42,6 +42,7 @@ export class DureesNewFormComponent implements OnInit {
   }
 
   saveDuree() {
+    console.log(this.dureeForm.value.dateFin)
     this.dataToReturn.push(this.dureeForm.value)
     this.dialogRefFrequence.close(this.dataToReturn);
   }
