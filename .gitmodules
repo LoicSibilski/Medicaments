@@ -1,3 +1,6 @@
 [submodule "Medicament-Front-Angular"]
 	path = Medicament-Front-Angular
 	url = https://github.com/LoicSibilski/Medicament-Front-Angular
+[submodule "Medicament-Back-Spring"]
+	path = Medicament-Back-Spring
+	url = https://github.com/LoicSibilski/Medicament-Back-Spring
