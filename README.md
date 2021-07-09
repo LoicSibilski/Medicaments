@@ -72,9 +72,7 @@
 </details>
 
 
-
-<!-- ABOUT THE PROJECT -->
-## À propos
+## À propos du projet
 
 ** On ne sait quoi mettre dans cette section du README.md **
 
@@ -87,9 +85,6 @@
 * [Angular](https://angular.io/)
 <!-- * [Spring Boot](https://spring.io/) -->
 
-
-
-<!-- GETTING STARTED -->
 ## Comment commencer
 
 Pour obtenir une copie locale, copiez et suivez ces instructions simples
@@ -121,25 +116,17 @@ Faites en sorte d'avoir la version la plus récente de npm
    npm run api
    ```   
 
-
-<!-- USAGE EXAMPLES -->
 ## Utilisation
 
 Le projet actuellement n'a aucune utilisation, passez votre chemin.
 
 <!-- _For more examples, please refer to the [Documentation](https://example.com)_ -->
 
-
-
-
-<!-- LICENCE -->
 ## Licence
 
 Protégé sous la licence MIT. Regardez `LICENSE` pour plus d'informations.
 
 
-
-<!-- CONTACT -->
 ## Contact
 
 Mercier Samy
@@ -149,8 +136,6 @@ Bidault Fabien
 Loïc Sibilski 
 
 
-
-<!-- CREDITS -->
 ## Crédits
 
 * [Font Awesome](https://fontawesome.com)

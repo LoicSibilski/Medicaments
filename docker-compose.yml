@@ -1,28 +1,33 @@
 version: "3.3"
 
 services:
-    mongo: 
+    mongo:
         image: mongo
         ports:
             - 27017:27017
 
-    express:
-        image: mongo-express
-        ports:
-            - 8081:8081
-        depends_on: 
-            - mongo
-    back:
-        build: spring-auth-demo
+    app:
+        hostname: app.medica
+        build: 
+            dockerfile: Dockerfile
+            context: ./Medicament-Back-Spring
         ports:
             - 8080:8080
-        environment: 
+        environment:
             - SERVER_PORT=8080
             - MONGO_HOST=mongo
+        links: 
+            - mongo
         depends_on: 
             - mongo
-    
-    front:
-        build: auth-angular-banque
-        ports:
-            - 80:80
+
+#  app-spring-recherche:
+#      hostname: com.recherches
+#         ports :
+#             - 6969:6969
+
+    # app-ionic:
+    #     hostname: com.ionic
+    #     ports:
+    #         - 8100:8100
+  
