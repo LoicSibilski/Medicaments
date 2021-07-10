@@ -4,3 +4,6 @@
 [submodule "Medicament-Back-Spring"]
 	path = Medicament-Back-Spring
 	url = https://github.com/LoicSibilski/Medicament-Back-Spring
+[submodule "Medicament-Front-Ionic"]
+	path = Medicament-Front-Ionic
+	url = https://github.com/LoicSibilski/Medicament-Front-Ionic
