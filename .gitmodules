@@ -7,3 +7,6 @@
 [submodule "Medicament-Front-Ionic"]
 	path = Medicament-Front-Ionic
 	url = https://github.com/LoicSibilski/Medicament-Front-Ionic
+[submodule "medicament-recherche-elastic"]
+	path = medicament-recherche-elastic
+	url = https://github.com/LoicSibilski/medicament-recherche-elastic
