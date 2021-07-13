@@ -1,0 +1,64 @@
+_format_version: "1.1"
+
+services:
+  - name: spring-back
+    host: spring-back
+    port: 8080
+    path: /
+    routes:
+      - name: public-api-spring-back
+        paths:
+          - /
+
+  - name: spring-recherche
+    host: spring-recherche
+    port: 8081
+    path: /
+    routes:
+      - name: public-api-spring-recherche
+        paths:
+          - /
+
+
+#   - name: devportal-aux
+#     host: localhost
+#     port: 8001
+#     path: /services
+#     routes:
+#       - name: aux
+#         hosts:
+#           - api.local
+#         paths:
+#           - /rest/devportal/aux
+
+#   - name: devportal-aux-host
+#     host: localhost
+#     port: 8001
+#     path: /plugins
+#     routes:
+#       - name: aux-host
+#         hosts:
+#           - test-api.local
+#         paths:
+#           - /rest/devportal/aux
+
+#   - name: devportal-aux-host2
+#     host: localhost
+#     port: 8001
+#     path: /endpoints
+#     routes:
+#       - name: aux-host2
+#         hosts:
+#           - atest-api.local
+#         paths:
+#           - /rest/devportal/aux
+
+# services:
+#   name: my-service
+#   url: https://example.com
+#   plugins:
+#     — name: key-auth
+#   routes:
+#     — name: my-route
+#   paths:
+#     — /
