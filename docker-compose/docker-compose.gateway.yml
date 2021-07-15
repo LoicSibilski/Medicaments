@@ -2,6 +2,9 @@ version: "3.5"
 
 services:
     kong:
+        hostname: kong
+        networks:
+            - medica-net # on connecte le conteneur "mongo" au réseau "medica-net"
         build: ./images/kong/
         environment:
             KONG_DATABASE: "off"

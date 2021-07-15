@@ -3,6 +3,8 @@ version: "3.5"
 services:
     elasticsearch:
         image: docker.elastic.co/elasticsearch/elasticsearch:7.13.2
+        networks:
+            - medica-net # on connecte le conteneur "mongo" au réseau "medica-net"
         ports:
             - "9200:9200"
             - "9300:9300"
@@ -11,8 +13,7 @@ services:
             ELASTIC_PASSWORD: changeme
             discovery.type: single-node
         volumes:
-            - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
-            - ./elasticsearch/config/analyser.json:/usr/share/elasticsearch/config/analyser.json
+            - ../config/elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
         healthcheck:
             test: curl --cacert /usr/share/elasticsearch/config/certs/ca/ca.crt -s https://localhost:9200 >/dev/null; if [[ $$? == 52 ]]; then echo 0; else echo 1; fi
             interval: 30s
@@ -21,8 +22,10 @@ services:
 
     kibana:
         image: docker.elastic.co/kibana/kibana:7.13.2
+        networks:
+            - medica-net # on connecte le conteneur "mongo" au réseau "medica-net"
         volumes:
-            - ./kibana/config/kibana.yml:/usr/share/kibana/config/kibana.yml
+            - ../config/kibana/config/kibana.yml:/usr/share/kibana/config/kibana.yml
         ports:
             - "5601:5601"
         depends_on:
@@ -30,9 +33,11 @@ services:
 
     logstash:
         image: docker.elastic.co/logstash/logstash:7.13.2
+        networks:
+            - medica-net # on connecte le conteneur "mongo" au réseau "medica-net"
         volumes:
-            - ./logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml
-            - ./logstash/pipeline:/usr/share/logstash/pipeline
+            - ../config/logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml
+            - ../config/logstash/pipeline:/usr/share/logstash/pipeline
         ports:
             - "5044:5044"
             - "5000:5000/tcp"

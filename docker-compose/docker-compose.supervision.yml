@@ -17,6 +17,8 @@ version: "3.5" # version du fichier de configuration.
 services: # un service va permettre de configurer un conteneur
   influxdb: # nom du service. On peut choisir n'importe quel nom (éviter accent, espace)
     hostname: influxdb # nom de l'hote, var servir de DNS pour communniquer entre les conteneurs
+    networks:
+      - medica-net # on connecte le conteneur "mongo" au réseau "medica-net"
     image: influxdb:1.8.4 # image à télécharger
     environment: # permet de configurer les variables d'environnement
       - INFLUXDB_DB=docker # pour connaitre cette variable, je dois regarder la documentation du conteneur influxdb
@@ -25,6 +27,8 @@ services: # un service va permettre de configurer un conteneur
 
   telegraf:
     image: telegraf:latest
+    networks:
+      - medica-net # on connecte le conteneur "mongo" au réseau "medica-net"
     depends_on: # on s'assure que le service se nommant influxdb est bien démarré
       - influxdb
     volumes:
@@ -34,6 +38,8 @@ services: # un service va permettre de configurer un conteneur
 
   grafana:
     image: grafana/grafana:8.0.5-ubuntu
+    networks:
+      - medica-net # on connecte le conteneur "mongo" au réseau "medica-net"
     volumes:
       - grafana-storage:/var/lib/grafana # volume spécial, c'est un lien vers un répertoire géré par docker (voir plus bas dans ce fichier)
     depends_on:
