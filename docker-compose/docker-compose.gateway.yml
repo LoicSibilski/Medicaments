@@ -6,6 +6,8 @@ services:
         networks:
             - medica-net # on connecte le conteneur "mongo" au réseau "medica-net"
         build: ./images/kong/
+        networks:
+            - app-medica 
         environment:
             KONG_DATABASE: "off"
             KONG_DECLARATIVE_CONFIG: kong.yml

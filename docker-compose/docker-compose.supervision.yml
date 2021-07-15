@@ -24,6 +24,10 @@ services: # un service va permettre de configurer un conteneur
       - INFLUXDB_DB=docker # pour connaitre cette variable, je dois regarder la documentation du conteneur influxdb
       - INFLUXDB_ADMIN_USER=${INFLUXDB_USERNAME}
       - INFLUXDB_ADMIN_PASSWORD=${INFLUXDB_PASSWORD}
+    networks:
+      - app-medica 
+    ports:
+      - "${PORT_INFLUXDB}:8086"
 
   telegraf:
     image: telegraf:latest
@@ -35,6 +39,8 @@ services: # un service va permettre de configurer un conteneur
       # récupération des métriques de docker.
       - "//var/run/docker.sock:/var/run/docker.sock:ro" # repertoire sur l'hote Linux (celui qui contient le conteneur)
       - ../config/telegraf/telegraf.conf:/etc/telegraf/telegraf.conf:ro # ro indique en lecture seule. Le conteneur n'a le droit que de lire le contenu de ce répertoire
+    networks:
+      - app-medica 
 
   grafana:
     image: grafana/grafana:8.0.5-ubuntu
@@ -51,6 +57,8 @@ services: # un service va permettre de configurer un conteneur
       - GF_PATHS_PLUGINS=/var/lib/grafana/plugins
     ports:
       - "${PORT_GRAFANA}:3000"
+    networks:
+      - app-medica 
 
 volumes: # répertoire fabriqués par docker sur l'hôte linux
   influxdb-storage:

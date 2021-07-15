@@ -1,15 +1,9 @@
 version: "3.5"
 
-networks: # on fabrique des réseaux ()
-  medica-net: # nom du réseau. nous pouvons le choisir 
-    ipam:
-      driver: default # par "default", c'est bridge : donc accès à internet
-      config:
-        - subnet: 10.12.0.0/16 # masque de sous réseau de "kong-net"
 
 services:
-    mongo:
-        container_name: app-medica
+    mongo: 
+        hostname: mongo
         image: mongo
         networks:
             - medica-net # on connecte le conteneur "mongo" au réseau "medica-net"
@@ -17,3 +11,5 @@ services:
             - 27017:27017
         volumes: 
             - ../init-db:/docker-entrypoint-initdb.d/
+        networks:
+            - app-medica 

@@ -1,10 +1,15 @@
 version: "3.5"
 
+networks: # on fabrique des réseaux ()
+  app-medica: # nom du réseau. nous pouvons le choisir 
+    ipam:
+      driver: default # par "default", c'est bridge : donc accès à internet
+
+
 services:
     elasticsearch:
         image: docker.elastic.co/elasticsearch/elasticsearch:7.13.2
-        networks:
-            - medica-net # on connecte le conteneur "mongo" au réseau "medica-net"
+        hostname: elasticsearch
         ports:
             - "9200:9200"
             - "9300:9300"
@@ -12,6 +17,8 @@ services:
             ES_JAVA_OPTS: "-Xmx256m -Xms256m"
             ELASTIC_PASSWORD: changeme
             discovery.type: single-node
+        networks:
+            - app-medica 
         volumes:
             - ../config/elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
         healthcheck:
@@ -30,6 +37,8 @@ services:
             - "5601:5601"
         depends_on:
             - elasticsearch
+        networks:
+            - app-medica 
 
     logstash:
         image: docker.elastic.co/logstash/logstash:7.13.2
@@ -47,3 +56,5 @@ services:
             LS_JAVA_OPTS: "-Xmx256m -Xms256m"
         depends_on:
             - elasticsearch
+        networks:
+            - app-medica 
