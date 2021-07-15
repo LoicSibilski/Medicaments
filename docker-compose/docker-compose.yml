@@ -1,10 +1,15 @@
 version: "3.5"
 
 services:
-    mongo:
+    mongo: 
+        hostname: mongo
         image: mongo
         ports:
             - 27017:27017
+        volumes: 
+            - ../init-db:/docker-entrypoint-initdb.d/
+        networks:
+            - app-medica 
 
     app:
         hostname: app.medica
@@ -20,6 +25,9 @@ services:
             - mongo
         depends_on: 
             - mongo
+        networks:
+            - app-medica 
+        restart: unless-stopped
 
     springrecherche:
         hostname: app.springrecherche
@@ -35,14 +43,10 @@ services:
         depends_on: 
             - mongo
             - elasticsearch
+        links: 
+            - mongo
+            - elasticsearch
+        networks:
+            - app-medica 
+        restart: unless-stopped
 
-#  app-spring-recherche:
-#      hostname: com.recherches
-#         ports :
-#             - 8081:8081
-
-    # app-ionic:
-    #     hostname: com.ionic
-    #     ports:
-    #         - 8100:8100
-  

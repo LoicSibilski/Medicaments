@@ -3,6 +3,8 @@ version: "3.5"
 services:
     kong:
         build: ./images/kong/
+        networks:
+            - app-medica 
         environment:
             KONG_DATABASE: "off"
             KONG_DECLARATIVE_CONFIG: kong.yml

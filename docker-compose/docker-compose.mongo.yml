@@ -1,9 +1,13 @@
 version: "3.5"
 
+
 services:
     mongo: 
+        hostname: mongo
         image: mongo
         ports:
             - 27017:27017
         volumes: 
             - ../init-db:/docker-entrypoint-initdb.d/
+        networks:
+            - app-medica 
