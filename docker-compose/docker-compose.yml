@@ -10,7 +10,7 @@ services:
         hostname: app.medica
         build: 
             dockerfile: Dockerfile
-            context: ./Medicament-Back-Spring
+            context: ../Medicament-Back-Spring
         ports:
             - 8080:8080
         environment:
@@ -20,6 +20,21 @@ services:
             - mongo
         depends_on: 
             - mongo
+
+    springrecherche:
+        hostname: app.springrecherche
+        build: 
+            dockerfile: Dockerfile
+            context: ../medicament-recherche-elastic
+        ports:
+            - 8081:8081
+        environment:
+            - SERVER_PORT=8081
+            - MONGO_HOST=mongo
+            - ELASTICSEARCH_HOST=elasticsearch
+        depends_on: 
+            - mongo
+            - elasticsearch
 
 #  app-spring-recherche:
 #      hostname: com.recherches
