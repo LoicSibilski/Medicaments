@@ -33,7 +33,7 @@ services:
         hostname: app.springrecherche
         build: 
             dockerfile: Dockerfile
-            context: E:\dev\technos\dev\SpringToolSuite\Workspaces\medicament-recherche-elastic
+            context: ../medicament-recherche-elastic
         ports:
             - 8081:8081
         environment:
